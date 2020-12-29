@@ -4,7 +4,7 @@ const editionPrice = document.querySelector(".editions-left__priceContainer");
 const editionsTop = document.querySelector(".editions-right__top");
 const galleryInfo = document.querySelector(".gallery-left-info__more");
 const galleryContainer = document.querySelector(".gallery .main-container");
-if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 768) {
+if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 992) {
     editionsTop.append(editionPrice);
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
@@ -81,13 +81,13 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     // Проекты
     const swiperProjects = new Swiper('.projects .swiper-container', {
         slidesPerView: 3,
-        spaceBetween: 50,
+        spaceBetween: 60,
         navigation: {
             nextEl: '.projects__swiper-next',
             prevEl: '.projects__swiper-prev',
         },
     });
-} else if (document.documentElement.clientWidth <= 768 && document.documentElement.clientWidth > 320) {
+} else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
     galleryContainer.append(galleryInfo);
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
@@ -123,17 +123,16 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     // Проекты
     const swiperProjects = new Swiper('.projects .swiper-container', {
         slidesPerView: 2,
-        spaceBetween: 34,
+        spaceBetween: 50,
         navigation: {
             nextEl: '.projects__swiper-next',
             prevEl: '.projects__swiper-prev',
         },
     });
-} else if (document.documentElement.clientWidth <= 320) {
+} else if (document.documentElement.clientWidth <= 700) {
     galleryContainer.append(galleryInfo);
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        slidesPerView: 1,
         navigation: {
             nextEl: '.gallery-navigate__next',
             prevEl: '.gallery-navigate__prev',
@@ -148,7 +147,6 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     galleryNavigation.before(gallerySwiper);
 
     let swiperEvents = new Swiper('.events .swiper-container', {
-        slidesPerView: 1,
         pagination: {
             el: '.events__pagination',
         },
@@ -210,6 +208,64 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
         itemChoice.innerHTML = ev.detail.choice.label;
         itemChoice.append(buttonTest);
         listChoice.append(itemChoice);
+    })
+}
+if (document.documentElement.clientWidth <= 1640 && document.documentElement.clientWidth > 992) {
+    // Галерея
+    let swiperGallery = new Swiper('.gallery-right .swiper-container', {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 34,
+        slidesPerColumn: 2,
+        navigation: {
+            nextEl: '.gallery-navigate__next',
+            prevEl: '.gallery-navigate__prev',
+        },
+        pagination: {
+            el: '.gallery-navigate__pagination',
+            type: 'fraction',
+        },
+    });
+}
+if (document.documentElement.clientWidth <= 1366) {
+    const burgerList = document.querySelector('.header-top__navigate');
+    const burger = document.querySelector('.header-top__burger');
+    const privateRoom = document.querySelector('.header-top__linkContainer');
+    burgerList.append(privateRoom);
+    burger.after(burgerList);
+    burger.addEventListener('click', (ev) => {
+        burger.classList.toggle('header-top__burger--active');
+    })
+}
+
+// Перемещение по сайту
+const aboutContainer = document.querySelector('.aboutCompany');
+const gallerysContainer = document.querySelector('.gallery');
+const catalogContainer = document.querySelector('.catalog');
+const eventsContainer = document.querySelector('.events');
+const editionsContainer = document.querySelector('.editions');
+const projectsContainer = document.querySelector('.projects');
+const contactsContainer = document.querySelector('.contacts');
+const heroButton = document.querySelector('.hero__button');
+
+function scrollContent(content) {
+    let coin = setInterval(() => {
+        if (content.getBoundingClientRect().top > 0) {
+            window.scrollBy(0, 5);
+        } else {
+            clearInterval(coin);
+        }
+    }, 1)
+};
+heroButton.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    scrollContent(contactsContainer);
+});
+const arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer];
+const arrayLink = document.querySelectorAll('.header-navigate-top__item');
+for (let i = 0; i < arrayLink.length; i++) {
+    arrayLink[i].addEventListener('click', (ev) => {
+        scrollContent(arrayContent[i]);
     })
 }
 
@@ -290,8 +346,6 @@ var icons = {
     headerSelected: "myIcon-2"
 }
 $("#catalog-accordion").accordion({
-    // Задаем какие элементы будут заголовками
-    header: 'time',
     // Все вкладки при загрузке закрыты
     active: false,
     // Повторный клик по вкладке закрывает ее
@@ -338,9 +392,4 @@ function init() {
         iconImageOffset: [0, 0]
     })
     myMap.geoObjects.add(mark);
-
-    function stopEvent(ev) {
-        ev.preventDefault(ev);
-    }
-    myMap.events.add('dblclick', stopEvent);
 }
