@@ -230,7 +230,7 @@ if (document.documentElement.clientWidth <= 1640 && document.documentElement.cli
 if (document.documentElement.clientWidth <= 1366) {
     const burgerList = document.querySelector('.header-top__navigate');
     const burger = document.querySelector('.header-top__burger');
-    const privateRoom = document.querySelector('.header-top__linkContainer');
+    const privateRoom = document.querySelector('.header-top__link');
     burgerList.append(privateRoom);
     burger.after(burgerList);
     burger.addEventListener('click', (ev) => {
@@ -262,7 +262,7 @@ heroButton.addEventListener('click', (ev) => {
     scrollContent(contactsContainer);
 });
 const arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer];
-const arrayLink = document.querySelectorAll('.header-navigate-top__item');
+const arrayLink = document.querySelectorAll('.header-top__item');
 for (let i = 0; i < arrayLink.length; i++) {
     arrayLink[i].addEventListener('click', (ev) => {
         scrollContent(arrayContent[i]);
