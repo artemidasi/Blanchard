@@ -1,7 +1,5 @@
 "use strict";
 
-console.log(document.documentElement.clientWidth);
-
 const editionPrice = document.querySelector(".editions-left__priceContainer");
 const editionsTop = document.querySelector(".editions-right__top");
 const galleryInfo = document.querySelector(".gallery-left-info__more");
