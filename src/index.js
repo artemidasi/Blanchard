@@ -1,5 +1,7 @@
 "use strict";
 
+console.log(document.documentElement.clientWidth);
+
 const editionPrice = document.querySelector(".editions-left__priceContainer");
 const editionsTop = document.querySelector(".editions-right__top");
 const galleryInfo = document.querySelector(".gallery-left-info__more");
@@ -46,7 +48,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
             prevEl: '.projects__swiper-prev',
         },
     });
-} else if (document.documentElement.clientWidth > 1366) {
+} else if (document.documentElement.clientWidth > 1670) {
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
         slidesPerView: 3,
@@ -153,6 +155,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     });
     // Проекты
     const swiperProjects = new Swiper('.projects .swiper-container', {
+        spaceBetween: 34,
         navigation: {
             nextEl: '.projects__swiper-next',
             prevEl: '.projects__swiper-prev',
@@ -209,13 +212,12 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
         itemChoice.append(buttonTest);
         listChoice.append(itemChoice);
     })
-}
-if (document.documentElement.clientWidth <= 1640 && document.documentElement.clientWidth > 992) {
+} else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1366) {
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
         slidesPerView: 2,
         slidesPerGroup: 2,
-        spaceBetween: 34,
+        spaceBetween: 50,
         slidesPerColumn: 2,
         navigation: {
             nextEl: '.gallery-navigate__next',
@@ -224,6 +226,31 @@ if (document.documentElement.clientWidth <= 1640 && document.documentElement.cli
         pagination: {
             el: '.gallery-navigate__pagination',
             type: 'fraction',
+        },
+    });
+    // Издание
+    const swiperEditions = new Swiper('.editions-right .swiper-container', {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 25,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+            nextEl: '.editions-navigate__next',
+            prevEl: '.editions-navigate__prev',
+        },
+        pagination: {
+            el: '.editions-navigate__pagination',
+            type: 'fraction',
+        },
+    });
+    // Проекты
+    const swiperProjects = new Swiper('.projects .swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        navigation: {
+            nextEl: '.projects__swiper-next',
+            prevEl: '.projects__swiper-prev',
         },
     });
 }
