@@ -159,6 +159,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
             prevEl: '.projects__swiper-prev',
         },
     });
+    const titlePrice = document.querySelector('.editions-left__titlePrice');
     const editionsPrice = document.querySelector('.editions-left__price');
     // Массив со всеми полями для выбора категории
     let arrayCategory = document.querySelectorAll(".editions-left__label");
@@ -191,6 +192,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
             return;
         },
     })
+    const priceTitle = document.querySelector('.editions-left__titlePrice');
     const listChoice = document.createElement("ul");
     listChoice.classList.add('editions__choices-list');
     editionsPrice.before(listChoice);
@@ -210,6 +212,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
         itemChoice.append(buttonTest);
         listChoice.append(itemChoice);
     })
+    editionsPrice.before(titlePrice);
 } else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1366) {
     // Галерея
     let swiperGallery = new Swiper('.gallery-right .swiper-container', {
