@@ -108,7 +108,6 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     const swiperEditions = new Swiper('.editions-right .swiper-container', {
         slidesPerView: 2,
         slidesPerGroup: 2,
-        spaceBetween: 34,
         loop: true,
         loopFillGroupWithBlank: true,
         navigation: {
@@ -123,7 +122,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
     // Проекты
     const swiperProjects = new Swiper('.projects .swiper-container', {
         slidesPerView: 2,
-        spaceBetween: 50,
+        spaceBetween: 40,
         navigation: {
             nextEl: '.projects__swiper-next',
             prevEl: '.projects__swiper-prev',
@@ -297,7 +296,20 @@ for (let i = 0; i < arrayLink.length; i++) {
     })
 }
 
-// Селектор
+// Списки в секции header
+const arrayHeaderChoices = [];
+
+const arrayArtists = document.querySelectorAll('.header-bottom__select[name*="artist__header"]');
+arrayArtists.forEach((element) => {
+    const choiceRealism = new Choices(element, {
+        searchEnabled: false,
+        itemSelectText: '',
+    });
+    arrayHeaderChoices.push(choiceRealism);
+})
+
+
+// Селектор в секции гелереи
 const selectAvtor = document.querySelector('.gallery-filter__select[name="avtor"]');
 const selectDirection = document.querySelector('.gallery-filter__select[name="direction"]');
 const selectTechnic = document.querySelector('.gallery-filter__select[name="technic"]');

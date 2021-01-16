@@ -1,8 +1,4 @@
-* {
-    box-sizing: border-box;
-}
-
- :root {
+:root {
     --Bl: black;
     --Bl33: #333;
     --CA: #857474;
@@ -15,6 +11,10 @@
     --purpleNormal: #9D5CD0;
     --purpleDark: #7943A4;
     --invisible: rgba(0, 0, 0, 0);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body,
@@ -75,9 +75,13 @@ address {
 }
 
 .main-container {
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    flex-wrap: inherit;
+    max-width: 1920px;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 0 160px;
 }
 
 .simplebar-offset {
@@ -89,17 +93,24 @@ address {
 
 .header {
     color: var(--white);
-    background-color: var(--Bl);
 }
 
-.header-top .main-container {
-    display: inherit;
+.header-top {
+    display: flex;
     align-items: center;
     padding: 30px 0;
+    background-color: var(--Bl);
+    font-size: 18px;
 }
 
-.header-bottom .main-container {
-    padding: 22px 0;
+.header-bottom {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 24px 0;
+    z-index: 1;
 }
 
 .header-top__burger,
@@ -109,26 +120,12 @@ address {
     display: none;
 }
 
-.header-top {
-    display: flex;
-    font-size: 18px;
-}
-
-.header-logo,
-.footer-logo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    width: 173px;
+.header-logo {
+    width: 221px;
 }
 
 .header-logo {
     margin-right: 178px;
-}
-
-.header-logo__top,
-.footer-logo__top {
-    margin-bottom: 8px;
 }
 
 .header-top__navigate {
@@ -152,7 +149,7 @@ address {
 
 .header-navigate__link:focus,
 .header-top__link:focus,
-.header-bottom__item a:focus,
+.header-bottom__item .is-focused,
 .header-bottom__searchContainer:focus,
 .contacts__button:focus span,
 .events__button:focus span {
@@ -166,7 +163,7 @@ address {
 
 .header-navigate__link:active,
 .header-top__link:active,
-.header-bottom__item a:hover {
+.header-bottom__item .choices__item:hover {
     color: var(--purpleNormal);
 }
 
@@ -190,19 +187,6 @@ address {
     content: url(../svg/Header__go.svg);
 }
 
-.header-bottom {
-    position: absolute;
-    width: 100%;
-    color: var(--white);
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-.header-bottom .main-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 .header-bottom__navigate {
     display: inline-block;
 }
@@ -220,63 +204,83 @@ address {
 }
 
 .header-bottom__item {
+    display: inherit;
     cursor: pointer;
-    margin-right: 81px;
-    padding: 0 8px 0 6px;
+    margin-right: 97px;
 }
 
-.header-bottom__item a {
+.header-bottom__item .choices__inner {
+    border: none !important;
+    padding: 0 !important;
+    font-size: 18px;
+    line-height: 25px;
     color: var(--white);
+    width: 100%;
 }
 
-.header-bottom__item a::after {
+.header-bottom__item .choices__item--selectable {}
+
+.header-bottom__item .choices__list--dropdown {
+    min-width: 300px;
+}
+
+.header-bottom__item .choices[aria-expanded=true]:after,
+.header-bottom__item .choices[data-type*=select-one]:hover:after {
+    content: none !important;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: inherit !important;
+}
+
+.header-bottom__item::after {
     content: url(../svg/header__bottom__list-item.svg);
     margin-left: 4px;
 }
 
-.header-bottom__item:hover a::after {
+.header-bottom__item:hover::after {
     content: url(../svg/Header__bottom_list-item_hover.svg);
 }
 
-.header-bottom__item:active a::after {
+.header-bottom__item:active::after {
     content: url(../svg/Header__bottom_list-item_active.svg);
 }
 
-.searchContainer {
+.header-bottom__form {
     display: flex;
     position: relative;
     align-items: center;
     width: 221px;
 }
 
-.searchContainer__icon {
+.header-bottom__button {
     position: absolute;
-    left: -30px;
-    margin-right: 9px;
+    top: 4px;
+    left: -35px;
 }
 
-.searchContainer__input {
+.header-bottom__input {
     width: 100%;
     background-color: var(--invisible);
     border-bottom: 1px solid var(--input);
 }
 
-.searchContainer__input:hover {
+.header-bottom__input:hover {
     border-bottom: 1px solid #C283F3;
 }
 
-.searchContainer__input:hover+.searchContainer__icon path,
-.searchContainer__input:hover+.searchContainer__icon rect {
+.header-bottom__input:hover+.header-bottom__button svg path,
+.header-bottom__input:hover+.header-bottom__button svg rect {
     fill: var(--purpleLight);
 }
 
-.searchContainer__input::placeholder {
+.header-bottom__input::placeholder {
     font-size: 18px;
     font-weight: 400;
     color: var(--input);
 }
 
-.searchContainer__input:focus {
+.header-bottom__input:focus {
     color: var(--purpleLight);
     outline: 1px solid var(--purpleDark);
 }
@@ -352,6 +356,10 @@ address {
     border: 3px solid var(--purpleDark);
 }
 
+.aboutCompany {
+    padding: 80px 0 70px 0;
+}
+
 .aboutCompany__title {
     margin-bottom: 16px;
     font-size: 40px;
@@ -361,21 +369,17 @@ address {
 .aboutCompany__text {
     display: inline-block;
     max-width: 1080px;
-    font-weight: 400px;
-    line-height: 30px;
+    line-height: 32px;
 }
 
 
 /* Стили для секции галерея */
 
 .gallery {
+    display: flex;
     padding: 80px 0 70px 0;
     color: var(--white);
     background-image: url(../img/gallery/gallery__fon.jpg);
-}
-
-.gallery .main-container {
-    display: flex;
 }
 
 .gallery-left-info__title {
@@ -389,7 +393,7 @@ address {
 
 .gallery-filter {
     width: 100%;
-    margin-bottom: 479px;
+    margin-bottom: 472px;
 }
 
 .gallery-filter__title {
@@ -406,7 +410,6 @@ address {
 }
 
 .choices__list--dropdown {
-    z-index: 1000;
     background: grey;
 }
 
@@ -422,7 +425,7 @@ address {
 }
 
 .choices__inner {
-    padding: 4px 0 0 15px !important;
+    padding: 0px 0 6px 15px !important;
 }
 
 .choices__inner .choices__item {
@@ -692,10 +695,14 @@ address {
 
 /* Стили для секции котолога */
 
+.catalog {
+    padding: 80px 0;
+}
+
 .catalog-titleContainer {
     display: flex;
     position: relative;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 17px;
 }
 
@@ -901,6 +908,10 @@ address {
 
 /* Стили для секции котолога */
 
+.events {
+    padding-bottom: 75px;
+}
+
 .events__title {
     margin-bottom: 18px;
 }
@@ -1010,14 +1021,11 @@ address {
 /* Cтиди для секции издания */
 
 .editions {
-    padding: 80px 0;
-    color: var(--white);
-    background-image: url(../img/Editions/editions__fon.jpg);
-}
-
-.editions .main-container {
     display: flex;
     justify-content: space-between;
+    padding: 85px 0 77px 0;
+    color: var(--white);
+    background-image: url(../img/Editions/editions__fon.jpg);
 }
 
 .editions-left {
@@ -1025,17 +1033,13 @@ address {
 }
 
 .editions-left__title {
-    margin-bottom: 11px;
+    margin-bottom: 14px;
 }
 
 .editions-left__category {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 26px;
-}
-
-.editions-left__titleCategory {
-    margin-bottom: 3px;
 }
 
 .editions-left__label {
@@ -1070,8 +1074,8 @@ address {
 .editions-left__input~span::before {
     content: url(../img/Editions/ellipse-input.png);
     position: absolute;
-    left: 3.3px;
-    bottom: -7px;
+    left: 5px;
+    bottom: -6px;
     opacity: 0;
     transition: opacity .3s ease-in-out;
 }
@@ -1185,14 +1189,18 @@ address {
 
 /* Стили для секции проекты */
 
+.projects {
+    padding: 80px 0;
+}
+
 .projects__title {
     margin-bottom: 16px;
 }
 
 .projects__text {
     display: inline-block;
-    max-width: 1052px;
-    margin-bottom: 17px;
+    max-width: 1053px;
+    margin-bottom: 21px;
 }
 
 .projects__link,
@@ -1227,7 +1235,7 @@ address {
 
 .project__title-wrapper {
     font-size: 26px;
-    margin-bottom: 23px;
+    margin-bottom: 25px;
 }
 
 .project__swiper-slide {
@@ -1343,7 +1351,8 @@ address {
     line-height: 66px;
 }
 
-.hero,
+
+/* .hero,
 .aboutCompany,
 .gallery,
 .catalog,
@@ -1351,7 +1360,7 @@ address {
 .editions,
 .projects {
     margin-bottom: 80px;
-}
+} */
 
 .simplebar-content-wrapper {
     overflow: auto;
@@ -1417,7 +1426,7 @@ address {
 }
 
 .contacts__title {
-    margin-bottom: 13px;
+    margin-bottom: 18px;
 }
 
 .contacts-info {
@@ -1456,7 +1465,7 @@ address {
 
 .contacts__title-form {
     font-weight: 400;
-    margin-bottom: 19px;
+    margin-bottom: 15px;
 }
 
 .contacts__input {
@@ -1534,14 +1543,11 @@ address {
 /* Стили для подвала сайта */
 
 .footer {
-    background-color: var(--Bl);
-}
-
-.footer .main-container {
     display: flex;
     align-items: center;
     padding: 45px 0;
     justify-content: space-between;
+    background-color: var(--Bl);
 }
 
 .mainContainer-list {
@@ -1595,8 +1601,10 @@ address {
         display: none !important;
     }
     .main-container {
+        max-width: 1366px;
+    }
+    .header-top {
         justify-content: space-between;
-        max-width: 925px;
     }
     .header-logo {
         margin: 0;
@@ -1654,8 +1662,13 @@ address {
         width: 24px;
     }
     .header-top__search {
+        padding: 0;
         cursor: pointer;
         display: inline-block !important;
+    }
+    .header-top__search svg {
+        width: 100%;
+        height: 100%;
     }
     .header-top__search:hover rect,
     .header-top__search:hover path {
@@ -1674,30 +1687,34 @@ address {
         margin-bottom: 132px;
     }
     .hero__button {
-        padding: 18px 31px;
-    }
-    .aboutCompany {
-        margin-bottom: 70px;
+        padding: 19px 31px;
     }
     .aboutCompany__text {
         width: 100%;
         line-height: 32px;
     }
-    .gallery {
-        padding: 75px 0 70px 0;
-    }
     .gallery-left {
+        margin-right: 55px;
         width: 280px;
     }
+    .gallery-left-info__title {
+        margin-bottom: 15px;
+    }
     .gallery-filter__title {
-        margin-bottom: 14px;
+        margin-bottom: 10px;
     }
     .gallery-filter {
-        margin-bottom: 293px;
+        margin-bottom: 286px;
     }
     .gallery-right {
-        padding-top: 29px;
-        width: 595px;
+        padding-top: 23px;
+        width: 590px;
+    }
+    .gallery-navigate {
+        width: 100%;
+    }
+    .gallery-navigate__pagination {
+        margin: 0 19px;
     }
     .gallery-right .swiper-container {
         max-height: 595px;
@@ -1718,6 +1735,9 @@ address {
     }
     .catalog-rightColumn {
         width: 437px;
+    }
+    .events {
+        padding-bottom: 80px;
     }
     .events__list {
         max-height: 683px;
@@ -1757,6 +1777,9 @@ address {
         bottom: 46px;
         left: 35px;
     }
+    .editions {
+        padding: 80px 0;
+    }
     .editions-left__input~span {
         width: 12px;
         height: 12px;
@@ -1764,6 +1787,10 @@ address {
     .editions-left__price {
         width: 341px;
         line-height: 39px;
+    }
+    .editions-left__input~span::before {
+        left: 3px;
+        bottom: -7px;
     }
     .editions-left__category,
     .editions-left__category>:last-child {
@@ -1781,13 +1808,13 @@ address {
         margin: 0 18px 0 0 !important;
     }
     .editions-right {
-        padding-top: 20px;
+        padding-top: 22px;
         width: 630px;
     }
     .editions-right__top {
         display: flex;
         flex-wrap: wrap;
-        align-content: flex-end;
+        align-items: flex-end;
         justify-content: space-between;
         margin-bottom: 30px;
     }
@@ -1823,12 +1850,16 @@ address {
     }
     .project__title-wrapper {
         margin-bottom: 23px;
+        letter-spacing: -1px;
     }
     .project__swiper-container {
         max-width: 820px;
     }
     .project__swiper-slide {
         max-width: 384px;
+    }
+    .contacts__title {
+        margin-bottom: 15px;
     }
     .contacts-info {
         max-height: 700px;
@@ -1837,17 +1868,17 @@ address {
         margin-bottom: 30px;
     }
     .contacts__button {
-        padding: 17px 38px;
+        padding: 18px 38px;
     }
     .contacts-left {
-        padding: 127px 102px 124px 50px;
+        padding: 122px 102px 124px 50px;
     }
     .contacts-left__title--media--1024,
     .contacts__adress--media--1024 {
         display: block;
     }
     .contacts__title-form {
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
     .contacts__input {
         width: 335px;
@@ -1859,13 +1890,14 @@ address {
 
 @media (max-width: 1024px) {
     .main-container {
-        max-width: 925px;
+        max-width: 1024px;
+        padding: 0 50px;
     }
 }
 
 @media (max-width: 992px) {
     .main-container {
-        max-width: 670px;
+        max-width: 992px;
     }
     .hero {
         padding: 113px 0 113px 0;
@@ -1879,7 +1911,7 @@ address {
     .aboutCompany__title {
         margin-bottom: 14px !important;
     }
-    .gallery .main-container {
+    .gallery {
         flex-wrap: wrap;
     }
     .gallery-left {
@@ -1910,6 +1942,9 @@ address {
     .catalog-titleContainer__item {
         margin-right: 54px;
     }
+    .catalog {
+        padding: 80px 0 70px 0;
+    }
     .catalog__info {
         margin-bottom: 21px;
     }
@@ -1931,11 +1966,11 @@ address {
     .catalog-rightColumn {
         margin-bottom: 50px;
     }
-    .catalog {
-        margin-bottom: 70px;
-    }
     .catalog-accordion__item {
         width: 36%;
+    }
+    .events {
+        padding-bottom: 85px;
     }
     .events__list {
         overflow: hidden;
@@ -1953,11 +1988,12 @@ address {
     .events-info__title {
         max-width: 235px;
     }
-    .editions {
-        padding: 80px 0 64px 0;
+    .events__button {
+        padding: 15px 37px;
     }
-    .editions .main-container {
+    .editions {
         flex-wrap: wrap;
+        padding: 80px 0;
     }
     .editions-left {
         width: 100%;
@@ -1978,7 +2014,7 @@ address {
     .editions-left__category {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 30px;
+        margin-bottom: 27px;
     }
     .editions-left__label {
         width: 33%;
@@ -1991,7 +2027,7 @@ address {
         width: 100%;
     }
     .editions-right__img {
-        margin-bottom: 13px;
+        margin-bottom: -6px;
     }
     .editions-right-list__text,
     .editions-right-list__name {
@@ -1999,6 +2035,9 @@ address {
     }
     .editions-right {
         width: 100%;
+    }
+    .projects__text {
+        margin-bottom: 26px;
     }
     .project__swiper-container {
         max-width: 570px;
@@ -2010,6 +2049,9 @@ address {
         width: 100%;
         height: 100%;
     }
+    .project__title-wrapper {
+        margin-bottom: 29px;
+    }
     .projects__link,
     .projects__link:visited {
         display: block;
@@ -2017,6 +2059,9 @@ address {
     .project__swiper-slide a {
         max-width: 210px;
         max-height: 52px;
+    }
+    .project__company {
+        height: 107px;
     }
     .contacts-info {
         max-height: 700px;
@@ -2035,6 +2080,17 @@ address {
         max-width: 50px;
         max-height: 50px;
     }
+    /* Общее  */
+    .editions-right .swiper-container {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        max-width: 768px;
+        padding: 0 50px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -2043,16 +2099,7 @@ address {
         font-size: 16px;
     }
     .main-container {
-        max-width: 291px;
-    }
-    .hero,
-    .aboutCompany,
-    .gallery,
-    .catalog,
-    .events,
-    .editions,
-    .projects {
-        margin-bottom: 50px;
+        max-width: 700px;
     }
     .catalog__info,
     .events__list,
@@ -2063,15 +2110,11 @@ address {
         font-size: 28px;
         line-height: 38px;
     }
-    .header .main-container {
-        padding: 6px 0;
+    .header-top {
+        padding: 3px 0;
     }
     .header-logo {
         width: 100px;
-    }
-    .header-logo__top,
-    .footer-logo__top {
-        margin-bottom: 0;
     }
     .header-top__navigate {
         font-size: 14px;
@@ -2097,23 +2140,17 @@ address {
         display: flex;
         flex-wrap: wrap;
     }
-    .header-logo__top,
-    .header-logo__bottom {
-        display: block;
-    }
     .header-top__search {
         max-width: 16px;
         max-height: 16px;
     }
     .hero {
-        text-align: center;
-        padding: 30px 0 45px 0;
-        max-height: 320px;
-    }
-    .hero .main-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        text-align: center;
+        padding: 30px 0 45px 0;
+        max-height: 320px;
     }
     .hero__title {
         max-width: 89%;
@@ -2133,10 +2170,10 @@ address {
     .hero__button {
         font-size: 12px;
         line-height: 16px;
-        padding: 10px 10px;
+        padding: 9px 12px;
     }
     .aboutCompany {
-        margin-bottom: 40px;
+        padding: 50px 0 40px 0;
     }
     .aboutCompany__title {
         margin-bottom: 12px !important;
@@ -2146,14 +2183,12 @@ address {
         line-height: 28px;
     }
     .gallery {
-        padding: 50px 0 70px 0;
-        margin-bottom: 80px;
-    }
-    .gallery .main-container {
         display: block;
+        padding: 50px 0 70px 0;
     }
     .gallery-left {
         width: 100%;
+        margin-bottom: 40px;
     }
     .gallery-left-info__title {
         margin-bottom: 11px;
@@ -2165,10 +2200,13 @@ address {
         margin: 0 15px;
     }
     .gallery-filter {
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
     .gallery-left-info__more {
         max-width: 98%;
+    }
+    .gallery-right {
+        padding-top: 0;
     }
     .swiper__navigate-container {
         justify-content: center;
@@ -2187,10 +2225,13 @@ address {
     }
     .catalog-titleContainer {
         flex-wrap: wrap;
-        margin-bottom: 20px;
+        margin-bottom: 21px;
+    }
+    .catalog-accordion__list {
+        display: block;
     }
     .ui-accordion-header {
-        padding: 20px 0 20px 0 !important;
+        padding: 0 !important;
     }
     .catalog-titleContainer__title {
         width: 100%;
@@ -2202,7 +2243,7 @@ address {
         margin-right: 32px;
     }
     .ui-accordion-header {
-        height: 73px;
+        height: 74px;
         font-size: 18px !important;
         line-height: 32px !important;
     }
@@ -2214,9 +2255,12 @@ address {
         width: 100%;
     }
     .ui-accordion-content {
-        height: 100%;
-        max-height: 100%;
-        padding: 18px 0 0 0 !important;
+        height: auto !important;
+        max-height: none;
+        padding: 18px 0 20px 0 !important;
+    }
+    .catalog {
+        padding: 80px 0 50px 0;
     }
     .catalog-leftColumn__slide {
         margin-bottom: 10px;
@@ -2225,14 +2269,17 @@ address {
         margin-bottom: 5px;
     }
     .catalog-rightColumn {
-        margin-bottom: 55px;
+        margin-bottom: 50px;
+    }
+    .events {
+        padding-bottom: 50px;
     }
     .events__title {
         margin-bottom: 10px;
     }
     .events-info {
         max-height: 365px;
-        padding: 41px 29px 0 29px;
+        padding: 41px 23px 0 29px;
     }
     .events-info__title {
         margin-bottom: 37px;
@@ -2273,7 +2320,7 @@ address {
         padding: 50px 0 48px 0;
     }
     .choices__inner {
-        padding: 2px 0 2px 0px !important;
+        padding: 2.5px 15px !important;
     }
     .editions-left__title {
         margin-bottom: 14px !important;
@@ -2290,14 +2337,20 @@ address {
         width: 70px;
     }
     .editions-left__titlePrice {
-        margin: 0 0 8px 0 !important;
+        margin: 0 0 6px 0 !important;
     }
     .editions__choices-list {
         margin-bottom: 20px;
         width: 100%;
     }
+    .editions-right .swiper-container {
+        margin: 0;
+    }
+    .editions-right-list__information {
+        margin-bottom: 10px;
+    }
     .editions-right__img {
-        margin-bottom: 2px;
+        margin-bottom: 3px;
     }
     .editions-right-list__information {
         line-height: 18px;
@@ -2313,6 +2366,9 @@ address {
     }
     .editions__choices-item>span {
         border-color: var(--purpleLight) !important;
+    }
+    .editions-left__input~span::before {
+        bottom: -8px;
     }
     .editions__choices-item>span::before {
         opacity: 1 !important;
@@ -2358,6 +2414,9 @@ address {
         padding: 10px 16px;
         width: 100%;
     }
+    .projects {
+        padding: 50px 0;
+    }
     .project__title-wrapper {
         font-weight: 600;
         font-size: 18px;
@@ -2385,19 +2444,16 @@ address {
         height: 100%;
     }
     .contacts__title {
-        margin-bottom: 14px;
+        margin-bottom: 16px;
     }
     .contacts-info {
         height: auto;
         flex-wrap: wrap;
-        width: 291px;
-        margin: 0 auto;
         max-height: 700px;
     }
     .contacts-left {
         border: none;
-        padding: 0;
-        width: 100%;
+        padding: 0 0 0 12px;
     }
     .contacts-left__title {
         font-size: 18px;
@@ -2405,6 +2461,7 @@ address {
     }
     .contacts-info {
         max-height: 100%;
+        justify-content: start;
     }
     .contacts__adress {
         font-size: 14px;
@@ -2437,11 +2494,9 @@ address {
         margin-bottom: 31px;
     }
     #map {
-        width: 100%;
-        height: 320px;
         margin-bottom: 20px;
     }
-    .footer .main-container {
+    .footer {
         padding: 5px 0;
     }
     .footer-logo {
@@ -2463,5 +2518,12 @@ address {
     }
     .media--320 {
         display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .main-container {
+        max-width: 320px;
+        padding: 0 15px;
     }
 }
