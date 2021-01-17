@@ -79,7 +79,6 @@ address {
     align-items: inherit;
     justify-content: inherit;
     flex-wrap: inherit;
-    max-width: 1920px;
     width: 100%;
     padding: 0 160px;
 }
@@ -92,7 +91,11 @@ address {
 /* Делаем секцию шапки нашей старницы */
 
 .header {
+    position: absolute;
+    left: 0;
+    right: 0;
     color: var(--white);
+    z-index: 1;
 }
 
 .header-top {
@@ -104,13 +107,10 @@ address {
 }
 
 .header-bottom {
-    position: absolute;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     background: rgba(0, 0, 0, 0.4);
     padding: 24px 0;
-    z-index: 1;
 }
 
 .header-top__burger,
@@ -152,18 +152,22 @@ address {
 .header-bottom__item .is-focused,
 .header-bottom__searchContainer:focus,
 .contacts__button:focus span,
-.events__button:focus span {
+.events__button:focus span,
+.header-bottom__input:focus,
+.directions-list__button:focus {
     outline: 2px solid var(--purpleDark);
 }
 
 .header-navigate__link:hover,
-.header-top__link:hover {
+.header-top__link:hover,
+.header-bottom__input:focus,
+.directions-list__button:hover {
     color: var(--purpleLight);
 }
 
-.header-navigate__link:active,
+.directions-list__button:active,
 .header-top__link:active,
-.header-bottom__item .choices__item:hover {
+.header-bottom__item:hover {
     color: var(--purpleNormal);
 }
 
@@ -187,11 +191,11 @@ address {
     content: url(../svg/Header__go.svg);
 }
 
-.header-bottom__navigate {
+.directions-list {
     display: inline-block;
 }
 
-.header-bottom__list {
+.directions-list {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -199,51 +203,41 @@ address {
     line-height: 25px;
 }
 
-.header-bottom__list:last-child {
+.directions-list:last-child {
     margin-right: 0;
 }
 
-.header-bottom__item {
+.directions-list__item {
     display: inherit;
+    flex-wrap: wrap;
     cursor: pointer;
     margin-right: 97px;
 }
 
-.header-bottom__item .choices__inner {
-    border: none !important;
-    padding: 0 !important;
-    font-size: 18px;
-    line-height: 25px;
-    color: var(--white);
+.directions-list__button {
     width: 100%;
+    padding: 0;
+    color: var(--white);
 }
 
-.header-bottom__item .choices__item--selectable {}
-
-.header-bottom__item .choices__list--dropdown {
-    min-width: 300px;
-}
-
-.header-bottom__item .choices[aria-expanded=true]:after,
-.header-bottom__item .choices[data-type*=select-one]:hover:after {
-    content: none !important;
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted {
-    background-color: inherit !important;
-}
-
-.header-bottom__item::after {
+.directions-list__button::after {
     content: url(../svg/header__bottom__list-item.svg);
     margin-left: 4px;
 }
 
-.header-bottom__item:hover::after {
+.directions-list__button:hover::after {
     content: url(../svg/Header__bottom_list-item_hover.svg);
 }
 
-.header-bottom__item:active::after {
+.directions-list__button::after {
     content: url(../svg/Header__bottom_list-item_active.svg);
+}
+
+.artists-list {
+    position: absolute;
+    padding: 20px;
+    background: var(--B99);
+    bottom: -140px;
 }
 
 .header-bottom__form {
@@ -280,11 +274,6 @@ address {
     color: var(--input);
 }
 
-.header-bottom__input:focus {
-    color: var(--purpleLight);
-    outline: 1px solid var(--purpleDark);
-}
-
 
 /* Начинаем делать секцию хеадер */
 
@@ -299,7 +288,7 @@ address {
 
 .hero {
     position: relative;
-    padding: 141px 0 122px;
+    padding: 240px 0 122px;
     background-image: url(../img/Hero/Hero__foto-1.jpg);
     background-repeat: no-repeat;
     background-position-x: center;
@@ -1675,7 +1664,7 @@ address {
         fill: var(--purpleNormal);
     }
     .hero {
-        padding: 112px 0 116px;
+        padding: 211px 0 116px;
     }
     .hero__title {
         max-width: 585px;
@@ -1900,7 +1889,7 @@ address {
         max-width: 992px;
     }
     .hero {
-        padding: 113px 0 113px 0;
+        padding: 213px 0 113px 0;
     }
     .hero__text {
         margin-bottom: 131px;
@@ -2149,8 +2138,7 @@ address {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
-        padding: 30px 0 45px 0;
-        max-height: 320px;
+        padding: 76px 0 44px 0;
     }
     .hero__title {
         max-width: 89%;

@@ -124,55 +124,53 @@
         <!-- Нижняя навигация -->
         <div class="header-bottom">
             <div class="main-container">
-                <nav class="header-bottom__navigate">
-                    <ul class="header-bottom__list">
-                        <li class="header-bottom__item">
-                            <select class="header-bottom__select" name="realism artist__header">
-                              <option selected disabled value="title">Реализм</option>
-                              <option value="1">Художник 1</option>
-                              <option value="2">Художник 2</option>
-                              <option value="3">Художник 3</option>
-                              <option value="4">Художник 4</option>
-                            </select>
-                        </li>
-                        <li class="header-bottom__item">
-                            <select class="header-bottom__select" name="impressionism artist__header">
-                              <option selected disabled value="title">Импрессионизм</option>
-                              <option value="1">Художник 1</option>
-                              <option value="2">Художник 2</option>
-                              <option value="3">Художник 3</option>
-                              <option value="4">Художник 4</option>
-                            </select>
-                        </li>
-                        <li class="header-bottom__item">
-                            <select class="header-bottom__select" name="postimpressionism artist__header">
-                              <option selected disabled value="title">Постимпрессионизм</option>
-                              <option value="1">Художник 1</option>
-                              <option value="2">Художник 2</option>
-                              <option value="3">Художник 3</option>
-                              <option value="4">Художник 4</option>
-                            </select>
-                        </li>
-                        <li class="header-bottom__item">
-                            <select class="header-bottom__select" name="avangard artist__header">
-                              <option selected disabled value="title">Авангард</option>
-                              <option value="1">Художник 1</option>
-                              <option value="2">Художник 2</option>
-                              <option value="3">Художник 3</option>
-                              <option value="4">Художник 4</option>
-                            </select>
-                        </li>
-                        <li class="header-bottom__item">
-                            <select class="header-bottom__select" name="futurizm artist__header">
-                              <option selected disabled value="title">Футуризм</option>
-                              <option value="1">Художник 1</option>
-                              <option value="2">Художник 2</option>
-                              <option value="3">Художник 3</option>
-                              <option value="4">Художник 4</option>
-                            </select>
-                        </li>
-                    </ul>
-                </nav>
+                <ul class="directions-list">
+                    <li class="directions-list__item">
+                        <button class="directions-list__button" data-target="1">Реализм</button>
+                        <ul class="artists-list" data-target="1">
+                            <li class="artists-list__item" value="1">Художник 1</li>
+                            <li class="artists-list__item" value="2">Художник 2</li>
+                            <li class="artists-list__item" value="3">Художник 3</li>
+                            <li class="artists-list__item" value="4">Художник 4</li>
+                        </ul>
+                    </li>
+                    <li class="directions-list__item">
+                        <button class="directions-list__button" data-target="2">Импрессионизм</button>
+                        <ul class="artists-list" data-target="2">
+                            <li class="artists-list__item" value="1">Художник 1</li>
+                            <li class="artists-list__item" value="2">Художник 2</li>
+                            <li class="artists-list__item" value="3">Художник 3</li>
+                            <li class="artists-list__item" value="4">Художник 4</li>
+                        </ul>
+                    </li>
+                    <li class="directions-list__item">
+                        <button class="directions-list__button" data-target="3">Постимпрессионизм</button>
+                        <ul class="artists-list" data-target="3">
+                            <li class="artists-list__item" value="1">Художник 1</li>
+                            <li class="artists-list__item" value="2">Художник 2</li>
+                            <li class="artists-list__item" value="3">Художник 3</li>
+                            <li class="artists-list__item" value="4">Художник 4</li>
+                        </ul>
+                    </li>
+                    <li class="directions-list__item">
+                        <button class="directions-list__button" data-target="4">Авангард</button>
+                        <ul class="artists-list" data-target="4">
+                            <li class="artists-list__item" value="1">Художник 1</li>
+                            <li class="artists-list__item" value="2">Художник 2</li>
+                            <li class="artists-list__item" value="3">Художник 3</li>
+                            <li class="artists-list__item" value="4">Художник 4</li>
+                        </ul>
+                    </li>
+                    <li class="directions-list__item">
+                        <button class="directions-list__button" data-target="5">Футуризм</button>
+                        <ul class="artists-list" data-target="5">
+                            <li class="artists-list__item" value="1">Художник 1</li>
+                            <li class="artists-list__item" value="2">Художник 2</li>
+                            <li class="artists-list__item" value="3">Художник 3</li>
+                            <li class="artists-list__item" value="4">Художник 4</li>
+                        </ul>
+                    </li>
+                </ul>
                 <!-- Инпут для поиска по сайту -->
                 <form class="header-bottom__form">
                     <input type="search" class="header-bottom__input" placeholder="Поиск по сайту">
@@ -191,7 +189,7 @@
         <section class="hero">
             <div class="main-container">
                 <h2 class="hero__title">Прикоснитесь к прекрасному</h2>
-                <span class="hero__text">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</span>
+                <p class="hero__text">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
                 <button class="hero__button">Подписаться на рассылку</button>
             </div>
         </section>

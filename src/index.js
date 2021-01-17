@@ -265,6 +265,18 @@ if (document.documentElement.clientWidth <= 1366) {
     })
 }
 
+// Спиcок в секции header-bottom
+document.querySelectorAll('.artists-list').forEach((element) => {
+    $(element).hide();
+});
+
+document.querySelectorAll('.directions-list__button').forEach((element) => {
+    element.addEventListener('click', (ev) => {
+        const numberList = Number(ev.target.dataset.target);
+        $(document.querySelectorAll(`.artists-list[data-target="${numberList}"]`)).toggle();
+    });
+})
+
 // Перемещение по сайту
 const aboutContainer = document.querySelector('.aboutCompany');
 const gallerysContainer = document.querySelector('.gallery');
@@ -295,19 +307,6 @@ for (let i = 0; i < arrayLink.length; i++) {
         scrollContent(arrayContent[i]);
     })
 }
-
-// Списки в секции header
-const arrayHeaderChoices = [];
-
-const arrayArtists = document.querySelectorAll('.header-bottom__select[name*="artist__header"]');
-arrayArtists.forEach((element) => {
-    const choiceRealism = new Choices(element, {
-        searchEnabled: false,
-        itemSelectText: '',
-    });
-    arrayHeaderChoices.push(choiceRealism);
-})
-
 
 // Селектор в секции гелереи
 const selectAvtor = document.querySelector('.gallery-filter__select[name="avtor"]');
