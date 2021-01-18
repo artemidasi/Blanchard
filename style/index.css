@@ -1592,7 +1592,7 @@ address {
         display: none !important;
     }
     .main-container {
-        max-width: 1366px;
+        max-width: 1000px;
     }
     .header-top {
         justify-content: space-between;
@@ -1885,6 +1885,7 @@ address {
 @media (max-width: 1024px) {
     .main-container {
         max-width: 1024px;
+        padding: 0 50px;
     }
 }
 
