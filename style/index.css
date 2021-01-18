@@ -80,7 +80,9 @@ address {
     justify-content: inherit;
     flex-wrap: inherit;
     width: 100%;
-    padding: 0 160px;
+    max-width: 1630px;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 .simplebar-offset {
@@ -1625,9 +1627,11 @@ address {
     .header-top__burger {
         display: flex !important;
         flex-wrap: wrap;
-        height: 30px;
         width: 36px;
         padding: 0;
+    }
+    .header-top__burger>:last-child {
+        margin-bottom: 0;
     }
     .header-top__burger:hover>:nth-child(1),
     .header-top__burger:hover>:nth-child(2),
@@ -1636,6 +1640,7 @@ address {
     }
     .header-top__burger span {
         transition: background 0.3s ease-in-out;
+        margin-bottom: 8px;
         height: 4px;
         display: block;
         background-color: var(--white);
@@ -1880,7 +1885,6 @@ address {
 @media (max-width: 1024px) {
     .main-container {
         max-width: 1024px;
-        padding: 0 50px;
     }
 }
 
@@ -1933,6 +1937,9 @@ address {
     }
     .catalog {
         padding: 80px 0 70px 0;
+    }
+    .catalog-titleContainer {
+        align-items: center;
     }
     .catalog__info {
         margin-bottom: 21px;
@@ -2078,7 +2085,6 @@ address {
 @media (max-width: 768px) {
     .main-container {
         max-width: 768px;
-        padding: 0 50px;
     }
 }
 
@@ -2101,6 +2107,9 @@ address {
     }
     .header-top {
         padding: 3px 0;
+    }
+    .header-top__burger span {
+        margin-bottom: 4px;
     }
     .header-logo {
         width: 100px;
@@ -2512,6 +2521,5 @@ address {
 @media (max-width: 320px) {
     .main-container {
         max-width: 320px;
-        padding: 0 15px;
     }
 }
