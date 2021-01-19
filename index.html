@@ -41,11 +41,11 @@
 </head>
 
 <body>
-    <h1 class="proect__title" style="display: none;">Blanchard__Artemov</h1>
+    <h1 class="proect__title visually-hidden">Blanchard__Artemov</h1>
     <header class="header">
         <!-- Верхняя навигация -->
         <div class="header-top">
-            <div class="main-container">
+            <div class="main-container main-container_theme_flex">
                 <!-- Иконка меня (1024) -->
                 <button class="header-top__burger">
                         <span></span>
@@ -124,7 +124,7 @@
         </div>
         <!-- Нижняя навигация -->
         <div class="header-bottom">
-            <div class="main-container">
+            <div class="main-container main-container_theme_flex">
                 <ul class="directions-list">
                     <li class="directions-list__item">
                         <button class="directions-list__button" data-target="1">Реализм</button>
@@ -188,31 +188,32 @@
     <main class="main">
         <!-- Секция с hero-блоком страницы -->
         <section class="hero">
-            <div class="main-container">
+            <div class="main-container hero__container">
                 <h2 class="hero__title">Прикоснитесь к прекрасному</h2>
                 <p class="hero__text">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
                 <button class="hero__button">Подписаться на рассылку</button>
             </div>
         </section>
         <!-- Секция с информацией о компании -->
-        <section id="aboutCompany" class="aboutCompany">
+        <section id="company" class="company">
             <div class="main-container">
-                <h2 class="aboutCompany__title title">О нас</h2>
-                <span class="aboutCompany__text">Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.</span>
+                <h2 class="company__title title">О нас</h2>
+                <span class="company__text">Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.</span>
             </div>
         </section>
         <!-- Секция галерея -->
         <section id="gallery" class="gallery">
-            <div class="main-container">
+            <div class="main-container main-container_theme_flex">
                 <!-- Секция галереи с фильтрацией -->
                 <div class="gallery-left">
                     <h2 class="gallery-left-info__title title">Галерея</h2>
                     <div class="gallery-filter">
                         <h3 class="gallery-filter__title">Фильтровать по:</h3>
-                        <select name="avtor" class="gallery-filter__select"></select>
-                        <select name="direction" class="gallery-filter__select"></select>
-                        <select name="technic" class="gallery-filter__select"></select>
-
+                        <select class="gallery-filter__select">
+                            <option value="avtor">Автор</option>
+                            <option value="direction">Направление</option>
+                            <option value="technic">Техника</option>
+                        </select>
                     </div>
                     <div class="gallery-left-info__more">
                         Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества<br> скачиваний<a href="#" class="gallery-left-info__link"> авторизуйтесь </a>, либо воспользуйтесь лицензией.
@@ -734,7 +735,7 @@
         </section>
         <!-- Секция издания -->
         <section id="editions" class="editions">
-            <div class="main-container">
+            <div class="main-container main-container_theme_flex">
                 <!-- Левая секция -->
                 <div class="editions-left">
                     <h2 class="editions-left__title title">Издания</h2>
@@ -1039,7 +1040,7 @@
         </section>
     </main>
     <footer class="footer ">
-        <div class="main-container ">
+        <div class="main-container main-container_theme_flex">
             <!-- Логотип -->
             <svg class="footer-logo" width="173" height="40" viewBox="0 0 173 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M2.78965 32.7802L0.289746 29.1348H2.09561L3.79365 31.7425L5.50518 29.1348H7.29756L4.79092 32.7802L7.42559 36.5873H5.6332L3.79365 33.7977L1.96084 36.5873H0.168457L2.78965 32.7802Z" fill="white"/>
