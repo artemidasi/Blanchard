@@ -225,15 +225,30 @@ if (document.documentElement.clientWidth <= 1366) {
 }
 
 // Спиcок в секции header-bottom
-document.querySelectorAll('.artists-list').forEach((element) => {
-    $(element).hide();
-});
+
+// Функия, скрывающая все элементы по классу
+function hideElements(element) {
+    document.querySelectorAll(`.${element}`).forEach((element) => {
+        $(element).hide();
+    });
+}
+
+// При загрузке скрываем все списки
+hideElements('artists-list');
 
 document.querySelectorAll('.directions-list__button').forEach((element) => {
     element.addEventListener('click', (ev) => {
+        hideElements('artists-list')
         const numberList = Number(ev.target.dataset.target);
-        $(document.querySelectorAll(`.artists-list[data-target="${numberList}"]`)).toggle();
+        $(document.querySelectorAll(`.artists-list[data-target="${numberList}"]`)).show();
     });
+});
+
+// При выборе конкретного художника закрываем список
+document.querySelectorAll('.artists-list__item').forEach((element) => {
+    element.addEventListener('click', (ev) => {
+        hideElements('artists-list')
+    })
 })
 
 // Перемещение по сайту
