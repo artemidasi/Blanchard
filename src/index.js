@@ -297,28 +297,239 @@ const choicesAvtor = new Choices(selectAvtor, {
 
 // Каталог
 
-// Реализация табов
+// Реализация смены имени
+function artistInfo() {
+    const artistLinks = document.querySelectorAll('.catalog-accordion__link');
+    const artistName = document.querySelector('.catalog-leftColumn__name');
+
+    artistLinks.forEach((element) => {
+        element.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            const name = ev.target.innerHTML;
+            artistName.innerHTML = name;
+        });
+    });
+}
+artistInfo();
+
+// Реализация аккордиона
+
+// Табы
 
 const countryTab = document.querySelectorAll('.catalog-titleContainer__link').forEach((element) => {
     element.addEventListener('click', (ev) => {
         ev.preventDefault();
+        const countryObject = ev.target.dataset.country;
+        createListArtists(countryObject, ARTISTS__LIST, ARTISTS);
     })
-})
-
-// Реализация смены имени
-const artistLinks = document.querySelectorAll('.catalog-accordion__link');
-const artistName = document.querySelector('.catalog-leftColumn__name');
-
-artistLinks.forEach((element) => {
-    element.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        console.log(ev);
-        const name = ev.target.innerHTML;
-        artistName.innerHTML = name;
-    });
 });
 
-// Реализация аккордиона
+function clearLists(lists) {
+    lists[1400].innerHTML = '';
+    lists[1500].innerHTML = '';
+    lists[1600].innerHTML = '';
+    lists[1700].innerHTML = '';
+    lists[1800].innerHTML = '';
+    lists[1900].innerHTML = '';
+    lists[2000].innerHTML = '';
+}
+
+function createListArtists(country, lists, artists) {
+    // Очищаем все листы
+    clearLists(lists);
+    // Помещаем объект с массивами по годам в переменную
+    const objectYears = artists[country];
+    // Делаем массив значений из объекта годов
+    const arrayYears = Object.values(objectYears);
+    // Массив списков по годам
+    const listsYears = Object.values(lists);
+    // Проходимся по каждому году
+    for (let i = 0; i < arrayYears.length; i++) {
+        // Проходимся по каждому массиву в каждом годе
+        for (let k = 0; k < arrayYears[i].length; k++) {
+            const listItem = document.createElement('li');
+            listItem.classList.add('catalog-accordion__item');
+            const listLink = document.createElement('a');
+            listLink.classList.add('catalog-accordion__link');
+            listLink.href = '#';
+            listLink.innerHTML = arrayYears[i][k];
+            listItem.append(listLink);
+            listsYears[i].append(listItem);
+        }
+    };
+    artistInfo();
+    $("#catalog-accordion").accordion("refresh");
+}
+
+// Списки с художниками
+const ARTISTS__LIST = {
+    1400: document.querySelector('.catalog-accordion__list[data-years="1400-1499"]'),
+    1500: document.querySelector('.catalog-accordion__list[data-years="1500-1599"]'),
+    1600: document.querySelector('.catalog-accordion__list[data-years="1600-1699"]'),
+    1700: document.querySelector('.catalog-accordion__list[data-years="1700-1799"]'),
+    1800: document.querySelector('.catalog-accordion__list[data-years="1800-1899"]'),
+    1900: document.querySelector('.catalog-accordion__list[data-years="1900-1999"]'),
+    2000: document.querySelector('.catalog-accordion__list[data-years="2000"]'),
+}
+
+// Художники
+const ARTISTS = {
+    Franch: {
+        1400: [
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+            'Test1400__Franch',
+        ],
+        1500: [],
+        1600: [],
+        1700: [],
+        1800: [],
+        1900: [],
+        2000: [],
+    },
+    Germani: {
+        1400: [
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+            'Test1400__Germani',
+        ],
+        1500: [],
+        1600: [],
+        1700: [],
+        1800: [],
+        1900: [],
+        2000: [],
+    },
+    Italy: {
+        1400: [
+            'Бенедетто ди Биндо',
+            'Бергоньоне, Амброджо',
+            'Биссоло, Франческо',
+            'Больтраффио, Джованни',
+            'Бонсиньори, Франческо',
+            'Боттичини, Рафаэлло',
+            'Брамантино',
+            'Бреа, Людовико',
+            'Бьяджо д’Антонио Туччи',
+            'Веккьетта',
+            'Андреа Верроккьо',
+            'Доменико Гирландайо',
+            'Беноццо Гоццоли',
+            'Граначчи, Франческо',
+            'Грегорио ди Чекко',
+            'Джованни да Удине',
+            'Джованни ди Паоло',
+            'Джорджоне',
+            'Парентино, Бернардо',
+            'Пезеллино',
+            'Пьетро Перуджино',
+            'Перуцци, Бальдассаре',
+            'Пизанелло',
+            'Пинтуриккьо',
+
+        ],
+        1500: [],
+        1600: [],
+        1700: [],
+        1800: [],
+        1900: [],
+        2000: [],
+    },
+    Russia: {
+        1400: [
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+            'Test1400__Rissia',
+        ],
+        1500: [],
+        1600: [],
+        1700: [],
+        1800: [],
+        1900: [],
+        2000: [],
+    },
+    Belgium: {
+        1400: [
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+            'Test1400__Belgium',
+        ],
+        1500: [],
+        1600: [],
+        1700: [],
+        1800: [],
+        1900: [],
+        2000: [],
+    },
+}
 
 var icons = {
     header: "myIcon-1",
@@ -330,10 +541,10 @@ $("#catalog-accordion").accordion({
     // Повторный клик по вкладке закрывает ее
     collapsible: true,
     icons: icons,
-    autoHeight: false
 });
 
 // Работа с тултипами
+
 tippy('.project__tooltip_number_1', {
     content: 'Пример современных тенденций - современная методология разработки',
     theme: 'greay',
