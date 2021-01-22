@@ -105,7 +105,7 @@ address {
 }
 
 .simplebar-track {
-    right: -20px;
+    right: 15px;
 }
 
 
@@ -251,11 +251,16 @@ address {
 }
 
 .artists-list {
-    max-height: 220px;
-    width: 220px;
     position: absolute;
-    background: var(--invisible);
-    bottom: -220px;
+    bottom: -300px;
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+    background: var(--B99);
+}
+
+.artists-list:last-child {
+    margin-bottom: 0;
 }
 
 .artists-list__item {
@@ -263,7 +268,7 @@ address {
     background: url(../img/Header-bottom/header-bottom__option_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 9px 14px;
+    padding: 7px 14px;
     margin-bottom: 20px;
 }
 
