@@ -250,20 +250,20 @@ address {
     content: url(../svg/Header__bottom_list-item_hover.svg);
 }
 
-.artists-list {
+.dropdawn__list {
     position: absolute;
     bottom: -300px;
     padding: 40px;
     height: 300px;
     width: 300px;
-    background: var(--B99);
+    background: rgba(0, 0, 0, 0.6);
 }
 
-.artists-list:last-child {
+.dropdawn__list:last-child {
     margin-bottom: 0;
 }
 
-.artists-list__item {
+.dropdawn__item {
     width: 100%;
     background: url(../img/Header-bottom/header-bottom__option_1.jpg);
     background-repeat: no-repeat;

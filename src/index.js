@@ -227,6 +227,7 @@ if (document.documentElement.clientWidth <= 1366) {
 // Спиcок в секции header-bottom
 
 // Функия, скрывающая все элементы по классу
+
 function hideElements(element) {
     document.querySelectorAll(`.${element}`).forEach((element) => {
         $(element).hide();
@@ -234,20 +235,21 @@ function hideElements(element) {
 }
 
 // При загрузке скрываем все списки
-hideElements('artists-list');
+
+hideElements('dropdawn__list');
 
 document.querySelectorAll('.directions-list__button').forEach((element) => {
     element.addEventListener('click', (ev) => {
-        hideElements('artists-list')
+        hideElements('dropdawn__list')
         const numberList = Number(ev.target.dataset.target);
-        $(document.querySelectorAll(`.artists-list[data-target="${numberList}"]`)).show();
+        $(document.querySelectorAll(`.dropdawn__list[data-target="${numberList}"]`)).show();
     });
 });
 
 // При выборе конкретного художника закрываем список
-document.querySelectorAll('.artists-list__item').forEach((element) => {
+document.querySelectorAll('.dropdawn__item').forEach((element) => {
     element.addEventListener('click', (ev) => {
-        hideElements('artists-list')
+        hideElements('dropdawn__list')
     })
 })
 
@@ -270,6 +272,7 @@ function scrollContent(content) {
         }
     }, 1)
 };
+
 heroButton.addEventListener('click', (ev) => {
     ev.preventDefault();
     scrollContent(contactsContainer);
@@ -283,6 +286,7 @@ for (let i = 0; i < arrayLink.length; i++) {
 }
 
 // Селектор в секции гелереи
+
 const selectAvtor = document.querySelector('.gallery-filter__select');
 
 const choicesAvtor = new Choices(selectAvtor, {
