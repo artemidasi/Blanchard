@@ -226,6 +226,18 @@ if (document.documentElement.clientWidth <= 1366) {
 
 // Спиcок в секции header-bottom
 
+// Фон для аторов
+
+// Количество листов
+const numberList = 5;
+// Количество художников в одном листе
+const numberItem = 4;
+
+document.querySelectorAll(`.dropdawn__item`).forEach((element) => {
+    console.log(element.dataset);
+    element.style.background = element.dataset.url;
+})
+
 // Функия, скрывающая все элементы по классу
 
 function hideElements(element) {
@@ -240,7 +252,7 @@ hideElements('dropdawn__list');
 
 document.querySelectorAll('.directions-list__button').forEach((element) => {
     element.addEventListener('click', (ev) => {
-        hideElements('dropdawn__list')
+        hideElements('dropdawn__list');
         const numberList = Number(ev.target.dataset.target);
         $(document.querySelectorAll(`.dropdawn__list[data-target="${numberList}"]`)).show();
     });
@@ -249,8 +261,9 @@ document.querySelectorAll('.directions-list__button').forEach((element) => {
 // При выборе конкретного художника закрываем список
 document.querySelectorAll('.dropdawn__item').forEach((element) => {
     element.addEventListener('click', (ev) => {
-        hideElements('dropdawn__list')
-    })
+            hideElements('dropdawn__list');
+        })
+        // element.style.background = 
 })
 
 // Перемещение по сайту

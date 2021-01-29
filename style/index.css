@@ -265,21 +265,18 @@ address {
 
 .dropdawn__item {
     width: 100%;
-    background: url(../img/Header-bottom/header-bottom__option_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 7px 14px;
     margin-bottom: 20px;
 }
 
-.artists-list__item:hover {
+.dropdawn__item:hover {
     outline: 2px solid var(--purpleNormal);
 }
 
-.artists-list__item:active {
-    background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url(../img/Header-bottom/header-bottom__option_1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+.dropdawn__item:active {
+    background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), attr(data-url);
     border: 2px solid var(---purpleVeryLight);
 }
 
@@ -1362,23 +1359,14 @@ address {
     line-height: 66px;
 }
 
-
-/* .hero,
-.company,
-.gallery,
-.catalog,
-.events,
-.editions,
-.projects {
-    margin-bottom: 80px;
-} */
-
 .simplebar-content-wrapper {
     overflow: auto;
 }
 
 .simplebar-scrollbar::before {
-    background-color: var(--purpleNormal);
+    width: 2px;
+    margin: 40px 0;
+    background-color: var(--white);
 }
 
 .simplebar-content>:last-child {
