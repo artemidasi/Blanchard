@@ -40,7 +40,7 @@ button {
     border: none;
     background: var(--invisible);
     transition-property: background, border;
-    transition-duration: 1s;
+    transition-duration: .4s;
     transition-timing-function: ease;
 }
 
@@ -98,14 +98,6 @@ address {
     justify-content: inherit;
     flex-wrap: inherit;
     width: 100%;
-}
-
-.simplebar-offset {
-    width: 100%;
-}
-
-.simplebar-track {
-    right: 15px;
 }
 
 
@@ -252,8 +244,8 @@ address {
 
 .dropdawn__list {
     position: absolute;
-    bottom: -300px;
     padding: 40px;
+    bottom: -300px;
     height: 300px;
     width: 300px;
     background: rgba(0, 0, 0, 0.6);
@@ -404,7 +396,7 @@ address {
 
 .gallery {
     display: flex;
-    padding: 80px 0;
+    padding: 80px 0 70px 0;
     color: var(--white);
     background-image: url(../img/gallery/gallery__fon.jpg);
 }
@@ -428,13 +420,18 @@ address {
     margin-bottom: 10px;
 }
 
+.choices {
+    padding-bottom: 119%;
+    margin: 0;
+}
+
 .choices__list {
     position: relative;
     border: none;
 }
 
-.gallery-filter .choices__list--dropdown,
-.gallery-filter .choices__list--dropdown .choices__item--selectable.is-highlighted {
+.choices__list--dropdown,
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
     visibility: visible;
     background: var(--invisible);
 }
@@ -464,8 +461,6 @@ address {
 }
 
 .gallery-left-info__more {
-    position: absolute;
-    bottom: -10px;
     max-width: 387px;
     font-weight: 600;
 }
@@ -1269,8 +1264,7 @@ address {
     border-radius: 100%;
     border: 1px solid var(--purpleNormal);
     background: var(--invisible);
-    width: 16px;
-    height: 16px;
+    padding: 4px 8px;
 }
 
 .project__tooltip[aria-describedby*=tippy],
@@ -1336,6 +1330,11 @@ address {
     height: 100%;
 }
 
+.swiper-button-disabled {
+    cursor: default;
+    background: rgb(87, 86, 86) !important;
+}
+
 .swiper__navigation:focus {
     border: 2px solid var(--purpleDark);
 }
@@ -1349,6 +1348,11 @@ address {
     stroke: var(--white);
 }
 
+.project__company .swiper-button-disabled:hover path,
+.project__company .swiper-button-disabled:active path {
+    stroke: var(--Bl);
+}
+
 .swiper__navigation:active {
     background: var(--purpleDark);
     border: 2px solid var(--purpleVeryLight);
@@ -1359,8 +1363,30 @@ address {
     line-height: 66px;
 }
 
-.simplebar-content-wrapper {
-    overflow: auto;
+.simplebar-wrapper {
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+}
+
+.simplebar-track {
+    right: 15px;
+}
+
+.simplebar-mask {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.simplebar-content {
+    padding: 0 !important;
+    max-height: 220px !important;
+}
+
+.simplebar-placeholder {
+    display: none;
 }
 
 .simplebar-scrollbar::before {
@@ -1370,7 +1396,7 @@ address {
 }
 
 .simplebar-content>:last-child {
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .catalog-accordion__content--media--1920,
@@ -1670,7 +1696,7 @@ address {
         margin-bottom: 286px;
     }
     .gallery-right {
-        padding-top: 23px;
+        padding-top: 27px;
         width: 590px;
     }
     .gallery-navigate {
@@ -1848,6 +1874,9 @@ address {
     }
     #map {
         width: 540px;
+    }
+    .choices {
+        padding-bottom: 104%;
     }
 }
 
@@ -2045,6 +2074,9 @@ address {
     .editions-right .swiper-container {
         margin-left: 10px;
     }
+    .choices {
+        padding-bottom: 8px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2151,11 +2183,11 @@ address {
     }
     .gallery {
         display: block;
-        padding: 50px 0 80px 0;
+        padding: 50px 0 70px 0;
     }
     .gallery-left {
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
     }
     .gallery-left-info__title {
         margin-bottom: 11px;
@@ -2170,11 +2202,11 @@ address {
         margin-bottom: 0;
     }
     .gallery-left-info__more {
-        max-width: 98%;
+        max-width: 96%;
     }
     .gallery-right {
         padding-top: 0;
-        margin-bottom: 10px;
+        margin-bottom: 18px;
     }
     .swiper__navigate-container {
         justify-content: center;
@@ -2211,6 +2243,7 @@ address {
         margin-right: 32px;
     }
     .catalog-titleContainer__item img {
+        padding: 0 !important;
         width: 100%;
         height: 100%;
     }

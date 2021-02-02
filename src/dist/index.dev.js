@@ -1,268 +1,26 @@
-"use strict";
+"use strict"; // Const
 
+var SPEED_SWIPER = 1500;
+var swiperNavigateNext = document.querySelector('.gallery-navigate__next');
+var swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
 var editionPrice = document.querySelector(".editions-left__priceContainer");
 var editionsTop = document.querySelector(".editions-right__top");
 var galleryInfo = document.querySelector(".gallery-left-info__more");
 var galleryContainer = document.querySelector(".gallery .main-container");
-
-if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 992) {
-  editionsTop.append(editionPrice); // Галерея
-
-  var swiperGallery = new Swiper('.gallery-right .swiper-container', {
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    spaceBetween: 34,
-    slidesPerColumn: 2,
-    navigation: {
-      nextEl: '.gallery-navigate__next',
-      prevEl: '.gallery-navigate__prev'
-    },
-    pagination: {
-      el: '.gallery-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Издание
-
-  var swiperEditions = new Swiper('.editions-right .swiper-container', {
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    spaceBetween: 50,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    navigation: {
-      nextEl: '.editions-navigate__next',
-      prevEl: '.editions-navigate__prev'
-    },
-    pagination: {
-      el: '.editions-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Проекты
-
-  var swiperProjects = new Swiper('.projects .swiper-container', {
-    slidesPerView: 2,
-    spaceBetween: 60,
-    navigation: {
-      nextEl: '.projects__swiper-next',
-      prevEl: '.projects__swiper-prev'
-    }
-  });
-} else if (document.documentElement.clientWidth > 1670) {
-  // Галерея
-  var _swiperGallery = new Swiper('.gallery-right .swiper-container', {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 50,
-    slidesPerColumn: 2,
-    navigation: {
-      nextEl: '.gallery-navigate__next',
-      prevEl: '.gallery-navigate__prev'
-    },
-    pagination: {
-      el: '.gallery-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Издание
-
-
-  var _swiperEditions = new Swiper('.editions-right .swiper-container', {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 25,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    navigation: {
-      nextEl: '.editions-navigate__next',
-      prevEl: '.editions-navigate__prev'
-    },
-    pagination: {
-      el: '.editions-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Проекты
-
-
-  var _swiperProjects = new Swiper('.projects .swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 60,
-    navigation: {
-      nextEl: '.projects__swiper-next',
-      prevEl: '.projects__swiper-prev'
-    }
-  });
-} else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
-  galleryContainer.append(galleryInfo); // Галерея
-
-  var _swiperGallery2 = new Swiper('.gallery-right .swiper-container', {
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    spaceBetween: 34,
-    slidesPerColumn: 2,
-    navigation: {
-      nextEl: '.gallery-navigate__next',
-      prevEl: '.gallery-navigate__prev'
-    },
-    pagination: {
-      el: '.gallery-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Издание
-
-
-  var _swiperEditions2 = new Swiper('.editions-right .swiper-container', {
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    navigation: {
-      nextEl: '.editions-navigate__next',
-      prevEl: '.editions-navigate__prev'
-    },
-    pagination: {
-      el: '.editions-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Проекты
-
-
-  var _swiperProjects2 = new Swiper('.projects .swiper-container', {
-    slidesPerView: 2,
-    spaceBetween: 40,
-    navigation: {
-      nextEl: '.projects__swiper-next',
-      prevEl: '.projects__swiper-prev'
-    }
-  });
-} else if (document.documentElement.clientWidth <= 700) {
-  galleryContainer.append(galleryInfo); // Галерея
-
-  var _swiperGallery3 = new Swiper('.gallery-right .swiper-container', {
-    navigation: {
-      nextEl: '.gallery-navigate__next',
-      prevEl: '.gallery-navigate__prev'
-    },
-    pagination: {
-      el: '.gallery-navigate__pagination',
-      type: 'fraction'
-    }
-  });
-
-  var gallerySwiper = document.querySelector(".gallery-right .swiper-container");
-  var galleryNavigation = document.querySelector(".gallery-right .gallery-navigate");
-  galleryNavigation.before(gallerySwiper);
-  var swiperEvents = new Swiper('.events .swiper-container', {
-    pagination: {
-      el: '.events__pagination'
-    }
-  }); // Проекты
-
-  var _swiperProjects3 = new Swiper('.projects .swiper-container', {
-    spaceBetween: 34,
-    navigation: {
-      nextEl: '.projects__swiper-next',
-      prevEl: '.projects__swiper-prev'
-    }
-  });
-
-  var title = document.querySelector('.editions-left__title');
-  var listCategories = document.querySelector('.editions-left__category');
-  var listTitle = document.querySelector('.editions-left__titleCategory');
-  var detailCategoties = document.createElement('details');
-  detailCategoties.classList.add('editions-left__details');
-  var summaryCategoties = document.createElement('summary');
-  summaryCategoties.classList.add('editions-left__summary');
-  summaryCategoties.append(listTitle);
-  detailCategoties.append(summaryCategoties);
-  detailCategoties.append(listCategories);
-  title.after(detailCategoties);
-} else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1366) {
-  // Галерея
-  var _swiperGallery4 = new Swiper('.gallery-right .swiper-container', {
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    spaceBetween: 50,
-    slidesPerColumn: 2,
-    navigation: {
-      nextEl: '.gallery-navigate__next',
-      prevEl: '.gallery-navigate__prev'
-    },
-    pagination: {
-      el: '.gallery-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Издание
-
-
-  var _swiperEditions3 = new Swiper('.editions-right .swiper-container', {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 25,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    navigation: {
-      nextEl: '.editions-navigate__next',
-      prevEl: '.editions-navigate__prev'
-    },
-    pagination: {
-      el: '.editions-navigate__pagination',
-      type: 'fraction'
-    }
-  }); // Проекты
-
-
-  var _swiperProjects4 = new Swiper('.projects .swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 50,
-    navigation: {
-      nextEl: '.projects__swiper-next',
-      prevEl: '.projects__swiper-prev'
-    }
-  });
-}
-
-if (document.documentElement.clientWidth <= 1366) {
-  var burgerList = document.querySelector('.header-top__navigate');
-  var burger = document.querySelector('.header-top__burger');
-  var privateRoom = document.querySelector('.header-top__link');
-  burgerList.append(privateRoom);
-  burger.after(burgerList);
-  burger.addEventListener('click', function (ev) {
-    burger.classList.toggle('header-top__burger--active');
-  });
-} // Спиcок в секции header-bottom
-// Фон для аторов
-// Количество листов
-
+var title = document.querySelector('.editions-left__title');
+var listCategories = document.querySelector('.editions-left__category');
+var listTitle = document.querySelector('.editions-left__titleCategory');
+var gallerySwiper = document.querySelector(".gallery-right .swiper-container");
+var galleryNavigation = document.querySelector(".gallery-right .gallery-navigate");
+var burgerList = document.querySelector('.header-top__navigate');
+var burger = document.querySelector('.header-top__burger');
+var privateRoom = document.querySelector('.header-top__link');
+var detailCategoties = document.createElement('details');
+var summaryCategoties = document.createElement('summary'); // Количество листов
 
 var numberList = 5; // Количество художников в одном листе
 
-var numberItem = 4;
-document.querySelectorAll(".dropdawn__item").forEach(function (element) {
-  console.log(element.dataset);
-  element.style.background = element.dataset.url;
-}); // Функия, скрывающая все элементы по классу
-
-function hideElements(element) {
-  document.querySelectorAll(".".concat(element)).forEach(function (element) {
-    $(element).hide();
-  });
-} // При загрузке скрываем все списки
-
-
-hideElements('dropdawn__list');
-document.querySelectorAll('.directions-list__button').forEach(function (element) {
-  element.addEventListener('click', function (ev) {
-    hideElements('dropdawn__list');
-    var numberList = Number(ev.target.dataset.target);
-    $(document.querySelectorAll(".dropdawn__list[data-target=\"".concat(numberList, "\"]"))).show();
-  });
-}); // При выборе конкретного художника закрываем список
-
-document.querySelectorAll('.dropdawn__item').forEach(function (element) {
-  element.addEventListener('click', function (ev) {
-    hideElements('dropdawn__list');
-  }); // element.style.background = 
-}); // Перемещение по сайту
+var numberItem = 4; // Секции на сайте
 
 var aboutContainer = document.querySelector('.aboutCompany');
 var gallerysContainer = document.querySelector('.gallery');
@@ -271,111 +29,13 @@ var eventsContainer = document.querySelector('.events');
 var editionsContainer = document.querySelector('.editions');
 var projectsContainer = document.querySelector('.projects');
 var contactsContainer = document.querySelector('.contacts');
-var heroButton = document.querySelector('.hero__button');
+var heroButton = document.querySelector('.hero__button'); // RКонтейнер со всеми секциями на сайте
 
-function scrollContent(content) {
-  var coin = setInterval(function () {
-    if (content.getBoundingClientRect().top > 0) {
-      window.scrollBy(0, 5);
-    } else {
-      clearInterval(coin);
-    }
-  }, 1);
-}
+var arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer]; // Список всех ссылок для перемещения по сайту
 
-;
-heroButton.addEventListener('click', function (ev) {
-  ev.preventDefault();
-  scrollContent(contactsContainer);
-});
-var arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer];
-var arrayLink = document.querySelectorAll('.header-top__item');
+var arrayLink = document.querySelectorAll('.header-top__item'); // Селектор
 
-var _loop = function _loop(i) {
-  arrayLink[i].addEventListener('click', function (ev) {
-    scrollContent(arrayContent[i]);
-  });
-};
-
-for (var i = 0; i < arrayLink.length; i++) {
-  _loop(i);
-} // Селектор в секции гелереи
-
-
-var selectAvtor = document.querySelector('.gallery-filter__select');
-var choicesAvtor = new Choices(selectAvtor, {
-  searchEnabled: false,
-  itemSelectText: '',
-  sorter: function sorter(a, b) {
-    return;
-  }
-}); //----------------------------------------------------------------------------------
-// Каталог
-// Реализация смены имени
-
-function artistInfo() {
-  var artistLinks = document.querySelectorAll('.catalog-accordion__link');
-  var artistName = document.querySelector('.catalog-leftColumn__name');
-  artistLinks.forEach(function (element) {
-    element.addEventListener('click', function (ev) {
-      ev.preventDefault();
-      var name = ev.target.innerHTML;
-      artistName.innerHTML = name;
-    });
-  });
-}
-
-artistInfo(); // Реализация аккордиона
-// Табы
-
-var countryTab = document.querySelectorAll('.catalog-titleContainer__link').forEach(function (element) {
-  element.addEventListener('click', function (ev) {
-    ev.preventDefault();
-    var countryObject = ev.target.dataset.country;
-    createListArtists(countryObject, ARTISTS__LIST, ARTISTS);
-  });
-});
-
-function clearLists(lists) {
-  lists[1400].innerHTML = '';
-  lists[1500].innerHTML = '';
-  lists[1600].innerHTML = '';
-  lists[1700].innerHTML = '';
-  lists[1800].innerHTML = '';
-  lists[1900].innerHTML = '';
-  lists[2000].innerHTML = '';
-}
-
-function createListArtists(country, lists, artists) {
-  // Очищаем все листы
-  clearLists(lists); // Помещаем объект с массивами по годам в переменную
-
-  var objectYears = artists[country]; // Делаем массив значений из объекта годов
-
-  var arrayYears = Object.values(objectYears); // Массив списков по годам
-
-  var listsYears = Object.values(lists); // Проходимся по каждому году
-
-  for (var _i = 0; _i < arrayYears.length; _i++) {
-    // Проходимся по каждому массиву в каждом годе
-    for (var k = 0; k < arrayYears[_i].length; k++) {
-      var listItem = document.createElement('li');
-      listItem.classList.add('catalog-accordion__item');
-      var listLink = document.createElement('a');
-      listLink.classList.add('catalog-accordion__link');
-      listLink.href = '#';
-      listLink.innerHTML = arrayYears[_i][k];
-      listItem.append(listLink);
-
-      listsYears[_i].append(listItem);
-    }
-  }
-
-  ;
-  artistInfo();
-  $("#catalog-accordion").accordion("refresh");
-} // Списки с художниками
-
+var selectAvtor = document.querySelector('.gallery-filter'); // Списки с художниками
 
 var ARTISTS__LIST = {
   1400: document.querySelector('.catalog-accordion__list[data-years="1400-1499"]'),
@@ -433,18 +93,406 @@ var ARTISTS = {
     1900: [],
     2000: []
   }
-};
+}; // Стили для иконок аккордиона
+
 var icons = {
   header: "myIcon-1",
   headerSelected: "myIcon-2"
+}; //----------------------------------------------------------------------------------
+// Функции
+// Функия, скрывающая все элементы по классу
+
+function hideElements(elements) {
+  document.querySelectorAll(elements).forEach(function (element) {
+    $(element).hide();
+  });
+} // Прокрутка контента
+
+
+function scrollContent(content) {
+  var coin = setInterval(function () {
+    if (content.getBoundingClientRect().top > 0) {
+      window.scrollBy(0, 5);
+    } else {
+      clearInterval(coin);
+    }
+  }, 1);
+}
+
+; // Реализация смены имени
+
+function artistInfo() {
+  var artistLinks = document.querySelectorAll('.catalog-accordion__link');
+  var artistName = document.querySelector('.catalog-leftColumn__name');
+  artistLinks.forEach(function (element) {
+    element.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      var name = ev.target.innerHTML;
+      artistName.innerHTML = name;
+    });
+  });
+} // Функции для работы с аккордеоном
+
+
+function clearLists(lists) {
+  lists[1400].innerHTML = '';
+  lists[1500].innerHTML = '';
+  lists[1600].innerHTML = '';
+  lists[1700].innerHTML = '';
+  lists[1800].innerHTML = '';
+  lists[1900].innerHTML = '';
+  lists[2000].innerHTML = '';
+}
+
+function createListArtists(country, lists, artists) {
+  // Очищаем все листы
+  clearLists(lists); // Помещаем объект с массивами по годам в переменную
+
+  var objectYears = artists[country]; // Делаем массив значений из объекта годов
+
+  var arrayYears = Object.values(objectYears); // Массив списков по годам
+
+  var listsYears = Object.values(lists); // Проходимся по каждому году
+
+  for (var i = 0; i < arrayYears.length; i++) {
+    // Проходимся по каждому массиву в каждом годе
+    for (var k = 0; k < arrayYears[i].length; k++) {
+      var listItem = document.createElement('li');
+      listItem.classList.add('catalog-accordion__item');
+      var listLink = document.createElement('a');
+      listLink.classList.add('catalog-accordion__link');
+      listLink.href = '#';
+      listLink.innerHTML = arrayYears[i][k];
+      listItem.append(listLink);
+      listsYears[i].append(listItem);
+    }
+  }
+
+  ;
+  artistInfo();
+  $("#catalog-accordion").accordion("refresh");
+} //----------------------------------------------------------------------------------
+// Неопределенные значения
+
+
+var swiperGallery,
+    swiperEditions,
+    swiperProjects,
+    swiperEvents,
+    choicesAvtor = null; //----------------------------------------------------------------------------------
+// Основные вычесления
+
+swiperNavigatePrev.addEventListener('click', function (ev) {
+  if (swiperNavigateNext.hasAttribute('disabled')) {
+    swiperNavigateNext.removeAttribute('disabled');
+  }
+});
+swiperNavigateNext.addEventListener('click', function (ev) {
+  setTimeout(function () {
+    if (swiperGallery.isEnd) {
+      swiperNavigateNext.setAttribute('disabled', true);
+    }
+  }, 1000);
+});
+
+if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 992) {
+  editionsTop.append(editionPrice); // Галерея
+
+  swiperGallery = new Swiper('.gallery-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 34,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery-navigate__next',
+      prevEl: '.gallery-navigate__prev'
+    },
+    pagination: {
+      el: '.gallery-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Издание
+
+  swiperEditions = new Swiper('.editions-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 50,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: '.editions-navigate__next',
+      prevEl: '.editions-navigate__prev'
+    },
+    pagination: {
+      el: '.editions-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Проекты
+
+  swiperProjects = new Swiper('.projects .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    spaceBetween: 60,
+    navigation: {
+      nextEl: '.projects__swiper-next',
+      prevEl: '.projects__swiper-prev'
+    }
+  });
+} else if (document.documentElement.clientWidth > 1670) {
+  // Галерея
+  swiperGallery = new Swiper('.gallery-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 50,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery-navigate__next',
+      prevEl: '.gallery-navigate__prev'
+    },
+    pagination: {
+      el: '.gallery-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Издание
+
+  swiperEditions = new Swiper('.editions-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 25,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: '.editions-navigate__next',
+      prevEl: '.editions-navigate__prev'
+    },
+    pagination: {
+      el: '.editions-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Проекты
+
+  swiperProjects = new Swiper('.projects .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 3,
+    spaceBetween: 60,
+    navigation: {
+      nextEl: '.projects__swiper-next',
+      prevEl: '.projects__swiper-prev'
+    }
+  });
+} else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
+  galleryContainer.append(galleryInfo); // Галерея
+
+  swiperGallery = new Swiper('.gallery-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 34,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery-navigate__next',
+      prevEl: '.gallery-navigate__prev'
+    },
+    pagination: {
+      el: '.gallery-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Издание
+
+  swiperEditions = new Swiper('.editions-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: '.editions-navigate__next',
+      prevEl: '.editions-navigate__prev'
+    },
+    pagination: {
+      el: '.editions-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Проекты
+
+  swiperProjects = new Swiper('.projects .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    spaceBetween: 40,
+    navigation: {
+      nextEl: '.projects__swiper-next',
+      prevEl: '.projects__swiper-prev'
+    }
+  });
+} else if (document.documentElement.clientWidth <= 700) {
+  galleryContainer.append(galleryInfo); // Галерея
+
+  swiperGallery = new Swiper('.gallery-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    navigation: {
+      nextEl: '.gallery-navigate__next',
+      prevEl: '.gallery-navigate__prev'
+    },
+    pagination: {
+      el: '.gallery-navigate__pagination',
+      type: 'fraction'
+    }
+  });
+  galleryNavigation.before(gallerySwiper);
+  swiperEvents = new Swiper('.events .swiper-container', {
+    speed: SPEED_SWIPER,
+    pagination: {
+      el: '.events__pagination'
+    }
+  }); // Проекты
+
+  swiperProjects = new Swiper('.projects .swiper-container', {
+    speed: SPEED_SWIPER,
+    spaceBetween: 34,
+    navigation: {
+      nextEl: '.projects__swiper-next',
+      prevEl: '.projects__swiper-prev'
+    }
+  });
+  detailCategoties.classList.add('editions-left__details');
+  summaryCategoties.classList.add('editions-left__summary');
+  summaryCategoties.append(listTitle);
+  detailCategoties.append(summaryCategoties);
+  detailCategoties.append(listCategories);
+  title.after(detailCategoties);
+} else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1366) {
+  // Галерея
+  swiperGallery = new Swiper('.gallery-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 50,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery-navigate__next',
+      prevEl: '.gallery-navigate__prev'
+    },
+    pagination: {
+      el: '.gallery-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Издание
+
+  swiperEditions = new Swiper('.editions-right .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 25,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: '.editions-navigate__next',
+      prevEl: '.editions-navigate__prev'
+    },
+    pagination: {
+      el: '.editions-navigate__pagination',
+      type: 'fraction'
+    }
+  }); // Проекты
+
+  swiperProjects = new Swiper('.projects .swiper-container', {
+    speed: SPEED_SWIPER,
+    slidesPerView: 3,
+    spaceBetween: 50,
+    navigation: {
+      nextEl: '.projects__swiper-next',
+      prevEl: '.projects__swiper-prev'
+    }
+  });
+}
+
+if (document.documentElement.clientWidth <= 1366) {
+  burgerList.append(privateRoom);
+  burger.after(burgerList);
+  burger.addEventListener('click', function (ev) {
+    burger.classList.toggle('header-top__burger--active');
+  });
+} //----------------------------------------------------------------------------------
+// Header-bottom
+
+
+document.body.addEventListener('click', function (ev) {
+  if (ev.target.classList[0] != 'directions-list__button') {
+    hideElements('.dropdawn__list');
+  }
+}); // При загрузке скрываем все списки
+
+hideElements('.dropdawn__list'); // Делаем фон из свойства элемента списка
+
+document.querySelectorAll(".dropdawn__item").forEach(function (element) {
+  element.style.background = element.dataset.url;
+}); // Показывем конкретный список
+
+document.querySelectorAll('.directions-list__button').forEach(function (element) {
+  element.addEventListener('click', function (ev) {
+    hideElements('.dropdawn__list');
+    var numberList = Number(ev.target.dataset.target);
+    $(document.querySelector(".dropdawn__list[data-target=\"".concat(numberList, "\"]"))).show();
+  });
+}); // При выборе конкретного художника закрываем список
+
+document.querySelectorAll('.dropdawn__list').forEach(function (element) {
+  element.addEventListener('click', function (ev) {});
+}); //----------------------------------------------------------------------------------
+// Перемещение по сайту
+
+heroButton.addEventListener('click', function (ev) {
+  ev.preventDefault();
+  scrollContent(contactsContainer);
+});
+
+var _loop = function _loop(i) {
+  arrayLink[i].addEventListener('click', function (ev) {
+    scrollContent(arrayContent[i]);
+  });
 };
+
+for (var i = 0; i < arrayLink.length; i++) {
+  _loop(i);
+} //----------------------------------------------------------------------------------
+// Селектор в секции гелереи
+// Создание стиля для селектора
+
+
+choicesAvtor = new Choices(selectAvtor, {
+  searchEnabled: false,
+  itemSelectText: '',
+  sorter: function sorter(a, b) {
+    return;
+  }
+}); //----------------------------------------------------------------------------------
+// Каталог
+
+artistInfo(); //----------------------------------------------------------------------------------
+// Реализация аккордиона
+// Табы
+
+var countryTab = document.querySelectorAll('.catalog-titleContainer__link').forEach(function (element) {
+  element.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var countryObject = ev.target.dataset.country;
+    createListArtists(countryObject, ARTISTS__LIST, ARTISTS);
+  });
+}); // Назначение аккордиона
+
 $("#catalog-accordion").accordion({
   // Все вкладки при загрузке закрыты
   active: false,
   // Повторный клик по вкладке закрывает ее
   collapsible: true,
+  // Иконки 
   icons: icons
-}); // Работа с тултипами
+}); //----------------------------------------------------------------------------------
+// Работа с тултипами
 
 tippy('.project__tooltip_number_1', {
   content: 'Пример современных тенденций - современная методология разработки',
@@ -460,7 +508,8 @@ tippy('.project__tooltip_number_3', {
   content: 'В стремлении повысить качество',
   theme: 'greay',
   trigger: 'click'
-}); //Карта
+}); //----------------------------------------------------------------------------------
+//Карта
 
 ymaps.ready(init);
 
@@ -474,7 +523,7 @@ function init() {
   var mark = new ymaps.Placemark(myMap.getCenter(), {}, {
     iconLayout: 'default#image',
     // Ссылка на мое изображение
-    iconImageHref: '../svg/map__mark.svg',
+    iconImageHref: './svg/map__mark.svg',
     // Размеры значка
     iconImageSize: [20, 20],
     // Смещение левого верхнего угла иконки относительно

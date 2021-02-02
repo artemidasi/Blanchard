@@ -1,0 +1,31 @@
+{
+  "stories": [
+    {
+      "title": "New story",
+      "created": 1611951905097,
+      "submissionHistory": {},
+      "versions": [
+        "8ab2cad6-41f4-447d-9cd6-ba1ad5256ca1"
+      ],
+      "id": "b082f6bd-2f7c-4672-ad33-8c80f1718e82"
+    }
+  ],
+  "versions": [
+    {
+      "storyId": "b082f6bd-2f7c-4672-ad33-8c80f1718e82",
+      "name": "draft",
+      "wordCount": 0,
+      "created": 1611951905097,
+      "statistics": {},
+      "id": "8ab2cad6-41f4-447d-9cd6-ba1ad5256ca1"
+    }
+  ],
+  "backups": [
+    {
+      "timestamp": 1611952055482,
+      "localPath": "C:\\Users\\acer\\Documents\\BabelWorkspaceBackups\\babel-2021-01-29.backup.zip",
+      "cloudProviders": [],
+      "id": "2f49145e-0528-492d-8d84-8f2b65d5d53e"
+    }
+  ]
+}
