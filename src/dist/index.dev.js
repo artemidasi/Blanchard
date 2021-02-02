@@ -421,7 +421,7 @@ if (document.documentElement.clientWidth <= 1366) {
 
 
 document.body.addEventListener('click', function (ev) {
-  if (ev.target.classList[0] != 'directions-list__button') {
+  if (ev.target.classList[0] != 'directions-list__button' || ev.target.classList[0] != 'dropdawn__list') {
     hideElements('.dropdawn__list');
   }
 }); // При загрузке скрываем все списки

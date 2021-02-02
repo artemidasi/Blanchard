@@ -532,7 +532,7 @@ if (document.documentElement.clientWidth <= 1366) {
 // Header-bottom
 
 document.body.addEventListener('click', (ev) => {
-    if (ev.target.classList[0] != 'directions-list__button') {
+    if (ev.target.classList[0] != 'directions-list__button' || ev.target.classList[0] != 'dropdawn__list') {
         hideElements('.dropdawn__list');
     }
 
