@@ -256,7 +256,7 @@ address {
 }
 
 .dropdawn__item {
-    width: 100%;
+    max-width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 7px 14px;
@@ -264,7 +264,7 @@ address {
 }
 
 .dropdawn__item:hover {
-    outline: 2px solid var(--purpleNormal);
+    border: 2px solid var(--purpleNormal);
 }
 
 .dropdawn__item:active {
@@ -1332,6 +1332,7 @@ address {
 
 .swiper-button-disabled {
     cursor: default;
+    border: none !important;
     background: rgb(87, 86, 86) !important;
 }
 

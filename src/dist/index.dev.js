@@ -1,6 +1,6 @@
 "use strict"; // Const
 
-var SPEED_SWIPER = 1500;
+var SPEED_SWIPER = 4000;
 var swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 var swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
 var editionPrice = document.querySelector(".editions-left__priceContainer");
@@ -421,7 +421,11 @@ if (document.documentElement.clientWidth <= 1366) {
 
 
 document.body.addEventListener('click', function (ev) {
-  if (ev.target.classList[0] != 'directions-list__button' || ev.target.classList[0] != 'dropdawn__list') {
+  console.log(ev);
+
+  if (ev.target.className == 'directions-list__button' || ev.target.className == 'dropdawn__list' || ev.target.className == 'dropdawn__item') {
+    return;
+  } else {
     hideElements('.dropdawn__list');
   }
 }); // При загрузке скрываем все списки

@@ -2,7 +2,7 @@
 
 // Const
 
-const SPEED_SWIPER = 1500;
+const SPEED_SWIPER = 4000;
 
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 const swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
@@ -532,10 +532,12 @@ if (document.documentElement.clientWidth <= 1366) {
 // Header-bottom
 
 document.body.addEventListener('click', (ev) => {
-    if (ev.target.classList[0] != 'directions-list__button' || ev.target.classList[0] != 'dropdawn__list') {
+    console.log(ev);
+    if (ev.target.className == 'directions-list__button' || ev.target.className == 'dropdawn__list' || ev.target.className == 'dropdawn__item') {
+        return;
+    } else {
         hideElements('.dropdawn__list');
     }
-
 })
 
 // При загрузке скрываем все списки
