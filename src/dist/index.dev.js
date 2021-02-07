@@ -123,7 +123,9 @@ function scrollContent(content) {
 
 function artistInfo() {
   var artistLinks = document.querySelectorAll('.catalog-accordion__link');
-  var artistName = document.querySelector('.catalog-leftColumn__name');
+  var artistName = document.querySelector('.catalog-leftColumn__name'); // Cтартовое значение имени
+
+  artistName.innerHTML = artistLinks[0] ? artistLinks[0].innerHTML : '';
   artistLinks.forEach(function (element) {
     element.addEventListener('click', function (ev) {
       ev.preventDefault();
@@ -144,7 +146,9 @@ function clearLists(lists) {
   lists[2000].innerHTML = '';
 }
 
-function createListArtists(country, lists, artists) {
+function createListArtists(country) {
+  var lists = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ARTISTS__LIST;
+  var artists = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ARTISTS;
   // Очищаем все листы
   clearLists(lists); // Помещаем объект с массивами по годам в переменную
 
@@ -421,8 +425,6 @@ if (document.documentElement.clientWidth <= 1366) {
 
 
 document.body.addEventListener('click', function (ev) {
-  console.log(ev);
-
   if (ev.target.className == 'directions-list__button' || ev.target.className == 'dropdawn__list' || ev.target.className == 'dropdawn__item') {
     return;
   } else {
@@ -478,23 +480,80 @@ choicesAvtor = new Choices(selectAvtor, {
 
 artistInfo(); //----------------------------------------------------------------------------------
 // Реализация аккордиона
-// Табы
-
-var countryTab = document.querySelectorAll('.catalog-titleContainer__link').forEach(function (element) {
-  element.addEventListener('click', function (ev) {
-    ev.preventDefault();
-    var countryObject = ev.target.dataset.country;
-    createListArtists(countryObject, ARTISTS__LIST, ARTISTS);
-  });
-}); // Назначение аккордиона
+// Назначение аккордиона
 
 $("#catalog-accordion").accordion({
-  // Все вкладки при загрузке закрыты
-  active: false,
   // Повторный клик по вкладке закрывает ее
   collapsible: true,
   // Иконки 
   icons: icons
+}); // Массив со всеми ссылка на табы
+
+var caseLinksTabs = []; // Табы
+
+document.querySelectorAll('.catalog-titleContainer__link').forEach(function (element) {
+  // Стартовая страна
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = element.classList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var prop = _step.value;
+
+      // Ищем совпадение по классу при первой загрузке и сразу подгружаю ифнормацию в аккордеон
+      if (prop == 'catalog-titleContainer__link--state--check') {
+        createListArtists(element.dataset.country);
+      }
+    } // Ставим обработчик событий на каждую таб
+
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  element.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
+
+    try {
+      for (var _iterator2 = caseLinksTabs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var item = _step2.value;
+        item.classList.remove("catalog-titleContainer__link--state--check");
+      }
+    } catch (err) {
+      _didIteratorError2 = true;
+      _iteratorError2 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+          _iterator2["return"]();
+        }
+      } finally {
+        if (_didIteratorError2) {
+          throw _iteratorError2;
+        }
+      }
+    }
+
+    element.classList.add("catalog-titleContainer__link--state--check");
+    var countryObject = element.dataset.country;
+    createListArtists(countryObject);
+  }); // Добавляем все табы в массив
+
+  caseLinksTabs.push(element);
 }); //----------------------------------------------------------------------------------
 // Работа с тултипами
 
