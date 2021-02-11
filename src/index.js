@@ -25,7 +25,7 @@ const numberList = 5;
 // Количество художников в одном листе
 const numberItem = 4;
 // Секции на сайте
-const aboutContainer = document.querySelector('.aboutCompany');
+const aboutContainer = document.querySelector('.company');
 const gallerysContainer = document.querySelector('.gallery');
 const catalogContainer = document.querySelector('.catalog');
 const eventsContainer = document.querySelector('.events');
@@ -304,7 +304,7 @@ swiperNavigateNext.addEventListener('click', (ev) => {
             swiperNavigateNext.setAttribute('disabled', true);
         }
     }, 1000)
-})
+});
 
 if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 992) {
     editionsTop.append(editionPrice);
@@ -578,13 +578,28 @@ for (let i = 0; i < arrayLink.length; i++) {
 
 // Создание стиля для селектора
 choicesAvtor = new Choices(selectAvtor, {
-
     searchEnabled: false,
     itemSelectText: '',
-    sorter: (a, b) => {
-        return;
-    },
 });
+
+function updateChoiceInfo(ev = null) {
+    setTimeout(() => {
+        const singleCase = document.querySelector(".choices__list--single .choices__item");
+        const arrayChoices = document.querySelectorAll(".choices__list--dropdown .choices__item");
+        let nameAtttibute = ev ? ev.detail.choice.value : singleCase.getAttribute('data-value');
+        arrayChoices.forEach((element) => {
+            if (element.getAttribute('data-value') == nameAtttibute) {
+                element.style.display = "none";
+            } else {
+                element.style.display = "flex";
+            }
+        })
+    }, 500)
+}
+
+updateChoiceInfo();
+
+selectAvtor.addEventListener('choice', updateChoiceInfo)
 
 //----------------------------------------------------------------------------------
 // Каталог
@@ -670,4 +685,5 @@ function init() {
         iconImageOffset: [0, 0]
     })
     myMap.geoObjects.add(mark);
+
 }

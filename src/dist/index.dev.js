@@ -22,7 +22,7 @@ var numberList = 5; // Количество художников в одном �
 
 var numberItem = 4; // Секции на сайте
 
-var aboutContainer = document.querySelector('.aboutCompany');
+var aboutContainer = document.querySelector('.company');
 var gallerysContainer = document.querySelector('.gallery');
 var catalogContainer = document.querySelector('.catalog');
 var eventsContainer = document.querySelector('.events');
@@ -471,11 +471,27 @@ for (var i = 0; i < arrayLink.length; i++) {
 
 choicesAvtor = new Choices(selectAvtor, {
   searchEnabled: false,
-  itemSelectText: '',
-  sorter: function sorter(a, b) {
-    return;
-  }
-}); //----------------------------------------------------------------------------------
+  itemSelectText: ''
+});
+
+function updateChoiceInfo() {
+  var ev = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  setTimeout(function () {
+    var singleCase = document.querySelector(".choices__list--single .choices__item");
+    var arrayChoices = document.querySelectorAll(".choices__list--dropdown .choices__item");
+    var nameAtttibute = ev ? ev.detail.choice.value : singleCase.getAttribute('data-value');
+    arrayChoices.forEach(function (element) {
+      if (element.getAttribute('data-value') == nameAtttibute) {
+        element.style.display = "none";
+      } else {
+        element.style.display = "flex";
+      }
+    });
+  }, 500);
+}
+
+updateChoiceInfo();
+selectAvtor.addEventListener('choice', updateChoiceInfo); //----------------------------------------------------------------------------------
 // Каталог
 
 artistInfo(); //----------------------------------------------------------------------------------
