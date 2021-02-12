@@ -644,6 +644,21 @@ document.querySelectorAll('.catalog-titleContainer__link').forEach((element) => 
 });
 
 //----------------------------------------------------------------------------------
+// Работа с карточками событий
+
+// Лист с картчоками
+const eventsList = document.querySelector(".events__list");
+// Кнопка, открывающая весь список
+const eventsButton = document.querySelector(".events__button");
+// Добавляем обработчик событий на кнопку
+eventsButton.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    eventsList.style.height = "100%";
+    eventsList.style.maxHeight = "100%";
+    }
+)
+
+//----------------------------------------------------------------------------------
 // Работа с тултипами
 
 tippy('.project__tooltip_number_1', {
