@@ -31,7 +31,7 @@ ul {
     list-style: none;
 }
 
- :focus {
+:focus {
     outline: none;
 }
 
@@ -58,6 +58,7 @@ p {
 a {
     color: var(--white);
     text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1,
