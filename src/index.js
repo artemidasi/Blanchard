@@ -231,7 +231,7 @@ function scrollContent(content) {
             clearInterval(coin);
         }
     }, 1)
-};
+}
 // Реализация смены имени
 function artistInfo() {
     const artistLinks = document.querySelectorAll('.catalog-accordion__link');
@@ -280,7 +280,7 @@ function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
             listItem.append(listLink);
             listsYears[i].append(listItem);
         }
-    };
+    }
     artistInfo();
     $("#catalog-accordion").accordion("refresh");
 }
@@ -655,6 +655,7 @@ eventsButton.addEventListener("click", (ev) => {
     ev.preventDefault();
     eventsList.style.height = "100%";
     eventsList.style.maxHeight = "100%";
+    eventsButton.remove();
     }
 )
 
