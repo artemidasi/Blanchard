@@ -594,7 +594,7 @@ function updateChoiceInfo(ev = null) {
                 element.style.display = "flex";
             }
         })
-    }, 500)
+    }, 1)
 }
 
 updateChoiceInfo();
@@ -621,11 +621,11 @@ $("#catalog-accordion").accordion({
 const caseLinksTabs = [];
 
 // Табы
-document.querySelectorAll('.catalog-titleContainer__link').forEach((element) => {
+document.querySelectorAll('.catalog-titleContainer__img').forEach((element) => {
     // Стартовая страна
     for (let prop of element.classList) {
         // Ищем совпадение по классу при первой загрузке и сразу подгружаю ифнормацию в аккордеон
-        if (prop == 'catalog-titleContainer__link--state--check') {
+        if (prop == 'catalog-titleContainer__img--state--check') {
             createListArtists(element.dataset.country);
         }
     }
@@ -633,9 +633,9 @@ document.querySelectorAll('.catalog-titleContainer__link').forEach((element) => 
     element.addEventListener('click', (ev) => {
         ev.preventDefault();
         for (let item of caseLinksTabs) {
-            item.classList.remove("catalog-titleContainer__link--state--check");
+            item.classList.remove("catalog-titleContainer__img--state--check");
         }
-        element.classList.add("catalog-titleContainer__link--state--check");
+        element.classList.add("catalog-titleContainer__img--state--check");
         const countryObject = element.dataset.country;
         createListArtists(countryObject);
     });
