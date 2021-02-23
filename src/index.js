@@ -20,10 +20,6 @@ const burger = document.querySelector('.header-top__burger');
 const privateRoom = document.querySelector('.header-top__link');
 const detailCategoties = document.createElement('details');
 const summaryCategoties = document.createElement('summary');
-// Количество листов
-const numberList = 5;
-// Количество художников в одном листе
-const numberItem = 4;
 // Секции на сайте
 const aboutContainer = document.querySelector('.company');
 const gallerysContainer = document.querySelector('.gallery');
@@ -232,17 +228,26 @@ function scrollContent(content) {
         }
     }, 1)
 }
+const arrayArtistsLinks = [];
 // Реализация смены имени
 function artistInfo() {
     const artistLinks = document.querySelectorAll('.catalog-accordion__link');
     const artistName = document.querySelector('.catalog-leftColumn__name');
-    // Cтартовое значение имени
-    artistName.innerHTML = artistLinks[0] ? artistLinks[0].innerHTML : '';
 
-    artistLinks.forEach((element) => {
+    artistLinks.forEach((element, index) => {
+        arrayArtistsLinks.push(element);
+        if (index === 0) {
+            // Даем первому элементу фокус и присваим имя автора
+            artistName.innerHTML = element.innerHTML;
+            element.classList.add('catalog-accordion__link--state--active');
+        }
         element.addEventListener('click', (ev) => {
             ev.preventDefault();
-            const name = ev.target.innerHTML;
+            arrayArtistsLinks.forEach((element) => {
+                element.className = "catalog-accordion__link";
+            })
+            element.classList.add('catalog-accordion__link--state--active');
+            const {innerHTML: name} = ev.target;
             artistName.innerHTML = name;
         });
     });
@@ -293,12 +298,12 @@ let swiperGallery, swiperEditions, swiperProjects, swiperEvents, choicesAvtor = 
 //----------------------------------------------------------------------------------
 // Основные вычесления
 
-swiperNavigatePrev.addEventListener('click', (ev) => {
+swiperNavigatePrev.addEventListener('click', () => {
     if (swiperNavigateNext.hasAttribute('disabled')) {
         swiperNavigateNext.removeAttribute('disabled');
     }
 })
-swiperNavigateNext.addEventListener('click', (ev) => {
+swiperNavigateNext.addEventListener('click', () => {
     setTimeout(() => {
         if (swiperGallery.isEnd) {
             swiperNavigateNext.setAttribute('disabled', true);
@@ -525,7 +530,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
 if (document.documentElement.clientWidth <= 1366) {
     burgerList.append(privateRoom);
     burger.after(burgerList);
-    burger.addEventListener('click', (ev) => {
+    burger.addEventListener('click', () => {
         burger.classList.toggle('header-top__burger--active');
     })
 }
@@ -534,7 +539,7 @@ if (document.documentElement.clientWidth <= 1366) {
 // Header-bottom
 
 document.body.addEventListener('click', (ev) => {
-    if (ev.target.className == 'directions-list__button' || ev.target.className == 'dropdawn__list' || ev.target.className == 'dropdawn__item') {
+    if (ev.target.className === 'directions-list__button' || ev.target.className === 'dropdawn__list' || ev.target.className === 'dropdawn__item') {
         return;
     } else {
         hideElements('.dropdawn__list');
@@ -557,7 +562,7 @@ document.querySelectorAll('.directions-list__button').forEach((element) => {
 });
 // При выборе конкретного художника закрываем список
 document.querySelectorAll('.dropdawn__list').forEach((element) => {
-    element.addEventListener('click', (ev) => {})
+    element.addEventListener('click', () => {})
 })
 
 //----------------------------------------------------------------------------------
@@ -568,7 +573,7 @@ heroButton.addEventListener('click', (ev) => {
     scrollContent(contactsContainer);
 });
 for (let i = 0; i < arrayLink.length; i++) {
-    arrayLink[i].addEventListener('click', (ev) => {
+    arrayLink[i].addEventListener('click', () => {
         scrollContent(arrayContent[i]);
     })
 }
@@ -625,7 +630,7 @@ document.querySelectorAll('.catalog-titleContainer__img').forEach((element) => {
     // Стартовая страна
     for (let prop of element.classList) {
         // Ищем совпадение по классу при первой загрузке и сразу подгружаю ифнормацию в аккордеон
-        if (prop == 'catalog-titleContainer__img--state--check') {
+        if (prop === 'catalog-titleContainer__img--state--check') {
             createListArtists(element.dataset.country);
         }
     }

@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans.woff2') format('woff2'), url('../fonts/OpenSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --Bl: black;
     --Bl33: #333;
@@ -19,8 +26,9 @@
 
 body,
 html {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     line-height: 32px;
+    font-size: 17px;
     background: var(--white);
     color: var(--Bl33);
 }
@@ -41,7 +49,7 @@ button {
     background: var(--invisible);
     transition-property: background, border;
     transition-duration: .4s;
-    transition-timing-function: ease;
+    transition-timing-function: ease-in-out;
 }
 
 input,
@@ -51,14 +59,23 @@ button:active {
     outline: none;
 }
 
+.fonts--600 {
+    font-weight: 600 !important;
+}
+
+.fonts--700 {
+    font-weight: 700 !important;
+}
+
 p {
     margin: 0;
 }
 
 a {
     color: var(--white);
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    text-decoration: none !important;
+    font-family: 'OpenSans', sans-serif;
+    transition: color .4s ease-in-out;
 }
 
 h1,
@@ -67,7 +84,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+    font-weight: normal;
     margin: 0;
 }
 
@@ -169,8 +186,7 @@ address {
 .directions-list__button:focus,
 .gallery-left-info__link:focus,
 .events__link:focus,
-.catalog-accordion__link:focus,
-.ui-accordion-header a:focus {
+.catalog-accordion__link:focus {
     outline: 2px solid var(--purpleDark);
 }
 
@@ -181,6 +197,7 @@ address {
     color: var(--purpleLight);
 }
 
+.header-navigate__link:active,
 .directions-list__button:active,
 .header-top__link:active,
 .header-bottom__item:hover {
@@ -271,7 +288,6 @@ address {
 }
 
 .dropdawn__item:active {
-    background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), attr(data-url);
     border: 2px solid var(--purpleVeryLight);
 }
 
@@ -342,17 +358,17 @@ address {
     font-size: 77px;
     line-height: 83px;
     max-width: 563px;
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 .hero__text {
     max-width: 579px;
     margin-bottom: 86px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .hero__button {
-    padding: 20px 40px;
+    padding: 20px 38px;
     color: inherit;
     background-color: var(--purpleNormal);
     border-radius: 100px;
@@ -422,7 +438,6 @@ address {
 }
 
 .gallery-filter__title {
-    font-size: 17px;
     margin-bottom: 10px;
 }
 
@@ -472,8 +487,6 @@ address {
 
 .gallery-left-info__link,
 .gallery-left-info__link:visited {
-    font-size: 18px;
-    font-weight: 400;
     color: var(--purpleLight);
 }
 
@@ -699,11 +712,11 @@ address {
     display: flex;
     position: relative;
     align-items: flex-start;
-    max-height: 83px;
+    max-height: 81px;
 }
 
 .catalog-titleContainer__title {
-    margin: 0 29px 0 0 !important;
+    margin: 0 35px 0 0 !important;
 }
 
 .catalog-titleContainer__list {
@@ -723,6 +736,7 @@ address {
     padding: 10px;
     border-radius: 100%;
     border: 2px solid var(--invisible);
+    transition: border-color 1s ease-in-out;
 }
 
 .catalog-titleContainer__img:hover  {
@@ -731,6 +745,7 @@ address {
 
 .catalog-titleContainer__img--state--check {
     border-color: var(--purpleNormal);
+    transition: border-color 1s ease-in-out;
 }
 
 .catalog__info {
@@ -778,7 +793,6 @@ address {
 }
 
 .ui-accordion-header a {
-    font-weight: normal !important;
     color: var(--Bl33) !important;
 }
 
@@ -867,13 +881,15 @@ address {
 .catalog-accordion__link,
 .catalog-accordion__link:visited {
     color: var(--Bl33);
-    font-weight: normal;
     transition: color .4s ease-in-out;
+}
+
+.catalog-accordion__link--state--active {
+    outline: 2px solid var(--purpleDark);
 }
 
 .catalog-accordion__link:hover {
     color: var(--purpleNormal);
-    text-decoration: underline;
 }
 
 .catalog-accordion__link:active {
@@ -953,7 +969,6 @@ address {
     left: 50px;
     color: var(--purpleLight);
     display: inline-block;
-    text-decoration: underline;
 }
 
 .events__link:hover {
@@ -965,7 +980,7 @@ address {
 }
 
 .events__address {
-    margin-bottom: 3px;
+    margin-bottom: 6px;
     font-size: 12px;
     line-height: 18px;
     font-style: normal;
@@ -1018,8 +1033,8 @@ address {
 }
 
 .editions-left__titleCategory {
+    margin-bottom: 3px;
     width: 100%;
-    font-size: 17px;
 }
 
 .editions-left__label {
@@ -1035,7 +1050,7 @@ address {
     color: var(--purpleLight);
 }
 
-.editions-left__label:hover span {
+.editions-left__label:hover span:not([data-value="name"]) {
     border: 1px solid var(--purpleLight);
     transition: border .4s ease-in-out;
 }
@@ -1049,35 +1064,40 @@ address {
     display: none;
 }
 
-.editions-left__input~span {
+.editions-left__input~span:not([data-value="name"]) {
     position: absolute;
     top: 25%;
     left: 0;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     border: 1px solid var(--white);
 }
 
-.editions-left__input~span::before {
+.editions-left__input~span:not([data-value="name"])::before {
     content: url(../img/Editions/ellipse-input.png);
     position: absolute;
-    left: 5px;
-    bottom: -6px;
+    left: 3px;
+    bottom: -7px;
     opacity: 0;
     transition: opacity .3s ease-in-out;
 }
 
-.editions-left__input:checked~span,
-.editions-left__label:hover~span,
-.editions-left__input~span:focus{
+.editions-left__input:checked~span:not([data-value="name"]),
+.editions-left__label:hover span:not([data-value="name"]),
+.editions-left__input~span:not([data-value="name"]):focus{
     border-color: var(--purpleLight);
 }
 
-.editions-left__label:active span {
+.editions-left__label:active span:not([data-value="name"]) {
     border-color: var(--purpleDark);
 }
 
-.editions-left__input:checked~p {
+.editions-left__label:active span[data-value="name"] {
+    color: var(--purpleDark);
+}
+
+.editions-left__input:checked~span[data-value="name"],
+.editions-left__input~span:not([data-value="name"]):focus~span[data-value="name"]{
     color: var(--purpleLight);
 }
 
@@ -1086,7 +1106,7 @@ address {
 }
 
 .editions-left__titlePrice {
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 }
 
 .editions-left__price {
@@ -1130,15 +1150,6 @@ address {
     position: relative;
     margin-bottom: 11px;
     line-height: 26px;
-}
-
-.hero__title,
-.hero__text,
-.hero__button,
-.editions-right-list__text,
-.events__button,
-.contacts__button {
-    font-weight: 700;
 }
 
 .editions-right-list__text,
@@ -1186,7 +1197,7 @@ address {
 /* Стили для секции проекты */
 
 .projects {
-    padding: 79px 0;
+    padding: 83px 0 77px 0;
 }
 
 .projects__title {
@@ -1209,13 +1220,8 @@ address {
     transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
-.projects__link:hover {
-    text-decoration: underline;
-}
-
 .projects__link:active {
     color: var(--purpleDark);
-    text-decoration: underline;
 }
 
 .project__company {
@@ -1231,7 +1237,7 @@ address {
 
 .project__title-wrapper {
     font-size: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 23px;
 }
 
 .project__swiper-slide {
@@ -1406,7 +1412,7 @@ address {
 }
 
 .contacts__title {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .contacts-info {
@@ -1427,23 +1433,13 @@ address {
 .contacts__adress--media--1024 {
     display: none;
 }
-.header-top__item,
-.gallery-left-info__more,
-.catalog-leftColumn__name,
-.events-info__title,
-.events__address,
-.project__title-wrapper,
-.contacts-left__title,
-.ui-accordion-header a{
-    font-weight: 600 !important;
-}
 
 .contacts-left__title {
     line-height: 37px;
 }
 .contacts-left__title,
 .contacts__title-form {
-    font-size: 24px;
+    font-size: 25px;
 }
 
 .contacts__adress {
@@ -1456,8 +1452,7 @@ address {
 }
 
 .contacts__title-form {
-    font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .contacts__input {
@@ -1474,7 +1469,7 @@ address {
 }
 
 .contacts__button {
-    padding: 17px 42px;
+    padding: 17px 40px;
     color: var(--purpleNormal);
     border: 2px solid var(--purpleDark);
     box-sizing: border-box;
@@ -1558,7 +1553,7 @@ address {
         max-width: 1300px;
     }
     .catalog-titleContainer__list {
-        padding-top: 10px;
+        padding-top: 6px;
     }
     .header-bottom__item {
         margin-right: 50px;
@@ -1597,9 +1592,6 @@ address {
     }
     .editions-left__titleCategory {
         line-height: 38px;
-    }
-    .events__text {
-        font-size: 17px;
     }
     .projects {
         padding: 81px 0;
@@ -1740,7 +1732,7 @@ address {
         fill: var(--purpleNormal);
     }
     .hero {
-        padding: 211px 0 116px;
+        padding: 214px 0 114px;
     }
     .hero__title {
         max-width: 585px;
@@ -1750,8 +1742,11 @@ address {
     }
     .hero__text {
         max-width: 660px;
-        margin-bottom: 132px;
+        margin-bottom: 130px;
         font-size: 19px;
+    }
+    .hero__button {
+        padding: 20px 36px;
     }
     .company__text {
         width: 100%;
@@ -1768,7 +1763,8 @@ address {
         margin-bottom: 10px;
     }
     .gallery-left-info__more {
-        padding-top: 102%;
+        padding-top: 103%;
+        font-size: 16px;
     }
     .gallery-right {
         padding-top: 23px;
@@ -1814,6 +1810,7 @@ address {
     }
     .events-info {
         padding: 3px 17px 0 35px;
+        max-height: 360px;
     }
     .events-info__address {
         top: 175px;
@@ -1821,28 +1818,22 @@ address {
     .events-info__text {
         max-height: 256px;
     }
-    .events-info {
-        max-height: 360px;
-    }
     .events__link,
     .events__link:visited {
         bottom: 49px;
         left: 35px;
     }
+
+    .events__button {
+        padding: 14px 36px;
+    }
+
     .editions {
         padding: 80px 0;
-    }
-    .editions-left__input~span {
-        width: 12px;
-        height: 12px;
     }
     .editions-left__price {
         width: 341px;
         line-height: 39px;
-    }
-    .editions-left__input~span::before {
-        left: 3px;
-        bottom: -7px;
     }
     .editions-left__category,
     .editions-left__category>:last-child {
@@ -1886,9 +1877,6 @@ address {
     .editions-right-list__button {
         padding: 8px 25px;
     }
-    .projects__text {
-        max-width: 99%;
-    }
     .project__title-wrapper {
         margin-bottom: 25px;
     }
@@ -1931,9 +1919,6 @@ address {
     .contacts-left__title--media--1024,
     .contacts__adress--media--1024 {
         display: block;
-    }
-    .contacts__title-form {
-        margin-bottom: 16px;
     }
     .contacts__input {
         width: 335px;
@@ -2076,7 +2061,6 @@ address {
     .editions-left__titlePrice {
         width: 100%;
         margin: 0 0 5px 0 !important;
-        font-size: 17px;
     }
     .editions-left__price {
         height: 40px;
@@ -2141,6 +2125,9 @@ address {
     }
     .contacts-left {
         padding: 121px 45px 124px 50px;
+    }
+    .contacts__title-form {
+        margin-bottom: 13px;
     }
     #map {
         width: 100%;
@@ -2251,15 +2238,15 @@ address {
     }
     .hero__text {
         padding: 0 10px;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 16px;
-        font-weight: 400;
+        font-weight: 400 !important;
         margin-bottom: 41px;
     }
     .hero__button {
         font-size: 12px;
         line-height: 16px;
-        padding: 9px 24px;
+        padding: 9px 20px;
     }
     .company {
         padding: 50px 0 40px 0;
@@ -2268,6 +2255,7 @@ address {
         margin-bottom: 12px !important;
     }
     .company__text {
+        max-width: 99%;
         font-size: 14px;
         line-height: 28px;
     }
@@ -2342,7 +2330,7 @@ address {
     }
     .catalog-accordion__item {
         width: 100%;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
         line-height: 29px;
     }
     .ui-accordion-content {
@@ -2412,7 +2400,7 @@ address {
         padding: 50px 0 48px 0;
     }
     .editions-left__title {
-        margin-bottom: 13px !important;
+        margin-bottom: 12px !important;
     }
     .editions-left__details {
         padding-bottom: 5px;
