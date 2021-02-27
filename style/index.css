@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'OpenSans__Bold';
+    src: url('../fonts/opensans-bold-webfont.woff2') format('woff2'), url('../fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
     --Bl: black;
     --Bl33: #333;
@@ -64,6 +71,7 @@ button:active {
 }
 
 .fonts--700 {
+    font-family: 'OpenSans__Bold', sans-serif;
     font-weight: 700 !important;
 }
 
