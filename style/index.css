@@ -299,6 +299,7 @@ address {
 }
 
 .dropdawn__item {
+    position: relative;
     max-width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -306,11 +307,22 @@ address {
     margin-bottom: 20px;
 }
 
-.dropdawn__item:hover {
+.dropdawn__item::after,
+.dropdawn__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dropdawn__item:hover::after {
     border: 2px solid var(--purpleNormal);
 }
 
-.dropdawn__item:active {
+.dropdawn__item:active::before {
+    background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4));
     border: 2px solid var(--purpleVeryLight);
 }
 
@@ -1411,11 +1423,16 @@ address {
 .simplebar-placeholder {
     display: none;
 }
-
-.simplebar-scrollbar::before {
-    width: 2px;
+.simplebar-vertical {
+    width: 2px !important;
     margin: 40px 0;
-    background-color: var(--white);
+    background: var(--Bl);
+}
+
+.simplebar-scrollbar {
+    width: 2px;
+    height: 28px !important;
+    background-color: var(--purpleDark);
 }
 
 .simplebar-content>:last-child {
