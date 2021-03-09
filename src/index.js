@@ -1,7 +1,7 @@
 "use strict";
 
 // Const
-const SPEED_SWIPER = 4000;
+const SPEED_SWIPER = 6000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 const swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
 const editionPrice = document.querySelector(".editions-left__priceContainer");
