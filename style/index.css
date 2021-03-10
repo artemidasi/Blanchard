@@ -770,15 +770,17 @@ address {
 .catalog-country__button {
     padding: 0;
     position: relative;
+    transition: filter 1s ease;
+}
+
+.catalog-country__button::before {
+    position: absolute;
     border-radius: 100%;
-    border: 2px soli var(--invisible);
+    border: 2px solid var(--purpleNormal);
 }
 
 .catalog-country__button:active::before {
     content: '';
-    position: absolute;
-    border-radius: 100%;
-    border: 2px solid var(--purpleNormal);
     top: -2px !important;
     right: -2px !important;
     bottom: 0 !important;
@@ -787,16 +789,13 @@ address {
 
 .catalog-country__button:focus::before {
     content: '';
-    position: absolute;
-    border-radius: 100%;
-    border: 2px solid var(--purpleNormal);
     top: -10px;
     right: -10px;
     bottom: -8px;
     left: -10px;
 }
 
-.catalog-country__img:hover  {
+.catalog-country__button:hover {
     filter: drop-shadow(0px 0px 20px rgba(157, 92, 208, 0.7));
 }
 
