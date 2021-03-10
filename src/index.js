@@ -4,13 +4,13 @@
 const SPEED_SWIPER = 6000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 const swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
-const editionPrice = document.querySelector(".editions-left__priceContainer");
+const editionPrice = document.querySelector(".editions-left__container-price");
 const editionsTop = document.querySelector(".editions-right__top");
 const galleryInfo = document.querySelector(".gallery-left-info__more");
 const galleryContainer = document.querySelector(".gallery .main-container");
 const title = document.querySelector('.editions-left__title');
 const listCategories = document.querySelector('.editions-left__category');
-const listTitle = document.querySelector('.editions-left__titleCategory');
+const listTitle = document.querySelector('.editions-left__category');
 const gallerySwiper = document.querySelector(".gallery-right .swiper-container");
 const galleryNavigation = document.querySelector(".gallery-right .gallery-navigate");
 const burgerList = document.querySelector('.header-top__navigate');
@@ -27,7 +27,7 @@ const editionsContainer = document.querySelector('.editions');
 const projectsContainer = document.querySelector('.projects');
 const contactsContainer = document.querySelector('.contacts');
 const heroButton = document.querySelector('.hero__button');
-// RКонтейнер со всеми секциями на сайте
+// Контейнер со всеми секциями на сайте
 const arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer];
 // Список всех ссылок для перемещения по сайту
 const arrayLink = document.querySelectorAll('.header-top__item');
@@ -229,22 +229,22 @@ function scrollContent(content) {
 const arrayArtistsLinks = [];
 // Реализация смены имени
 function artistInfo() {
-    const artistLinks = document.querySelectorAll('.catalog-accordion__link');
-    const artistName = document.querySelector('.catalog-leftColumn__name');
+    const artistLinks = document.querySelectorAll('.catalog-accordion__button');
+    const artistName = document.querySelector('.catalog-column-left__name');
 
     artistLinks.forEach((element, index) => {
         arrayArtistsLinks.push(element);
         if (index === 0) {
             // Даем первому элементу фокус и присваим имя автора
             artistName.innerHTML = element.innerHTML;
-            element.classList.add('catalog-accordion__link--state--active');
+            element.classList.add('catalog-accordion__button--state--active');
         }
         element.addEventListener('click', (ev) => {
             ev.preventDefault();
             arrayArtistsLinks.forEach((element) => {
-                element.className = "catalog-accordion__link";
+                element.className = "catalog-accordion__button";
             })
-            element.classList.add('catalog-accordion__link--state--active');
+            element.classList.add('catalog-accordion__button--state--active');
             const {innerHTML: name} = ev.target;
             artistName.innerHTML = name;
         });
@@ -276,11 +276,10 @@ function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
         for (let k = 0; k < arrayYears[i].length; k++) {
             const listItem = document.createElement('li');
             listItem.classList.add('catalog-accordion__item');
-            const listLink = document.createElement('a');
-            listLink.classList.add('catalog-accordion__link');
-            listLink.href = '#';
-            listLink.innerHTML = arrayYears[i][k];
-            listItem.append(listLink);
+            const listButton = document.createElement('button');
+            listButton.classList.add('catalog-accordion__button');
+            listButton.innerHTML = arrayYears[i][k];
+            listItem.append(listButton);
             listsYears[i].append(listItem);
         }
     }
@@ -624,11 +623,12 @@ $("#catalog-accordion").accordion({
 const caseLinksTabs = [];
 
 // Табы
-document.querySelectorAll('.catalog-titleContainer__img').forEach((element) => {
+document.querySelectorAll('.catalog-country__img').forEach((element) => {
     // Стартовая страна
     for (let prop of element.classList) {
         // Ищем совпадение по классу при первой загрузке и сразу подгружаю ифнормацию в аккордеон
-        if (prop === 'catalog-titleContainer__img--state--check') {
+        if (prop === 'catalog-country__img--state--check') {
+            $(`.catalog-country__button[data-country="${element.dataset.country}"]`).focus();
             createListArtists(element.dataset.country);
         }
     }
@@ -636,9 +636,9 @@ document.querySelectorAll('.catalog-titleContainer__img').forEach((element) => {
     element.addEventListener('click', (ev) => {
         ev.preventDefault();
         for (let item of caseLinksTabs) {
-            item.classList.remove("catalog-titleContainer__img--state--check");
+            item.classList.remove("catalog-country__img--state--check");
         }
-        element.classList.add("catalog-titleContainer__img--state--check");
+        element.classList.add("catalog-country__img--state--check");
         const countryObject = element.dataset.country;
         createListArtists(countryObject);
     });
