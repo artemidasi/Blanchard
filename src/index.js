@@ -261,7 +261,11 @@ function clearLists(lists) {
     lists[2000].innerHTML = '';
 }
 
+let addList = false;
+
 function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
+    // Даем фокус элементы по которому кликнули
+    $(`.catalog-country__button[data-country="${country}"]`).focus();
     // Очищаем все листы
     clearLists(lists);
     // Помещаем объект с массивами по годам в переменную
@@ -286,7 +290,6 @@ function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
     artistInfo();
     $("#catalog-accordion").accordion("refresh");
 }
-
 //----------------------------------------------------------------------------------
 // Неопределенные значения
 
@@ -619,26 +622,17 @@ $("#catalog-accordion").accordion({
     icons: icons,
 });
 
+// Определяем стартовый список аккордиона
+createListArtists("Italy");
+
 // Массив со всеми ссылка на табы
 const caseLinksTabs = [];
 
 // Табы
-document.querySelectorAll('.catalog-country__img').forEach((element) => {
-    // Стартовая страна
-    for (let prop of element.classList) {
-        // Ищем совпадение по классу при первой загрузке и сразу подгружаю ифнормацию в аккордеон
-        if (prop === 'catalog-country__img--state--check') {
-            $(`.catalog-country__button[data-country="${element.dataset.country}"]`).focus();
-            createListArtists(element.dataset.country);
-        }
-    }
+document.querySelectorAll('.catalog-country__button').forEach((element) => {
     // Ставим обработчик событий на каждую таб
     element.addEventListener('click', (ev) => {
         ev.preventDefault();
-        for (let item of caseLinksTabs) {
-            item.classList.remove("catalog-country__img--state--check");
-        }
-        element.classList.add("catalog-country__img--state--check");
         const countryObject = element.dataset.country;
         createListArtists(countryObject);
     });

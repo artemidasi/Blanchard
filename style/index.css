@@ -39,7 +39,7 @@
     --input: rgba(255, 255, 255, 0.85);
     --purpleVeryLight: #D1A9F0;
     --purpleLight: #C283F3;
-    --purpleNormal: #9D5CD0;
+    --purpleNormal: #9d5cd0;
     --purpleDark: #7943A4;
     --invisible: rgba(0, 0, 0, 0);
 }
@@ -65,6 +65,11 @@ ul {
 
 :focus {
     outline: none;
+}
+
+.network__item,
+.logo__item {
+    cursor: pointer;
 }
 
 button {
@@ -124,7 +129,7 @@ address {
     margin: 0 auto;
 }
 
-.main-container_theme_flex {
+.main-container--theme--flex {
     display: inherit;
     align-items: inherit;
     justify-content: inherit;
@@ -132,6 +137,11 @@ address {
     width: 100%;
 }
 
+.main-container--fon--logo {
+    background-image: url(../svg/Blanchard.svg);
+    background-repeat: no-repeat;
+    background-position: 1% 0%;
+}
 
 /* Делаем секцию шапки нашей старницы */
 
@@ -148,14 +158,18 @@ address {
     align-items: center;
     padding: 30px 0;
     background-color: var(--Bl);
-    font-size: 18px;
+    font-size: 19px;
+}
+
+.header-top .main-container {
+    height: 40px;
 }
 
 .header-bottom {
     display: flex;
     justify-content: space-between;
     background: rgba(0, 0, 0, 0.4);
-    padding: 24px 0;
+    padding: 22px 0;
 }
 
 .header-top__burger,
@@ -163,6 +177,14 @@ address {
 .events__pagination,
 .media--320 {
     display: none;
+}
+
+.header-top__search {
+    width: 30px;
+    height: 29px;
+    background-image: url(../svg/header__search.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header-logo {
@@ -175,12 +197,13 @@ address {
 
 .header-top__navigate {
     display: inherit;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
 }
 
 .header-top__list {
     display: inherit;
+    margin-right: 274px;
 }
 
 .header-top__list>:last-child {
@@ -188,7 +211,7 @@ address {
 }
 
 .header-top__item {
-    margin-right: 63px;
+    margin-right: 61px;
     font-weight: 600;
 }
 
@@ -202,7 +225,8 @@ address {
 .directions-list__button:focus,
 .gallery-left-info__link:focus,
 .events__link:focus,
-.catalog-accordion__button:focus{
+.catalog-accordion__button:focus,
+.projects__link:focus{
     outline: 2px solid var(--purpleDark);
 }
 
@@ -216,7 +240,7 @@ address {
 .header-navigate__link:active,
 .directions-list__button:active,
 .header-top__link:active,
-.header-bottom__item:hover {
+.header-bottom__item:hover{
     color: var(--purpleNormal);
 }
 
@@ -329,11 +353,21 @@ address {
 .header-bottom__button {
     position: absolute;
     top: 4px;
-    left: -35px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../svg/Header-bottom__search.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-bottom__button:focus {
+    outline: 2px solid var(--purpleNormal);
 }
 
 .header-bottom__input {
     width: 100%;
+    padding-bottom: 6px;
     background-color: var(--invisible);
     border-bottom: 1px solid var(--input);
 }
@@ -384,8 +418,8 @@ address {
 
 .hero__title {
     margin-bottom: 18px;
-    max-width: 597px;
-    font-size: 72px;
+    max-width: 588px;
+    font-size: 77px;
     line-height: 83px;
     font-weight: 700;
 }
@@ -393,11 +427,11 @@ address {
 .hero__text {
     max-width: 579px;
     margin-bottom: 86px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .hero__button {
-    padding: 20px 32px;
+    padding: 20px 42px;
     color: inherit;
     background-color: var(--purpleNormal);
     border-radius: 100px;
@@ -520,12 +554,9 @@ address {
     color: var(--purpleLight);
 }
 
-.gallery-left-info__link:hover {
+.gallery-left-info__link:hover,
+.projects__link:hover {
     color: var(--purpleNormal);
-}
-
-.gallery-left-info__link:active {
-    color: var(--purpleDark);
 }
 
 .gallery-right {
@@ -553,6 +584,14 @@ address {
 
 .gallery-right__item:hover .gallery-right__popup {
     opacity: 1;
+}
+
+.gallery-right__plus {
+    width: 81px;
+    height: 79px;
+    background-image: url(../svg/gallery__popup.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .gallery-right__item--number--1 {
@@ -761,6 +800,8 @@ address {
 }
 
 .catalog-country__item {
+    width: 46px;
+    height: 46px;
     position: relative;
     margin-right: 50px;
     cursor: pointer;
@@ -771,6 +812,10 @@ address {
     padding: 0;
     position: relative;
     transition: filter 1s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .catalog-country__button::before {
@@ -797,6 +842,26 @@ address {
 
 .catalog-country__button:hover {
     filter: drop-shadow(0px 0px 20px rgba(157, 92, 208, 0.7));
+}
+
+.catalog-country__button[data-country="Franch"] {
+    background-image: url(../img/Catalog/catalog__flag_1.png);
+}
+
+.catalog-country__button[data-country="Germani"] {
+    background-image: url(../img/Catalog/catalog__flag_2.png);
+}
+
+.catalog-country__button[data-country="Italy"] {
+    background-image: url(../img/Catalog/catalog__flag_3.png);
+}
+
+.catalog-country__button[data-country="Russia"] {
+    background-image: url(../img/Catalog/catalog__flag_4.png);
+}
+
+.catalog-country__button[data-country="Belgium"] {
+    background-image: url(../img/Catalog/catalog__flag_5.png);
 }
 
 .catalog__info {
@@ -852,7 +917,7 @@ address {
     color: var(--Bl33) !important;
 }
 
-.ui-accordion-header a:hover {
+.ui-state-hover a {
     color: var(--purpleNormal) !important;
 }
 
@@ -874,7 +939,7 @@ address {
 
 .ui-accordion-header:hover .myIcon-1,
 .ui-accordion-header:focus .myIcon-1 {
-    background-image: url(../img/Accordion/accordion.png);
+    background-image: url(../svg/catalog__accordion/accordion.svg);
 }
 
 .ui-accordion-content {
@@ -889,33 +954,31 @@ address {
 }
 
 .ui-state-active .ui-icon {
-    background-image: url(../img/Accordion/accordion.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-image: url(../svg/catalog__accordion/accordion__hover.svg);
     transform: rotate(180deg);
 }
 
 .ui-icon {
-    border: none !important;
-    outline: none !important;
     position: absolute;
     border-radius: 100%;
-    background-image: url(../img/Accordion/accordion.png) !important;
+    background-image: url(../svg/catalog__accordion/accordion.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     right: 0;
     width: 50px;
     height: 50px;
-    transition: transform .3s ease-in-out;
+    transition-property: transform, background-image;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
 }
 
-.ui-icon:active {
+.ui-state-focus .ui-icon:active {
     background-image: url(../svg/catalog__accordion/accordion__active.svg) !important;
 }
 
-.myIcon-1:hover,
-.ui-state-active .ui-icon:hover {
+.ui-icon:hover,
+.ui-state-hover .ui-icon{
     background-image: url(../svg/catalog__accordion/accordion__hover.svg) !important;
 }
 
@@ -949,7 +1012,8 @@ address {
     color: var(--purpleNormal);
 }
 
-.catalog-accordion__button:active {
+.catalog-accordion__button:active,
+.projects__link:active{
     color: var(--purpleDark);
 }
 
@@ -1279,15 +1343,6 @@ address {
     color: var(--purpleNormal);
 }
 
-.projects__link:focus {
-    border: 2px solid var(--purpleDark);
-    transform: matrix(1, 0, 0, -1, 0, 0);
-}
-
-.projects__link:active {
-    color: var(--purpleDark);
-}
-
 .project__company {
     display: flex;
     height: 150px;
@@ -1321,24 +1376,18 @@ address {
 }
 
 .project__tooltip {
+    display: inline-block;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    border: 1px solid var(--purpleNormal);
-    background: var(--invisible);
-    padding: 4px 8px;
+    width: 16px;
+    height: 16px;
+    background-image: url(../svg/project__tulltip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.project__tooltip[aria-describedby*=tippy],
-.project__tooltip:hover {
-    background: var(--purpleNormal);
-}
-
-.project__tooltip[aria-describedby*=tippy] path,
-.project__tooltip:hover path {
-    fill: var(--white);
+.project__tooltip:focus,
+.project__tooltip:hover{
+    background-image: url(../svg/project__tulltip--active.svg);
 }
 
 .tippy-box[data-theme~='greay'] {
@@ -1371,29 +1420,37 @@ address {
     height: 30px;
     border-radius: 100%;
 }
-.editions-right__navigate .swiper__navigation,
-.gallery-navigate .swiper__navigation {
-    background: #666;
+
+.swiper__navigation {
+    background-color: #666;
+    background-image: url(../svg/gallery_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
 .project__company .swiper__navigation {
-    background: var(--EC);
+    background-color: var(--EC);
+    background-image: url(../svg/project-arrow.svg);
 }
-.project__company .swiper__navigation path {
-    stroke: var(--Bl);
+
+.project__company .swiper__navigation:not([aria-disabled="true"]):hover {
+    background-image: url(../svg/gallery_arrow.svg);
 }
+
 .swiper-container {
     height: 100%;
 }
 .swiper-button-disabled {
     cursor: default;
     border: none !important;
-    background: rgb(87, 86, 86) !important;
+    background-color: rgb(87, 86, 86) !important;
+    background-image: url(../svg/gallery_arrow.svg);
 }
 .swiper__navigation:focus {
     border: 2px solid var(--purpleDark);
 }
 .swiper__navigation:hover {
-    background: var(--purpleNormal);
+    background-color: var(--purpleNormal);
 }
 .project__company .swiper__navigation:hover path,
 .project__company .swiper__navigation:active path {
@@ -1406,7 +1463,7 @@ address {
 }
 
 .swiper__navigation:active {
-    background: var(--purpleDark);
+    background-color: var(--purpleDark);
     border: 2px solid var(--purpleVeryLight);
 }
 
@@ -1448,7 +1505,6 @@ address {
 
 .simplebar-scrollbar {
     width: 2px;
-    height: 28px !important;
     background-color: var(--purpleDark);
 }
 
@@ -1568,6 +1624,18 @@ address {
 
 .network__item {
     margin-right: 21px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.network__item--name--whatsapp {
+    background-image: url(../svg/Whatsapp.svg);
+}
+
+.network__item--name--telegram {
+    background-image: url(../svg/Telegram.svg);
 }
 
 .network__item:hover,
@@ -1593,7 +1661,9 @@ address {
     justify-content: space-between;
     background-color: var(--Bl);
 }
-
+.footer .main-container {
+    justify-content: flex-end;
+}
 .logo__list {
     display: flex;
     flex-wrap: nowrap;
@@ -1605,6 +1675,22 @@ address {
 
 .logo__item {
     margin-right: 19px;
+    width: 45px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo__item--name--vk {
+    background-image: url(../svg/footer__vk.svg);
+}
+
+.logo__item--name--instagram {
+    background-image: url(../svg/footer__instagram.svg);
+}
+
+.logo__item--name--facebook {
+    background-image: url(../svg/footer__fb.svg);
 }
 
 @media (max-width: 1670px) {
@@ -1647,6 +1733,9 @@ address {
 }
 
 @media (max-width: 1366px) {
+    .header-top .main-container--fon--logo {
+        background-position: center;
+    }
     .events__address {
         margin-bottom: 0;
     }
@@ -1733,7 +1822,7 @@ address {
     }
     .header-top__list {
         flex-wrap: wrap;
-        margin-bottom: 20px;
+        margin:0 0 20px 0;
     }
     .header-top__item {
         margin-right: 0;
@@ -1797,7 +1886,7 @@ address {
         line-height: 83px;
     }
     .hero__text {
-        max-width: 660px;
+        max-width: 670px;
         margin-bottom: 130px;
     }
     .company__title {
@@ -2255,6 +2344,10 @@ address {
         font-size: 28px;
         line-height: 38px;
     }
+    .main-container--fon--logo {
+        background-image: url(../svg/Blanchard--320.svg);
+        background-position: 7% 0%;
+    }
     .header-top {
         padding: 3px 0;
     }
@@ -2314,7 +2407,7 @@ address {
         font-size: 12px;
         line-height: 16px;
         margin-bottom: 41px;
-        font-family: 'OpenSans-Regular';
+        font-weight: 400;
     }
     .hero__button {
         font-size: 12px;
@@ -2375,10 +2468,11 @@ address {
     }
     .catalog-country {
         flex-wrap: wrap;
-        max-height: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 21px;
     }
     .catalog-country__item {
+        width: 32px;
+        height: 32px;
         margin-right: 32px;
     }
     .ui-accordion-header {
@@ -2422,9 +2516,9 @@ address {
     .catalog-column-left__name {
         margin-bottom: 5px;
     }
-.events__address {
+    .events__address {
     line-height: 16px;
-}
+    }
     .catalog-column-right {
         margin-bottom: 50px;
     }
@@ -2648,14 +2742,14 @@ address {
         margin-bottom: 7px;
     }
     .network__list {
-        margin-bottom: 31px;
+        margin-bottom: 41px;
     }
     #map {
         margin-bottom: 20px;
         height: 320px;
     }
     .footer {
-        padding: 5px 0;
+        padding: 9px 0;
     }
     .footer-logo {
         display: flex;
@@ -2680,6 +2774,7 @@ address {
     .choices {
         margin-bottom: 40px !important;
     }
+
 }
 
 @media (max-width: 320px) {
@@ -2696,5 +2791,9 @@ address {
     }
     .contacts__input {
         padding: 10px 24px;
+    }
+    .header-top__search {
+        width: 16px;
+        height: 16px;
     }
 }
