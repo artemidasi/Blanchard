@@ -263,9 +263,22 @@ function clearLists(lists) {
 
 let addList = false;
 
+function deleteClassFromAnItem (className, element) {
+    element.classList.remove(className);
+}
+// При фокусе удалять класс
+document.querySelectorAll('.catalog-country__button').forEach((el) => {
+    el.addEventListener('focus', (ev) => {
+        createListArtists(ev.target.dataset.country);
+    })
+})
+
 function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
-    // Даем фокус элементы по которому кликнули
-    $(`.catalog-country__button[data-country="${country}"]`).focus();
+    const tab = `.catalog-country__button[data-country="${country}"]`;
+    document.querySelectorAll('.catalog-country__button').forEach((element) => {
+        deleteClassFromAnItem('catalog-country__button--state-active', element);
+    })
+    document.querySelector(tab).classList.add('catalog-country__button--state-active')
     // Очищаем все листы
     clearLists(lists);
     // Помещаем объект с массивами по годам в переменную

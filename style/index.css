@@ -93,6 +93,7 @@ p {
 }
 
 a {
+    font-family: 'OpenSans-Regular';
     color: var(--white);
     text-decoration: none;
     transition: color .4s ease-in-out;
@@ -473,7 +474,7 @@ address {
 
 .gallery {
     display: flex;
-    padding: 80px 0 70px 0;
+    padding: 80px 0;
     color: var(--white);
     background-image: url(../img/Gallery/gallery__fon.jpg);
 }
@@ -502,6 +503,7 @@ address {
 
 .gallery-filter__title {
     margin-bottom: 10px;
+    font-size: 17px;
 }
 
 .choices {
@@ -543,8 +545,10 @@ address {
 }
 
 .gallery-left-info__more {
-    position: relative;
-    padding-top: 119%;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
     max-width: 387px;
     font-weight: 600;
 }
@@ -832,7 +836,8 @@ address {
     left: -2px !important;
 }
 
-.catalog-country__button:focus::before {
+.catalog-country__button:focus::before,
+.catalog-country__button--state-active:before{
     content: '';
     top: -10px;
     right: -10px;
@@ -1065,10 +1070,7 @@ address {
 }
 
 .events-info {
-    max-height: 310px;
     padding: 0 20px 0 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .events-info__title {
@@ -1080,17 +1082,17 @@ address {
 }
 
 .events__text {
-    display: inline-block;
     max-width: 400px;
 }
 
 .events__link,
 .events__link:visited {
+    display: inline-block;
     position: absolute;
     bottom: 40px;
     left: 50px;
     color: var(--purpleLight);
-    display: inline-block;
+    border-bottom: 1px solid var(--purpleNormal);
 }
 
 .events__link:hover {
@@ -1101,11 +1103,12 @@ address {
     color: var(--purpleDark);
 }
 
-.events__address {
+.events__date {
+    display: inline-block;
+    width: 100%;
     margin-bottom: 6px;
     font-size: 12px;
     line-height: 18px;
-    font-style: normal;
     text-align: end;
     color: var(--B99);
     font-weight: 600;
@@ -1699,7 +1702,7 @@ address {
     }
     .catalog-country {
         align-items: flex-start;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
     }
     .catalog-country__list {
         padding-top: 20px;
@@ -1736,7 +1739,7 @@ address {
     .header-top .main-container--fon--logo {
         background-position: center;
     }
-    .events__address {
+    .events__date {
         margin-bottom: 0;
     }
     .projects {
@@ -1907,7 +1910,6 @@ address {
         margin-bottom: 10px;
     }
     .gallery-left-info__more {
-        padding-top: 103%;
         font-size: 16px;
     }
     .gallery-right {
@@ -1954,7 +1956,6 @@ address {
     }
     .events-info {
         padding: 3px 17px 0 35px;
-        max-height: 360px;
     }
     .events-info__address {
         top: 175px;
@@ -2094,7 +2095,6 @@ address {
     }
     .gallery {
         flex-wrap: wrap;
-        padding: 80px 0 70px 0;
     }
     .gallery-left {
         margin: 0;
@@ -2105,7 +2105,7 @@ address {
     .gallery-right {
         padding-top: 0;
         width: 100%;
-        margin-bottom: 27px;
+        margin-bottom: 18px;
     }
     .gallery-right__item {
         max-width: 317px;
@@ -2120,7 +2120,7 @@ address {
         margin: 0 20px;
     }
     .gallery-left-info__more {
-        padding-top: 0;
+        position: relative;
         max-width: 100%;
     }
     .catalog-country {
@@ -2191,9 +2191,6 @@ address {
     }
     .events__text {
         max-width: 260px;
-    }
-    .events-info {
-        max-height: 330px;
     }
     .events__link,
     .events__link:visited {
@@ -2426,7 +2423,7 @@ address {
     }
     .gallery {
         display: block;
-        padding: 50px 0 70px 0;
+        padding: 50px 0 80px 0;
     }
     .gallery-left {
         width: 100%;
@@ -2449,7 +2446,7 @@ address {
     }
     .gallery-right {
         padding-top: 0;
-        margin-bottom: 18px;
+        margin-bottom: 5px;
     }
     .swiper__navigate-container {
         justify-content: center;
@@ -2516,7 +2513,7 @@ address {
     .catalog-column-left__name {
         margin-bottom: 5px;
     }
-    .events__address {
+    .events__date {
     line-height: 16px;
     }
     .catalog-column-right {
@@ -2529,7 +2526,6 @@ address {
         margin-bottom: 12px;
     }
     .events-info {
-        max-height: 365px;
         padding: 9px 10px 0 28px;
     }
     .events-info__title {
