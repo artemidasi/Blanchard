@@ -9,7 +9,7 @@
 }
 
 @font-face {
-    font-family: 'OpenSans-SemiBold';
+    font-family: 'OpenSans-Regular';
     src:
             url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
             url('../fonts/OpenSans-SemiBold.woff') format('woff');
@@ -19,7 +19,7 @@
 }
 
 @font-face {
-    font-family: 'OpenSans-Bold';
+    font-family: 'OpenSans-Regular';
     src:
             url('../fonts/OpenSans-Bold.woff2') format('woff2'),
             url('../fonts/OpenSans-Bold.woff') format('woff');
@@ -204,7 +204,7 @@ address {
 
 .header-top__list {
     display: inherit;
-    margin-right: 274px;
+    margin-right: 272px;
 }
 
 .header-top__list>:last-child {
@@ -212,7 +212,7 @@ address {
 }
 
 .header-top__item {
-    margin-right: 61px;
+    margin-right: 58px;
     font-weight: 600;
 }
 
@@ -420,7 +420,7 @@ address {
 .hero__title {
     margin-bottom: 18px;
     max-width: 588px;
-    font-size: 77px;
+    font-size: 72px;
     line-height: 83px;
     font-weight: 700;
 }
