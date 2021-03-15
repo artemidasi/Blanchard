@@ -1211,7 +1211,7 @@ address {
 
 .editions-left__input:checked~span:not([data-value="name"]),
 .editions-left__label:hover span:not([data-value="name"]),
-.editions-left__input~span:not([data-value="name"]):focus{
+.editions-left__label:focus span:not([data-value="name"]){
     border-color: var(--purpleLight);
 }
 
@@ -1224,11 +1224,12 @@ address {
 }
 
 .editions-left__input:checked~span[data-value="name"],
-.editions-left__input~span:not([data-value="name"]):focus~span[data-value="name"]{
+.editions-left__input~span:not([data-value="name"]):focus~span[data-value="name"],
+.editions-left__label:focus span[data-value="name"]{
     color: var(--purpleLight);
 }
 
-.editions-left__input:checked~span::before {
+.editions-left__input:checked+span::before {
     opacity: 1;
 }
 

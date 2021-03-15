@@ -1,5 +1,17 @@
 "use strict";
 
+document.querySelectorAll('.editions-left__label').forEach((element) => {
+    element.addEventListener('focus', (ev) => {
+        // Убираем у всех элементом checked
+        document.querySelectorAll('.editions-left__input').forEach((el) => {
+            el.removeAttribute('checked');
+        })
+        // Находим ипунт, котоырй находится в сфокусированом lable
+        const inputElement = ev.target.children[0];
+        inputElement.setAttribute('checked', true);
+    })
+})
+
 // Const
 const SPEED_SWIPER = 6000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
