@@ -1,19 +1,22 @@
 "use strict";
 
 document.querySelectorAll('.editions-left__label').forEach((element) => {
-    element.addEventListener('focus', (ev) => {
-        // Убираем у всех элементом checked
-        document.querySelectorAll('.editions-left__input').forEach((el) => {
-            el.removeAttribute('checked');
-        })
-        // Находим ипунт, котоырй находится в сфокусированом lable
-        const inputElement = ev.target.children[0];
-        inputElement.setAttribute('checked', true);
+    element.addEventListener('keydown', (ev) => {
+        if (ev.code === 'Space') {
+            ev.preventDefault();
+            // Убираем у всех элементом checked
+            document.querySelectorAll('.editions-left__input').forEach((el) => {
+                el.removeAttribute('checked');
+            })
+            // Находим ипунт, котоырй находится в сфокусированом liable
+            const inputElement = ev.target.children[0];
+            inputElement.setAttribute('checked', true);
+        }
     })
 })
 
 // Const
-const SPEED_SWIPER = 6000;
+const SPEED_SWIPER = 3000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 const swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
 const editionPrice = document.querySelector(".editions-left__container-price");
@@ -687,17 +690,17 @@ eventsButton.addEventListener("click", (ev) => {
 tippy('.project__tooltip_number_1', {
     content: 'Пример современных тенденций - современная методология разработки',
     theme: 'greay',
-    trigger: 'click',
+    trigger: 'mouseenter focus click',
 });
 tippy('.project__tooltip_number_2', {
     content: 'Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции',
     theme: 'greay',
-    trigger: 'click',
+    trigger: 'mouseenter focus click',
 });
 tippy('.project__tooltip_number_3', {
     content: 'В стремлении повысить качество',
     theme: 'greay',
-    trigger: 'click',
+    trigger: 'mouseenter focus click',
 });
 
 //----------------------------------------------------------------------------------
