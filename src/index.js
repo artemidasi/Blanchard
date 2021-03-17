@@ -1,20 +1,5 @@
 "use strict";
 
-document.querySelectorAll('.editions-left__label').forEach((element) => {
-    element.addEventListener('keydown', (ev) => {
-        if (ev.code === 'Space') {
-            ev.preventDefault();
-            // Убираем у всех элементом checked
-            document.querySelectorAll('.editions-left__input').forEach((el) => {
-                el.removeAttribute('checked');
-            })
-            // Находим ипунт, котоырй находится в сфокусированом liable
-            const inputElement = ev.target.children[0];
-            inputElement.setAttribute('checked', true);
-        }
-    })
-})
-
 // Const
 const SPEED_SWIPER = 3000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
@@ -33,6 +18,7 @@ const burger = document.querySelector('.header-top__burger');
 const privateRoom = document.querySelector('.header-top__link');
 const detailCategoties = document.createElement('details');
 const summaryCategoties = document.createElement('summary');
+const titleCheckbox = document.querySelector('.editions-left__category-title');
 // Секции на сайте
 const aboutContainer = document.querySelector('.company');
 const gallerysContainer = document.querySelector('.gallery');
@@ -42,6 +28,15 @@ const editionsContainer = document.querySelector('.editions');
 const projectsContainer = document.querySelector('.projects');
 const contactsContainer = document.querySelector('.contacts');
 const heroButton = document.querySelector('.hero__button');
+const titleContacts = document.querySelector('.contacts-left__title');
+const addresContacrs = document.querySelector('.contacts__adress');
+if (document.documentElement.clientWidth > 1024) {
+    titleContacts.innerHTML = 'Шоурум №4';
+    addresContacrs.innerHTML = 'Леонтьевский переулок, дом 5, строение 1';
+} else {
+    titleContacts.innerHTML = 'Шоурум №2';
+    addresContacrs.innerHTML = 'Покровский бульвар, дом 24, строение 3';
+}
 // Контейнер со всеми секциями на сайте
 const arrayContent = [aboutContainer, gallerysContainer, catalogContainer, eventsContainer, editionsContainer, projectsContainer, contactsContainer];
 // Список всех ссылок для перемещения по сайту
@@ -506,6 +501,7 @@ if (document.documentElement.clientWidth <= 1366 && document.documentElement.cli
 
     detailCategoties.classList.add('editions-left__details');
     summaryCategoties.classList.add('editions-left__summary');
+    summaryCategoties.append(titleCheckbox);
     summaryCategoties.append(listTitle);
     detailCategoties.append(summaryCategoties);
     detailCategoties.append(listCategories);
@@ -726,5 +722,4 @@ function init() {
         iconImageOffset: [0, 0]
     })
     myMap.geoObjects.add(mark);
-
 }

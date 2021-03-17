@@ -500,18 +500,42 @@
                     <!-- Секция с выбором категории -->
                     <div class="editions-left__category">
                         <h4 class="editions-left__category-title">Категории</h4>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Бестселлеры</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Искусство</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Архитектура</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Дизайн</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Мода</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Детям</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Художественная литература</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Публицистика</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Путеводители</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Философия</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Учебная литература</span></label>
-                        <label class="editions-left__label" tabindex="0"><input type="radio" name="category" class="editions-left__input"><span></span><span data-value="name">Журналы и газеты</span></label>
+                        <div class="label-container">
+                            <input type="checkbox" id="bestseller" class="editions-left__input"><label class="editions-left__label" for="bestseller"><span class=""></span><span data-value="name">Бестселлеры</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="art" class="editions-left__input"><label class="editions-left__label" for="art"><span></span><span data-value="name">Искусство</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="architectural" class="editions-left__input"><label class="editions-left__label" for="architectural"><span></span><span data-value="name">Архитектура</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="category" class="editions-left__input"><label class="editions-left__label" for="category"><span></span><span data-value="name">Дизайн</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="fashion" class="editions-left__input"><label class="editions-left__label" for="fashion"><span></span><span data-value="name">Мода</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="children" class="editions-left__input"><label class="editions-left__label" for="children"><span></span><span data-value="name">Детям</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="fiction" class="editions-left__input"><label class="editions-left__label" for="fiction"><span></span><span data-value="name">Художественная литература</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="publicist" class="editions-left__input"><label class="editions-left__label" for="publicist"><span></span><span data-value="name">Публицистика</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="travel_guides" class="editions-left__input"><label class="editions-left__label" for="travel_guides"><span></span><span data-value="name">Путеводители</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="philosophy" class="editions-left__input"><label class="editions-left__label" for="philosophy"><span></span><span data-value="name">Философия</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="learning" class="editions-left__input"><label class="editions-left__label" for="learning"><span></span><span data-value="name">Учебная литература</span></label>
+                        </div>
+                        <div class="label-container">
+                            <input type="checkbox" id="magazine" class="editions-left__input"><label class="editions-left__label" for="magazine"><span></span><span data-value="name">Журналы и газеты</span></label>
+                        </div>
                     </div>
                     <!-- Секция с выбором цены -->
                     <div class="editions-left__container-price">
@@ -536,7 +560,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_1.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Искусство цвета</p>
+                                        <h4 class="editions-right-list__text">Искусство цвета</h4>
                                         <p class="editions-right-list__name">Иттен, Иоханнес</p>
                                         <p class="editions-right-list__price">620 руб</p>
                                     </div>
@@ -548,7 +572,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_2.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Типографика</p>
+                                        <h4 class="editions-right-list__text">Типографика</h4>
                                         <p class="editions-right-list__name">Рудер, Эмиль</p>
                                         <p class="editions-right-list__price">2 450 руб</p>
                                     </div>
@@ -560,7 +584,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_3.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Книга про буквы</p>
+                                        <h4 class="editions-right-list__text">Книга про буквы</h4>
                                         <p class="editions-right-list__name">Гордон, Юрий</p>
                                         <p class="editions-right-list__price">620 руб</p>
                                     </div>
@@ -572,7 +596,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_4.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Николай Ильин</p>
+                                        <h4 class="editions-right-list__text">Николай Ильин</h4>
                                         <p class="editions-right-list__name">Кричевский, Владимир</p>
                                         <p class="editions-right-list__price">1 100 руб</p>
                                     </div>
@@ -584,7 +608,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_5.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Модульные сетки в графисеком оформлении</p>
+                                        <h4 class="editions-right-list__text">Модульные сетки в графисеком оформлении</h4>
                                         <p class="editions-right-list__name">Мюллер-Брокманн, Йозеф</p>
                                         <p class="editions-right-list__price">1 450 руб</p>
                                     </div>
@@ -596,7 +620,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_6.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Эволюция графических стилей</p>
+                                        <h4 class="editions-right-list__text">Эволюция графических стилей</h4>
                                         <p class="editions-right-list__name">Хеллер, Чваст</p>
                                         <p class="editions-right-list__price">3 200 руб</p>
                                     </div>
@@ -608,7 +632,7 @@
                                 <div class="editions-right__item">
                                     <img src="./img/Editions/editions__foto_7.jpg" alt="" class="editions-right__img">
                                     <div class="editions-right-list__information">
-                                        <p class="editions-right-list__text">Искусство и визуальное восприятие</p>
+                                        <h4 class="editions-right-list__text">Искусство и визуальное восприятие</h4>
                                         <p class="editions-right-list__name">Арнхейм, Рудольф</p>
                                         <p class="editions-right-list__price">2 200 руб</p>
                                     </div>
@@ -678,12 +702,10 @@
             <div class="main-container ">
                 <h2 class="contacts__title title ">Контакты</h2>
             </div>
-            <div class="contacts-info ">
-                <div class="contacts-left ">
-                    <h3 class="contacts-left__title contacts-left__title--media--1920">Шоурум №4</h3>
-                    <h3 class="contacts-left__title contacts-left__title--media--1024">Шоурум №2</h3>
-                    <address class="contacts__adress contacts__adress--media--1920 ">Леонтьевский переулок, дом 5, строение 1</address>
-                    <address class="contacts__adress contacts__adress--media--1024 ">Покровский бульвар, дом 24, строение 3</address>
+            <div class="contacts-info">
+                <div class="contacts-left">
+                    <h3 class="contacts-left__title"></h3>
+                    <address class="contacts__adress"></address>
                     <div class="media--1920">
                         <h3 class="contacts__title-form ">Заказать обратный звонок</h3>
                         <form action="# " class="contacts__form ">
