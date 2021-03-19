@@ -180,8 +180,7 @@ address {
 
 .header-top__burger,
 .header-top__search,
-.events__pagination,
-.media--320 {
+.events__pagination {
     display: none;
 }
 
@@ -1198,12 +1197,6 @@ address {
 
 .editions-left__input {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     opacity: 0;
 }
 
@@ -1533,12 +1526,6 @@ address {
     margin-bottom: 0;
 }
 
-.catalog-accordion__content--media--1920,
-.catalog-accordion__content--media--1240 {
-    display: flex;
-}
-
-
 /* Cтиди для секции контакты */
 
 .contacts {
@@ -1560,7 +1547,7 @@ address {
 .contacts-left {
     width: 100%;
     max-width: 682px;
-    padding: calc(6.3%) 0 calc(7%) calc(8.4%);
+    padding: calc(100vw - 1920px + 160px);
     border: 1px solid var(--CA);
 }
 
@@ -2743,6 +2730,7 @@ address {
     }
     .contacts__form {
         margin-bottom: 20px;
+        flex-wrap: wrap;
     }
     .contacts__input {
         width: 100%;
@@ -2792,12 +2780,6 @@ address {
     .logo__item svg {
         max-width: 25px;
         max-height: 25px;
-    }
-    .media--1920 {
-        display: none;
-    }
-    .media--320 {
-        display: block;
     }
     .choices {
         margin-bottom: 40px !important;

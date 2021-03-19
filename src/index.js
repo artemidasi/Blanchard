@@ -723,3 +723,16 @@ function init() {
     })
     myMap.geoObjects.add(mark);
 }
+
+if (document.documentElement.clientWidth <= 700) {
+    const contactsTitleForm = document.querySelector('.contacts__title-form');
+    const contactsForm = document.querySelector('.contacts__form ');
+    const network = document.querySelector('.network');
+    const map = document.getElementById('map');
+    const mainContainer = document.createElement('div');
+    mainContainer.classList.add('main-container');
+    mainContainer.append(contactsTitleForm);
+    mainContainer.append(contactsForm);
+    mainContainer.append(network);
+    map.after(mainContainer);
+}
