@@ -1547,7 +1547,7 @@ address {
 .contacts-left {
     width: 100%;
     max-width: 682px;
-    padding: calc(100vw - 1920px + 160px);
+    padding: calc((100vw - 1600px) / 2);
     border: 1px solid var(--CA);
 }
 
@@ -1699,6 +1699,9 @@ address {
 @media (max-width: 1670px) {
     .main-container {
         max-width: 1300px;
+    }
+    .contacts-left {
+        padding: calc((100vw - 1300px) / 2);
     }
     .catalog-country {
         align-items: flex-start;
@@ -2053,10 +2056,6 @@ address {
         padding: 17px 33px;
         font-size: 18px;
     }
-    .contacts-left {
-        max-width: 487px;
-        padding: calc(11.8%) 0 calc(12%) calc(4.7%);
-    }
     .contacts__input {
         width: 335px;
         margin-bottom: 21px;
@@ -2074,6 +2073,9 @@ address {
         max-width: 1024px;
         padding: 0 50px;
     }
+    .contacts-left {
+        padding: calc((100vw - 1024px) / 2);
+    }
     .events__list>:not(:nth-child(3n)) {
         margin-right: 18px;
     }
@@ -2088,6 +2090,9 @@ address {
     }
     .main-container {
         max-width: 992px;
+    }
+    .contacts-left {
+        padding: calc((100vw - 992px) / 2);
     }
     .hero {
         padding: 213px 0 113px 0;
@@ -2282,9 +2287,6 @@ address {
     .contacts__adress {
         margin-bottom: 30px;
     }
-    .contacts-left {
-        padding: calc(15.5%) calc(6%) calc(16%) calc(6.2%)
-    }
     .contacts__title-form {
         margin-bottom: 13px;
     }
@@ -2321,6 +2323,9 @@ address {
     .main-container {
         max-width: 768px;
     }
+    .contacts-left {
+        padding: calc((100vw - 768px) / 2);
+    }
 }
 
 @media (max-width: 700px) {
@@ -2331,6 +2336,9 @@ address {
     .main-container {
         max-width: 700px;
         padding: 0 15px;
+    }
+    .contacts-left {
+        padding: calc((100vw - 700px) / 2);
     }
     .catalog__info,
     .events__list,
@@ -2790,6 +2798,9 @@ address {
 @media (max-width: 320px) {
     .main-container {
         max-width: 320px;
+    }
+    .contacts-left {
+        padding: calc((100vw - 320px) / 2);
     }
     .contacts-info .main-container {
         margin: 0;
