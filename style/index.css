@@ -70,6 +70,7 @@ ul {
 .network__item,
 .logo__item {
     cursor: pointer;
+    transition: transform .7s ease-in-out;
 }
 
 button,
@@ -1701,7 +1702,8 @@ address {
         max-width: 1300px;
     }
     .contacts-left {
-        padding: calc((100vw - 1300px) / 2);
+        max-width: 487px;
+        padding: calc((100vw - 924px) / 2);
     }
     .catalog-country {
         align-items: flex-start;
@@ -2073,9 +2075,6 @@ address {
         max-width: 1024px;
         padding: 0 50px;
     }
-    .contacts-left {
-        padding: calc((100vw - 1024px) / 2);
-    }
     .events__list>:not(:nth-child(3n)) {
         margin-right: 18px;
     }
@@ -2092,7 +2091,8 @@ address {
         max-width: 992px;
     }
     .contacts-left {
-        padding: calc((100vw - 992px) / 2);
+        max-width: 430px;
+        padding: calc((100vw - 668px) / 2);
     }
     .hero {
         padding: 213px 0 113px 0;
@@ -2323,9 +2323,6 @@ address {
     .main-container {
         max-width: 768px;
     }
-    .contacts-left {
-        padding: calc((100vw - 768px) / 2);
-    }
 }
 
 @media (max-width: 700px) {
@@ -2336,9 +2333,6 @@ address {
     .main-container {
         max-width: 700px;
         padding: 0 15px;
-    }
-    .contacts-left {
-        padding: calc((100vw - 700px) / 2);
     }
     .catalog__info,
     .events__list,
@@ -2798,9 +2792,6 @@ address {
 @media (max-width: 320px) {
     .main-container {
         max-width: 320px;
-    }
-    .contacts-left {
-        padding: calc((100vw - 320px) / 2);
     }
     .contacts-info .main-container {
         margin: 0;
