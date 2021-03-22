@@ -334,230 +334,240 @@ swiperNavigateNext.addEventListener('click', () => {
     }, 1000)
 });
 
-if (document.documentElement.clientWidth <= 1366 && document.documentElement.clientWidth > 992) {
-    editionsTop.append(editionPrice);
-    // Галерея
-    swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 34,
-        slidesPerColumn: 2,
-        navigation: {
-            nextEl: '.gallery-navigate__next',
-            prevEl: '.gallery-navigate__prev',
-        },
-        pagination: {
-            el: '.gallery-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Издание
-    swiperEditions = new Swiper('.editions-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 50,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-            nextEl: '.editions-navigate__next',
-            prevEl: '.editions-navigate__prev',
-        },
-        pagination: {
-            el: '.editions-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Проекты
-    swiperProjects = new Swiper('.projects .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        spaceBetween: 60,
-        navigation: {
-            nextEl: '.projects__swiper-next',
-            prevEl: '.projects__swiper-prev',
-        },
-    });
-} else if (document.documentElement.clientWidth > 1670) {
-    // Галерея
-    swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 50,
-        slidesPerColumn: 2,
-        navigation: {
-            nextEl: '.gallery-navigate__next',
-            prevEl: '.gallery-navigate__prev',
-        },
-        pagination: {
-            el: '.gallery-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Издание
-    swiperEditions = new Swiper('.editions-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 25,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-            nextEl: '.editions-navigate__next',
-            prevEl: '.editions-navigate__prev',
-        },
-        pagination: {
-            el: '.editions-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Проекты
-    swiperProjects = new Swiper('.projects .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 3,
-        spaceBetween: 60,
-        navigation: {
-            nextEl: '.projects__swiper-next',
-            prevEl: '.projects__swiper-prev',
-        },
-    });
-} else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
-    galleryContainer.append(galleryInfo);
-    // Галерея
-    swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 34,
-        slidesPerColumn: 2,
-        navigation: {
-            nextEl: '.gallery-navigate__next',
-            prevEl: '.gallery-navigate__prev',
-        },
-        pagination: {
-            el: '.gallery-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Издание
-    swiperEditions = new Swiper('.editions-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-            nextEl: '.editions-navigate__next',
-            prevEl: '.editions-navigate__prev',
-        },
-        pagination: {
-            el: '.editions-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Проекты
-    swiperProjects = new Swiper('.projects .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        spaceBetween: 40,
-        navigation: {
-            nextEl: '.projects__swiper-next',
-            prevEl: '.projects__swiper-prev',
-        },
-    });
-} else if (document.documentElement.clientWidth <= 700) {
-    galleryContainer.append(galleryInfo);
-    // Галерея
-    swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        navigation: {
-            nextEl: '.gallery-navigate__next',
-            prevEl: '.gallery-navigate__prev',
-        },
-        pagination: {
-            el: '.gallery-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    galleryNavigation.before(gallerySwiper);
+function sliderSizes (ev) {
+    if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 992) {
+        editionsTop.append(editionPrice);
+        // Галерея
+        swiperGallery = new Swiper('.gallery-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 34,
+            slidesPerColumn: 2,
+            navigation: {
+                nextEl: '.gallery-navigate__next',
+                prevEl: '.gallery-navigate__prev',
+            },
+            pagination: {
+                el: '.gallery-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Издание
+        swiperEditions = new Swiper('.editions-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 50,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: '.editions-navigate__next',
+                prevEl: '.editions-navigate__prev',
+            },
+            pagination: {
+                el: '.editions-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Проекты
+        swiperProjects = new Swiper('.projects .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            spaceBetween: 60,
+            navigation: {
+                nextEl: '.projects__swiper-next',
+                prevEl: '.projects__swiper-prev',
+            },
+        });
+    }
+    else if (document.documentElement.clientWidth > 1670) {
+        // Галерея
+        swiperGallery = new Swiper('.gallery-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 50,
+            slidesPerColumn: 2,
+            navigation: {
+                nextEl: '.gallery-navigate__next',
+                prevEl: '.gallery-navigate__prev',
+            },
+            pagination: {
+                el: '.gallery-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Издание
+        swiperEditions = new Swiper('.editions-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 25,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: '.editions-navigate__next',
+                prevEl: '.editions-navigate__prev',
+            },
+            pagination: {
+                el: '.editions-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Проекты
+        swiperProjects = new Swiper('.projects .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 3,
+            spaceBetween: 60,
+            navigation: {
+                nextEl: '.projects__swiper-next',
+                prevEl: '.projects__swiper-prev',
+            },
+        });
+    }
+    else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
+        galleryContainer.append(galleryInfo);
+        // Галерея
+        swiperGallery = new Swiper('.gallery-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 34,
+            slidesPerColumn: 2,
+            navigation: {
+                nextEl: '.gallery-navigate__next',
+                prevEl: '.gallery-navigate__prev',
+            },
+            pagination: {
+                el: '.gallery-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Издание
+        swiperEditions = new Swiper('.editions-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: '.editions-navigate__next',
+                prevEl: '.editions-navigate__prev',
+            },
+            pagination: {
+                el: '.editions-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Проекты
+        swiperProjects = new Swiper('.projects .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            spaceBetween: 40,
+            navigation: {
+                nextEl: '.projects__swiper-next',
+                prevEl: '.projects__swiper-prev',
+            },
+        });
+    }
+    else if (document.documentElement.clientWidth <= 700) {
+        galleryContainer.append(galleryInfo);
+        // Галерея
+        swiperGallery = new Swiper('.gallery-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            navigation: {
+                nextEl: '.gallery-navigate__next',
+                prevEl: '.gallery-navigate__prev',
+            },
+            pagination: {
+                el: '.gallery-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        galleryNavigation.before(gallerySwiper);
 
-    swiperEvents = new Swiper('.events .swiper-container', {
-        speed: SPEED_SWIPER,
-        pagination: {
-            el: '.events__pagination',
-        },
-    });
-    // Проекты
-    swiperProjects = new Swiper('.projects .swiper-container', {
-        speed: SPEED_SWIPER,
-        spaceBetween: 34,
-        navigation: {
-            nextEl: '.projects__swiper-next',
-            prevEl: '.projects__swiper-prev',
-        },
-    });
+        swiperEvents = new Swiper('.events .swiper-container', {
+            speed: SPEED_SWIPER,
+            pagination: {
+                el: '.events__pagination',
+            },
+        });
+        // Проекты
+        swiperProjects = new Swiper('.projects .swiper-container', {
+            speed: SPEED_SWIPER,
+            spaceBetween: 34,
+            navigation: {
+                nextEl: '.projects__swiper-next',
+                prevEl: '.projects__swiper-prev',
+            },
+        });
 
-    detailCategoties.classList.add('editions-left__details');
-    summaryCategoties.classList.add('editions-left__summary');
-    summaryCategoties.append(titleCheckbox);
-    summaryCategoties.append(listTitle);
-    detailCategoties.append(summaryCategoties);
-    detailCategoties.append(listCategories);
-    title.after(detailCategoties);
-} else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1366) {
-    // Галерея
-    swiperGallery = new Swiper('.gallery-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 50,
-        slidesPerColumn: 2,
-        navigation: {
-            nextEl: '.gallery-navigate__next',
-            prevEl: '.gallery-navigate__prev',
-        },
-        pagination: {
-            el: '.gallery-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Издание
-    swiperEditions = new Swiper('.editions-right .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 25,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-            nextEl: '.editions-navigate__next',
-            prevEl: '.editions-navigate__prev',
-        },
-        pagination: {
-            el: '.editions-navigate__pagination',
-            type: 'fraction',
-        },
-    });
-    // Проекты
-    swiperProjects = new Swiper('.projects .swiper-container', {
-        speed: SPEED_SWIPER,
-        slidesPerView: 3,
-        spaceBetween: 50,
-        navigation: {
-            nextEl: '.projects__swiper-next',
-            prevEl: '.projects__swiper-prev',
-        },
-    });
+        detailCategoties.classList.add('editions-left__details');
+        summaryCategoties.classList.add('editions-left__summary');
+        summaryCategoties.append(titleCheckbox);
+        summaryCategoties.append(listTitle);
+        detailCategoties.append(summaryCategoties);
+        detailCategoties.append(listCategories);
+        title.after(detailCategoties);
+    }
+    else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1024) {
+        // Галерея
+        swiperGallery = new Swiper('.gallery-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 50,
+            slidesPerColumn: 2,
+            navigation: {
+                nextEl: '.gallery-navigate__next',
+                prevEl: '.gallery-navigate__prev',
+            },
+            pagination: {
+                el: '.gallery-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Издание
+        swiperEditions = new Swiper('.editions-right .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 25,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: '.editions-navigate__next',
+                prevEl: '.editions-navigate__prev',
+            },
+            pagination: {
+                el: '.editions-navigate__pagination',
+                type: 'fraction',
+            },
+        });
+        // Проекты
+        swiperProjects = new Swiper('.projects .swiper-container', {
+            speed: SPEED_SWIPER,
+            slidesPerView: 3,
+            spaceBetween: 50,
+            navigation: {
+                nextEl: '.projects__swiper-next',
+                prevEl: '.projects__swiper-prev',
+            },
+        });
+    }
+    if (document.documentElement.clientWidth <= 1670) {
+        burgerList.append(privateRoom);
+        burger.after(burgerList);
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('header-top__burger--active');
+        })
+    }
 }
-if (document.documentElement.clientWidth <= 1366) {
-    burgerList.append(privateRoom);
-    burger.after(burgerList);
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('header-top__burger--active');
-    })
-}
+
+window.addEventListener(`resize`, sliderSizes, false);
+
+sliderSizes();
 
 //----------------------------------------------------------------------------------
 // Header-bottom
