@@ -478,6 +478,7 @@ address {
 /* Стили для секции галерея */
 
 .gallery {
+    position: relative;
     display: flex;
     padding: 80px 0;
     color: var(--white);
@@ -1004,7 +1005,7 @@ address {
 .catalog-accordion__item {
     margin-bottom: 1px;
     line-height: 31px;
-    width: 25%;
+    width: 33%;
 }
 
 .catalog-accordion__button {
@@ -1367,7 +1368,7 @@ address {
 }
 
 .project__swiper-container {
-    max-width: 1454px;
+    max-width: 1100px;
 }
 
 .project__title-wrapper {
@@ -1431,8 +1432,8 @@ address {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     border-radius: 100%;
 }
 
@@ -1697,12 +1698,50 @@ address {
     background-image: url(../svg/footer__fb.svg);
 }
 
-@media (max-width: 1670px) {
+@media (max-width: 1660px) {
+    .events__list {
+        justify-content: center;
+    }
+    .events-item {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .main-container {
+        padding: 0 30px;
+    }
     .contacts-left {
-        padding: calc((100vw - 1315px) / 2);
+        padding: calc((100vw - 1090px) / 2);
+    }
+    .header-top__list {
+        margin-right: 5vw;
+    }
+    .header-top__item {
+        margin-right: 40px;
+    }
+    .directions-list__item {
+        margin-right: 50px;
+    }
+    .catalog-column-left {
+        margin-right: 20px;
+        max-width: 500px;
+    }
+    .gallery-right,
+    .editions-right {
+        width: 800px;
+    }
+    .events-item {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contacts-left {
+        padding: calc((100vw - 900px) / 2);
     }
     .main-container--fon--logo {
-        background-position: 6% 0%;
+        background-position: 6% 0;
     }
     .header-top .main-container--fon--logo {
         background-position: center;
@@ -2031,12 +2070,6 @@ address {
     }
 }
 
-@media (max-width: 1440px) {
-    .contacts-left {
-        padding: calc((100vw - 1090px) / 2);
-    }
-}
-
 @media (max-width: 1024px) {
     .main-container {
         max-width: 1024px;
@@ -2142,11 +2175,9 @@ address {
         margin-bottom: 16px;
     }
     .events__list {
-        justify-content: center;
         max-height: 685px;
     }
     .events-item {
-        width: 317px;
         max-width: 317px;
         height: 685px;
     }
@@ -2674,7 +2705,7 @@ address {
         height: 65px;
     }
     .project__swiper-container {
-        max-width: 200px;
+        max-width: 250px;
         max-height: 65px;
     }
     .project__swiper-slide a img {

@@ -334,15 +334,17 @@ swiperNavigateNext.addEventListener('click', () => {
     }, 1000)
 });
 
+console.log(document.documentElement.clientWidth);
+
 function sliderSizes (ev) {
-    if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 992) {
+    if (document.documentElement.clientWidth <= 1200 && document.documentElement.clientWidth > 992) {
         editionsTop.append(editionPrice);
         // Галерея
         swiperGallery = new Swiper('.gallery-right .swiper-container', {
             speed: SPEED_SWIPER,
             slidesPerView: 2,
             slidesPerGroup: 2,
-            spaceBetween: 34,
+            spaceBetween: 30,
             slidesPerColumn: 2,
             navigation: {
                 nextEl: '.gallery-navigate__next',
@@ -381,7 +383,7 @@ function sliderSizes (ev) {
             },
         });
     }
-    else if (document.documentElement.clientWidth > 1670) {
+    else if (document.documentElement.clientWidth > 1440) {
         // Галерея
         swiperGallery = new Swiper('.gallery-right .swiper-container', {
             speed: SPEED_SWIPER,
@@ -496,7 +498,6 @@ function sliderSizes (ev) {
         // Проекты
         swiperProjects = new Swiper('.projects .swiper-container', {
             speed: SPEED_SWIPER,
-            spaceBetween: 34,
             navigation: {
                 nextEl: '.projects__swiper-next',
                 prevEl: '.projects__swiper-prev',
@@ -511,7 +512,7 @@ function sliderSizes (ev) {
         detailCategoties.append(listCategories);
         title.after(detailCategoties);
     }
-    else if (document.documentElement.clientWidth <= 1670 && document.documentElement.clientWidth > 1024) {
+    else if (document.documentElement.clientWidth <= 1440 && document.documentElement.clientWidth > 1024) {
         // Галерея
         swiperGallery = new Swiper('.gallery-right .swiper-container', {
             speed: SPEED_SWIPER,
@@ -533,7 +534,7 @@ function sliderSizes (ev) {
             speed: SPEED_SWIPER,
             slidesPerView: 3,
             slidesPerGroup: 3,
-            spaceBetween: 25,
+            spaceBetween: 50,
             loop: true,
             loopFillGroupWithBlank: true,
             navigation: {
@@ -549,14 +550,14 @@ function sliderSizes (ev) {
         swiperProjects = new Swiper('.projects .swiper-container', {
             speed: SPEED_SWIPER,
             slidesPerView: 3,
-            spaceBetween: 50,
+            spaceBetween: 30,
             navigation: {
                 nextEl: '.projects__swiper-next',
                 prevEl: '.projects__swiper-prev',
             },
         });
     }
-    if (document.documentElement.clientWidth <= 1670) {
+    if (document.documentElement.clientWidth <= 1200) {
         burgerList.append(privateRoom);
         burger.after(burgerList);
         burger.addEventListener('click', () => {
@@ -565,7 +566,7 @@ function sliderSizes (ev) {
     }
 }
 
-window.addEventListener(`resize`, sliderSizes, false);
+// window.addEventListener(`resize`, sliderSizes, false);
 
 sliderSizes();
 
