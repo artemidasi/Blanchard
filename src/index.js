@@ -341,14 +341,14 @@ const galerySwiper = new Swiper('.gallery-right .swiper-container', {
     320: {
       slidesPerView: 1,
       slidesPerGroup: 1,
+      slidesPerColumn: 1,
       spaceBetween: 0,
-      slidesPerColumn: 1
     },
     700: {
       slidesPerView: 2,
       slidesPerGroup: 2,
       spaceBetween: 34,
-      slidesPerColumn: 2
+      slidesPerColumn: 2,
     },
     1024: {
       slidesPerView: 2,
@@ -451,10 +451,10 @@ function sliderSizes (ev) {
   if (document.documentElement.clientWidth <= 1200 && document.documentElement.clientWidth > 992) {
     editionsTop.append(editionPrice);
   }
-  else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth > 700) {
+  else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth >= 768) {
     galleryContainer.append(galleryInfo);
   }
-  else if (document.documentElement.clientWidth <= 700) {
+  else if (document.documentElement.clientWidth <= 768) {
     // Изменяем секцию с изданиями
     galleryContainer.append(galleryInfo);
     galleryNavigation.before(gallerySwiper);

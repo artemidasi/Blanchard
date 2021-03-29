@@ -1685,6 +1685,7 @@ address {
 }
 .footer .main-container {
     justify-content: flex-end;
+    height: 100%;
 }
 .logo__list {
     display: flex;
@@ -2344,6 +2345,9 @@ address {
         max-width: 700px;
         padding: 0 15px;
     }
+    .footer .main-container {
+        justify-content: center;
+    }
     .catalog__info,
     .events__list,
     .events__button,
@@ -2359,7 +2363,7 @@ address {
     }
     .main-container--fon--logo {
         background-image: url(../svg/Blanchard--320.svg);
-        background-position: 7% 0%;
+        background-position: center bottom;
     }
     .header-top {
         padding: 3px 0;
@@ -2471,10 +2475,8 @@ address {
         width: 100%;
         margin: 0;
     }
-    .swiper-wrapper {
-        height: 670px;
-    }
     .gallery-right .swiper-container {
+        height: 367px;
         margin-bottom: 20px !important;
     }
     .gallery-right__item {
@@ -2778,7 +2780,9 @@ address {
         height: 320px;
     }
     .footer {
-        padding: 9px 0;
+        height: 132px;
+        padding: 20px 0;
+        align-items: flex-start;
     }
     .footer-logo {
         display: flex;
@@ -2789,10 +2793,12 @@ address {
     .footer-logo__bottom {
         max-width: 97px;
     }
-    .logo__item,
+    .logo__item {
+        margin-right: 30px;
+    }
     .logo__item svg {
-        max-width: 25px;
-        max-height: 25px;
+        max-width: 50px;
+        max-height: 50px;
     }
     .choices {
         margin-bottom: 40px !important;
@@ -2807,9 +2813,6 @@ address {
         margin: 0;
         padding: 0 14px;
         width: 100%;
-    }
-    .logo__item {
-        margin-right: 12px;
     }
     .contacts__input {
         padding: 10px 24px;
