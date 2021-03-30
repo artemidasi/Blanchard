@@ -4,8 +4,6 @@
 const SPEED_SWIPER = 3000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
 const swiperNavigatePrev = document.querySelector('.gallery-navigate__prev');
-const editionPrice = document.querySelector(".editions-left__container-price");
-const editionsTop = document.querySelector(".editions-right__top");
 const galleryInfo = document.querySelector(".gallery-left-info__more");
 const galleryContainer = document.querySelector(".gallery .main-container");
 const title = document.querySelector('.editions-left__title');
@@ -30,6 +28,10 @@ const contactsContainer = document.querySelector('.contacts');
 const heroButton = document.querySelector('.hero__button');
 const titleContacts = document.querySelector('.contacts-left__title');
 const addresContacrs = document.querySelector('.contacts__adress');
+const contactsTitleForm = document.querySelector('.contacts__title-form');
+const contactsForm = document.querySelector('.contacts__form ');
+const network = document.querySelector('.network');
+const map = document.getElementById('map');
 if (document.documentElement.clientWidth > 1024) {
   titleContacts.innerHTML = 'Шоурум №4';
   addresContacrs.innerHTML = 'Леонтьевский переулок, дом 5, строение 1';
@@ -379,7 +381,7 @@ const editionSwiper = new Swiper('.editions-right .swiper-container', {
   loop: true,
   loopFillGroupWithBlank: true,
   breakpoints: {
-    320: {
+    700: {
       slidesPerView: 1,
       slidesPerGroup: 1,
       spaceBetween: 0,
@@ -447,17 +449,18 @@ const projectSwiper = new Swiper('.projects .swiper-container', {
   },
 });
 
+if (document.documentElement.clientWidth <= 1200) {
+    burgerList.append(privateRoom);
+    burger.after(burgerList);
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('header-top__burger--active');
+    })
+}
+
 function sliderSizes (ev) {
-  if (document.documentElement.clientWidth <= 1200 && document.documentElement.clientWidth > 992) {
-    editionsTop.append(editionPrice);
-  }
-  else if (document.documentElement.clientWidth <= 992 && document.documentElement.clientWidth >= 768) {
-    galleryContainer.append(galleryInfo);
-  }
-  else if (document.documentElement.clientWidth <= 768) {
+  if (document.documentElement.clientWidth <= 768) {
     // Изменяем секцию с изданиями
     galleryContainer.append(galleryInfo);
-    galleryNavigation.before(gallerySwiper);
     detailCategoties.classList.add('editions-left__details');
     summaryCategoties.classList.add('editions-left__summary');
     summaryCategoties.append(titleCheckbox);
@@ -465,13 +468,19 @@ function sliderSizes (ev) {
     detailCategoties.append(summaryCategoties);
     detailCategoties.append(listCategories);
     title.after(detailCategoties);
+  }
+  if(document.documentElement.clientWidth <= 700) {
+    // Меняем навигацию в секции гелерея
+    galleryNavigation.before(gallerySwiper);
     // Убираем свайпер
     editionSwiper.destroy();
+    // Добавляем свайпер на секцию события
+    new Swiper(".events .swiper-container", {
+      pagination: {
+        el: '.events__pagination',
+      },
+    })
     // Изменение секции контакты
-    const contactsTitleForm = document.querySelector('.contacts__title-form');
-    const contactsForm = document.querySelector('.contacts__form ');
-    const network = document.querySelector('.network');
-    const map = document.getElementById('map');
     const mainContainer = document.createElement('div');
     mainContainer.classList.add('main-container');
     mainContainer.append(contactsTitleForm);
@@ -479,17 +488,8 @@ function sliderSizes (ev) {
     mainContainer.append(network);
     map.after(mainContainer);
   }
-  if (document.documentElement.clientWidth <= 1200) {
-    burgerList.append(privateRoom);
-    burger.after(burgerList);
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('header-top__burger--active');
-    })
-  }
 }
-
-window.addEventListener(`resize`, sliderSizes, false);
-
+window.addEventListener(`resize`, sliderSizes);
 sliderSizes();
 
 //----------------------------------------------------------------------------------
@@ -497,7 +497,7 @@ sliderSizes();
 
 document.body.addEventListener('click', (ev) => {
   if (ev.target.className === 'directions-list__button' || ev.target.className === 'dropdawn__list' || ev.target.className === 'dropdawn__item') {
-    return;
+    return undefined;
   } else {
     hideElements('.dropdawn__list');
   }

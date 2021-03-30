@@ -2000,7 +2000,9 @@ address {
         width: 341px;
         line-height: 39px;
     }
-    .editions-left__category,
+    .editions-left__category {
+        margin-bottom: 32px;
+    }
     .editions-left__category>:last-child {
         margin: 0;
     }
@@ -2013,10 +2015,11 @@ address {
     }
     .editions-left__container-price {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
     }
     .editions-left__price-title {
-        margin: 0 18px 0 0 !important;
+        margin-bottom: 10px;
     }
     .editions-right {
         padding-top: 22px;
@@ -2243,7 +2246,6 @@ address {
     }
     .editions-left__category {
         flex-direction: row;
-        margin-bottom: 22px;
     }
     .label-container {
         width: 33%;
