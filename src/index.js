@@ -14,6 +14,8 @@ const galleryNavigation = document.querySelector(".gallery-right .gallery-naviga
 const burgerList = document.querySelector('.header-top__navigate');
 const burger = document.querySelector('.header-top__burger');
 const privateRoom = document.querySelector('.header-top__link');
+const searchButton = document.querySelector(".header-top__search");
+const searchInput = document.querySelector(".header-bottom__input");
 const detailCategoties = document.createElement('details');
 const summaryCategoties = document.createElement('summary');
 const titleCheckbox = document.querySelector('.editions-left__category-title');
@@ -449,25 +451,70 @@ const projectSwiper = new Swiper('.projects .swiper-container', {
   },
 });
 
-if (document.documentElement.clientWidth <= 1200) {
-    burgerList.append(privateRoom);
-    burger.after(burgerList);
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('header-top__burger--active');
-    })
+const sectionSearch = document.createElement("div");
+const $searchInput = $(searchInput);
+sectionSearch.classList.add("searchContainer");
+sectionSearch.style.display = "flex";
+// Функция изменяющая меню
+function toggleBurger (ev) {
+  burger.classList.toggle('header-top__burger--active');
+  $(burger).find(".line").toggleClass("active");
+  $(burger).find(".line").toggleClass("hover");
 }
+// Показывать контейнер с поиском на 900
+function showSearchContainer (ev) {
+  $searchInput.show();
+  const buttonClose = burger.cloneNode(true);
+  $(buttonClose).find(".line").toggleClass("active");
+  $(buttonClose).find(".line").toggleClass("hover");
+  sectionSearch.append(buttonClose);
+  function closeSearchContainer (ev) {
+    $(searchInput).toggle();
+    sectionSearch.classList.toggle("showAbsolute");
+    buttonClose.remove();
+    buttonClose.removeEventListener("click", closeSearchContainer);
+    searchButton.addEventListener("click", showSearchContainer);
+  }
+  buttonClose.addEventListener("click", closeSearchContainer);
+  searchButton.removeEventListener("click", showSearchContainer);
+  sectionSearch.classList.toggle("showAbsolute");
 
+}
+// Скрывать и открвать инпут
+function showInput (ev) {
+  $(searchInput).toggle();
+}
+if (document.documentElement.clientWidth <= 1200) {
+  // Меню
+  const buttonClose = burger.cloneNode(true);
+  $(buttonClose).find(".line").toggleClass("active");
+  $(buttonClose).find(".line").toggleClass("hover");
+  if (document.documentElement.clientWidth <= 700) {
+    buttonClose.style.marginBottom = "16px";
+  } else {
+    buttonClose.style.marginBottom = "30px";
+  }
+  burgerList.append(privateRoom);
+  burgerList.prepend(buttonClose);
+  burger.after(burgerList);
+  burger.addEventListener('click', toggleBurger);
+  buttonClose.addEventListener('click', toggleBurger)
+
+  // Поиск по сайту
+  sectionSearch.append(searchButton);
+  sectionSearch.append(searchInput);
+  searchButton.addEventListener("click", showInput);
+  document.querySelector(".header-top .main-container").append(sectionSearch);
+
+}
+if (document.documentElement.clientWidth <= 900) {
+  searchButton.removeEventListener("click", showInput);
+  searchButton.addEventListener("click", showSearchContainer);
+}
 function sliderSizes (ev) {
   if (document.documentElement.clientWidth <= 768) {
     // Изменяем секцию с изданиями
     galleryContainer.append(galleryInfo);
-    detailCategoties.classList.add('editions-left__details');
-    summaryCategoties.classList.add('editions-left__summary');
-    summaryCategoties.append(titleCheckbox);
-    summaryCategoties.append(listTitle);
-    detailCategoties.append(summaryCategoties);
-    detailCategoties.append(listCategories);
-    title.after(detailCategoties);
   }
   if(document.documentElement.clientWidth <= 700) {
     // Меняем навигацию в секции гелерея
@@ -480,6 +527,13 @@ function sliderSizes (ev) {
         el: '.events__pagination',
       },
     })
+    detailCategoties.classList.add('editions-left__details');
+    summaryCategoties.classList.add('editions-left__summary');
+    summaryCategoties.append(titleCheckbox);
+    summaryCategoties.append(listTitle);
+    detailCategoties.append(summaryCategoties);
+    detailCategoties.append(listCategories);
+    title.after(detailCategoties);
     // Изменение секции контакты
     const mainContainer = document.createElement('div');
     mainContainer.classList.add('main-container');
@@ -548,9 +602,9 @@ function updateChoiceInfo(ev = null) {
   setTimeout(() => {
     const singleCase = document.querySelector(".choices__list--single .choices__item");
     const arrayChoices = document.querySelectorAll(".choices__list--dropdown .choices__item");
-    let nameAtttibute = ev ? ev.detail.choice.value : singleCase.getAttribute('data-value');
+    let nameAttribute = ev ? ev.detail.choice.value : singleCase.getAttribute('data-value');
     arrayChoices.forEach((element) => {
-      if (element.getAttribute('data-value') == nameAtttibute) {
+      if (element.getAttribute('data-value') === nameAttribute) {
         element.style.display = "none";
       } else {
         element.style.display = "flex";
