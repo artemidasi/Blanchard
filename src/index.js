@@ -332,7 +332,7 @@ swiperNavigatePrev.addEventListener('click', () => {
 })
 swiperNavigateNext.addEventListener('click', () => {
   setTimeout(() => {
-    if (swiperGallery.isEnd) {
+    if (galerySwiper.isEnd) {
       swiperNavigateNext.setAttribute('disabled', true);
     }
   }, 1000)

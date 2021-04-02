@@ -2766,6 +2766,7 @@ address {
     }
     .editions__list {
         display: flex;
+        justify-content: space-between;
         flex-wrap: wrap;
         height: auto;
     }
@@ -2773,7 +2774,7 @@ address {
         margin-bottom: 30px;
     }
     .editions__item {
-        margin-right: 30px;
+        margin-right: 10px;
         width: 130px;
     }
     .editions-right__item {
