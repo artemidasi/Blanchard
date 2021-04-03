@@ -1,8 +1,6 @@
 @font-face {
     font-family: 'OpenSans-Regular';
-    src:
-            url('../fonts/OpenSans-Regular.woff2') format('woff2'),
-            url('../fonts/OpenSans-Regular.woff') format('woff');
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2'), url('../fonts/OpenSans-Regular.woff') format('woff');
     font-display: swap;
     font-weight: 400;
     font-style: normal;
@@ -10,9 +8,7 @@
 
 @font-face {
     font-family: 'OpenSans-Regular';
-    src:
-            url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
-            url('../fonts/OpenSans-SemiBold.woff') format('woff');
+    src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2'), url('../fonts/OpenSans-SemiBold.woff') format('woff');
     font-display: swap;
     font-weight: 600;
     font-style: normal;
@@ -20,14 +16,11 @@
 
 @font-face {
     font-family: 'OpenSans-Regular';
-    src:
-            url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-            url('../fonts/OpenSans-Bold.woff') format('woff');
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'), url('../fonts/OpenSans-Bold.woff') format('woff');
     font-display: swap;
     font-weight: 700;
     font-style: normal;
 }
-
 
 :root {
     --Bl: black;
@@ -160,6 +153,7 @@ address {
     background-position: 1% 0%;
 }
 
+
 /* Делаем секцию шапки нашей старницы */
 
 .header {
@@ -246,7 +240,7 @@ address {
 .gallery-left-info__link:focus,
 .events__link:focus,
 .catalog-accordion__button:focus,
-.projects__link:focus{
+.projects__link:focus {
     outline: 2px solid var(--purpleDark);
 }
 
@@ -260,7 +254,7 @@ address {
 .header-navigate__link:active,
 .directions-list__button:active,
 .header-top__link:active,
-.header-bottom__item:hover{
+.header-bottom__item:hover {
     color: var(--purpleNormal);
 }
 
@@ -858,7 +852,7 @@ address {
 }
 
 .catalog-country__button:focus::before,
-.catalog-country__button--state-active:before{
+.catalog-country__button--state-active:before {
     content: '';
     top: -10px;
     right: -10px;
@@ -1010,7 +1004,7 @@ address {
 }
 
 .ui-icon:hover,
-.ui-state-hover .ui-icon{
+.ui-state-hover .ui-icon {
     background-image: url(../svg/catalog__accordion/accordion__hover.svg) !important;
 }
 
@@ -1045,7 +1039,7 @@ address {
 }
 
 .catalog-accordion__button:active,
-.projects__link:active{
+.projects__link:active {
     color: var(--purpleDark);
 }
 
@@ -1384,6 +1378,7 @@ address {
 .projects__swiper-prev {
     margin-right: 45px;
 }
+
 .projects__swiper-next {
     margin-left: 45px;
 }
@@ -1429,7 +1424,7 @@ address {
 }
 
 .project__tooltip:focus,
-.project__tooltip:hover{
+.project__tooltip:hover {
     background-image: url(../svg/project__tulltip--active.svg);
 }
 
@@ -1442,19 +1437,24 @@ address {
     color: var(--white);
 }
 
+
 /* Общие */
+
 .reverse_180 {
     transform: rotate(180deg);
 }
+
 .swiper__navigate-container {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
 }
+
 .swiper_navigate-pagination {
     margin: 0 20px;
     width: auto;
 }
+
 .swiper__navigation {
     display: flex;
     align-items: center;
@@ -1483,18 +1483,22 @@ address {
 .swiper-container {
     height: 100%;
 }
+
 .swiper-button-disabled {
     cursor: default;
     border: none !important;
     background-color: rgb(87, 86, 86) !important;
     background-image: url(../svg/gallery_arrow.svg);
 }
+
 .swiper__navigation:focus {
     border: 2px solid var(--purpleDark);
 }
+
 .swiper__navigation:hover {
     background-color: var(--purpleNormal);
 }
+
 .project__company .swiper__navigation:hover path,
 .project__company .swiper__navigation:active path {
     stroke: var(--white);
@@ -1540,6 +1544,7 @@ address {
 .simplebar-placeholder {
     display: none;
 }
+
 .simplebar-vertical {
     width: 2px !important;
     margin: 40px 0;
@@ -1554,6 +1559,7 @@ address {
 .simplebar-content>:last-child {
     margin-bottom: 0;
 }
+
 
 /* Cтиди для секции контакты */
 
@@ -1584,6 +1590,7 @@ address {
     line-height: 37px;
     font-weight: 600;
 }
+
 .contacts-left__title,
 .contacts__title-form {
     font-size: 24px;
@@ -1693,10 +1700,12 @@ address {
     justify-content: space-between;
     background-color: var(--Bl);
 }
+
 .footer .main-container {
     justify-content: flex-end;
     height: 100%;
 }
+
 .logo__list {
     display: flex;
     flex-wrap: nowrap;
@@ -1731,6 +1740,7 @@ address {
         max-width: 400px;
     }
 }
+
 @media (max-width: 1440px) {
     .main-container {
         padding: 0 30px;
@@ -1759,6 +1769,7 @@ address {
         max-width: 350px;
     }
 }
+
 @media (max-width: 1200px) {
     .searchContainer {
         display: flex;
@@ -1844,7 +1855,7 @@ address {
         margin: 0;
     }
     .header-top__link,
-    .header-top__link:focus{
+    .header-top__link:focus {
         outline: none;
         display: flex;
         justify-content: center;
@@ -1872,7 +1883,7 @@ address {
     .header-top__list {
         width: 140px;
         flex-wrap: wrap;
-        margin:0 0 73px 0;
+        margin: 0 0 73px 0;
         line-height: 64px;
     }
     .header-top__item {
@@ -2129,6 +2140,7 @@ address {
         width: 540px;
     }
 }
+
 @media (max-width: 1024px) {
     .editions-left {
         width: 294px;
@@ -2151,6 +2163,7 @@ address {
         margin-left: 23px;
     }
 }
+
 @media (max-width: 992px) {
     .contacts-left {
         max-width: 430px;
@@ -2382,6 +2395,7 @@ address {
         width: 36%;
     }
 }
+
 @media (max-width: 900px) {
     .header-bottom__input {
         margin-right: 23px;
@@ -2394,6 +2408,7 @@ address {
         align-items: center;
     }
 }
+
 @media (max-width: 768px) {
     .main-container {
         max-width: 768px;
@@ -2403,6 +2418,7 @@ address {
         padding: calc((100vw - 668px) / 2);
     }
 }
+
 @media (max-width: 700px) {
     h3,
     h4 {
@@ -2636,7 +2652,7 @@ address {
         margin-bottom: 5px;
     }
     .events__date {
-    line-height: 16px;
+        line-height: 16px;
     }
     .catalog-column-right {
         margin-bottom: 50px;
@@ -2871,7 +2887,6 @@ address {
     .network__title {
         font-size: 18px;
     }
-
     .network__title {
         margin-bottom: 7px;
     }
@@ -2906,13 +2921,14 @@ address {
     .choices {
         margin-bottom: 40px !important;
     }
-
 }
+
 @media (max-width: 425px) {
     .editions__list>:nth-child(2n) {
         margin-right: 0;
     }
 }
+
 @media (max-width: 320px) {
     .main-container {
         max-width: 320px;
