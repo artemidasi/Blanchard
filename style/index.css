@@ -2269,6 +2269,9 @@ address {
     }
     .events__text {
         max-width: 260px;
+        max-height: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .events__link,
     .events__link:visited {
