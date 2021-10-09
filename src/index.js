@@ -1,5 +1,7 @@
 "use strict";
 
+import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+
 // Const
 const SPEED_SWIPER = 3000;
 const swiperNavigateNext = document.querySelector('.gallery-navigate__next');
@@ -320,8 +322,6 @@ function createListArtists(country, lists = ARTISTS__LIST, artists = ARTISTS) {
 //----------------------------------------------------------------------------------
 // Неопределенные значения
 
-let swiperEvents, choicesAvtor = null;
-
 //----------------------------------------------------------------------------------
 // Основные вычесления
 
@@ -339,8 +339,9 @@ swiperNavigateNext.addEventListener('click', () => {
 });
 
 // Галерея
-const galerySwiper = new Swiper('.gallery-right .swiper-container', {
+const galerySwiper = new Swiper('.gallery-right__swiper', {
   speed: SPEED_SWIPER,
+
   breakpoints: {
     320: {
       slidesPerView: 1,
@@ -378,7 +379,7 @@ const galerySwiper = new Swiper('.gallery-right .swiper-container', {
   },
 });
 // Издание
-const editionSwiper = new Swiper('.editions-right .swiper-container', {
+const editionSwiper = new Swiper('.editions__swiper', {
   speed: SPEED_SWIPER,
   loop: true,
   loopFillGroupWithBlank: true,
@@ -415,7 +416,7 @@ const editionSwiper = new Swiper('.editions-right .swiper-container', {
   },
 });
 // Проекты
-const projectSwiper = new Swiper('.projects .swiper-container', {
+const projectSwiper = new Swiper('.project__swiper', {
   speed: SPEED_SWIPER,
   breakpoints: {
     320: {
@@ -511,7 +512,7 @@ if (document.documentElement.clientWidth <= 900) {
   searchButton.removeEventListener("click", showInput);
   searchButton.addEventListener("click", showSearchContainer);
 }
-function sliderSizes (ev) {
+function sliderSizes () {
   if (document.documentElement.clientWidth <= 768) {
     // Изменяем секцию с изданиями
     galleryContainer.append(galleryInfo);
@@ -522,7 +523,7 @@ function sliderSizes (ev) {
     // Убираем свайпер
     editionSwiper.destroy();
     // Добавляем свайпер на секцию события
-    new Swiper(".events .swiper-container", {
+    const swiper = new Swiper(".events .swiper-container", {
       pagination: {
         el: '.events__pagination',
       },
@@ -593,7 +594,7 @@ for (let i = 0; i < arrayLink.length; i++) {
 // Селектор в секции гелереи
 
 // Создание стиля для селектора
-choicesAvtor = new Choices(selectAvtor, {
+const choicesAvtor = new Choices(selectAvtor, {
   searchEnabled: false,
   itemSelectText: '',
 });

@@ -17,10 +17,8 @@
   <!-- Подключаем стили для jquery -->
   <link rel="stylesheet" href="./jqery/jquery-ui-themes-1.12.1/themes/base/jquery-ui.css">
   <!-- Подгружаем свайпер -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <!-- Подключаем стилизацию selector -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
@@ -31,7 +29,7 @@
   <!-- Анимация -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <!-- Подключаме наши скрипты -->
-  <script src="./src/index.js" defer></script>
+  <script src="./src/index.js" type="module" defer></script>
   <!-- Подключаем наши стили  -->
   <link rel="stylesheet" href="./style/normalize.css">
   <link rel="stylesheet" href="./style/index.css">
@@ -185,7 +183,7 @@
             <span class="gallery-navigate__pagination swiper_navigate-pagination"></span>
             <button class="gallery-navigate__next swiper__navigation reverse_180"></button>
           </div>
-          <div class="swiper-container">
+          <div class="swiper gallery-right__swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide gallery-right__item gallery-right__item--number--1">
                 <div class="gallery-right__popup">
@@ -555,7 +553,7 @@
             </div>
           </div>
           <!-- Контейнер с карточками -->
-          <div class="swiper-container editions__swiper-container">
+          <div class="swiper editions__swiper">
             <div class="swiper-wrapper editions__list">
               <div class="swiper-slide editions__item">
                 <div class="editions-right__item">
@@ -657,7 +655,7 @@
         <h3 class="project__title-wrapper">Партнеры проектов:</h3>
         <div class="project__company ">
           <button class="projects__swiper-prev swiper__navigation"></button>
-          <div class="swiper-container project__swiper-container ">
+          <div class="swiper project__swiper">
             <div class="swiper-wrapper project__swiper-wrapper ">
               <div class="swiper-slide project__swiper-slide ">
                 <a href="#"> <img src="img/Projects/projects__foto_1.png " alt="1 "></a>
